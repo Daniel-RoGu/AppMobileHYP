@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.RegistrarUsuarioPage"
+             BackgroundColor="#1E88E5">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20">
+                <!-- Header -->
+                <Frame BackgroundColor="#0D47A1" CornerRadius="10" Padding="15">
+                    <Label Text="Registro de Usuario Nuevo" 
+                           FontSize="22" 
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" 
+                           TextColor="White" />
+                </Frame>
+
+                <!-- Formulario -->
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="20">
+                    <StackLayout Spacing="15">
+                        <!-- Identificación -->
+                        <Label Text="Identificación:" FontSize="16" TextColor="#0D47A1" />
+                        <Entry x:Name="IdentificacionEntry" Placeholder="Ingresa tu identificación" FontSize="16" TextColor="#333" />
+                        
+                        <!-- Tipo de identificación -->
+                        <Label Text="Tipo de identificación:" 
+                               FontSize="16" 
+                               TextColor="#0D47A1" />
+
+                        <Picker x:Name="tipoIdentificacionPicker" 
+                                Title="Selecciona un tipo de identificación"/>
+
+
+                        <!-- Nombre completo -->
+                        <Label Text="Nombre completo:" FontSize="16" TextColor="#0D47A1" />
+                        <Entry x:Name="NombreEntry" Placeholder="Ingresa tu nombre completo" FontSize="16" TextColor="#333" />
+
+                        <!-- Genero -->
+                        <Label Text="Genero:" 
+                               FontSize="16" 
+                               TextColor="#0D47A1" />
+                        <Picker x:Name="GeneroPicker"
+                                Title="Genero"
+                                VerticalOptions="Center"
+                                HorizontalOptions="FillAndExpand">
+                            <!-- Opciones del Picker -->
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Hombre</x:String>
+                                    <x:String>Mujer</x:String>
+                                    <x:String>Otro</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <!-- Cargo -->
+                        <Label Text="Cargo:" FontSize="16" TextColor="#0D47A1" />
+                        <Entry x:Name="CargoEntry" Placeholder="Ingresa tu cargo" FontSize="16" TextColor="#333" />
+
+                        <!-- Celular -->
+                        <Label Text="Celular:" FontSize="16" TextColor="#0D47A1"/>
+                        <Entry x:Name="CelularEntry" Placeholder="Ingresa tu número de celular" FontSize="16" TextColor="#333" />
+
+                        <!-- EPS -->
+                        <Label Text="EPS:" FontSize="16" TextColor="#0D47A1" />
+                        <Entry x:Name="EPSEntry" Placeholder="Ingresa tu EPS" FontSize="16" TextColor="#333" />
+
+                        <!-- ARL -->
+                        <Label Text="ARL:" FontSize="16" TextColor="#0D47A1" />
+                        <Entry x:Name="ARLEntry" Placeholder="Ingresa tu ARL" FontSize="16" TextColor="#333" />
+
+                        <!-- Tipo de sangre -->
+                        <Label Text="Selecciona tu tipo de sangre:" 
+                               FontSize="16"
+                               TextColor="#0D47A1"
+                               />
+
+                        <Picker x:Name="bloodTypePicker"
+                                Title="Tipo de Sangre"
+                                VerticalOptions="Center"
+                                HorizontalOptions="FillAndExpand">
+                            <!-- Opciones del Picker -->
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>A+</x:String>
+                                    <x:String>A-</x:String>
+                                    <x:String>B+</x:String>
+                                    <x:String>B-</x:String>
+                                    <x:String>AB+</x:String>
+                                    <x:String>AB-</x:String>
+                                    <x:String>O+</x:String>
+                                    <x:String>O-</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <!-- Contacto de emergencia -->
+                        <Label Text="Nombre contacto de emergencia:" FontSize="16" TextColor="#0D47A1"/>
+                        <Entry x:Name="ContactoEmergenciaEntry" Placeholder="Ingresa el nombre del contacto de emergencia" FontSize="16" TextColor="#333" />
+
+                        <Label Text="Teléfono contacto de emergencia:" FontSize="16" TextColor="#0D47A1" />
+                        <Entry x:Name="NumeroEmergenciaEntry" Placeholder="Ingresa el teléfono del contacto de emergencia" FontSize="16" TextColor="#333" />
+
+                        <!-- Empresa asociada -->
+                        <Label Text="Empresa asociada:" 
+                               FontSize="16" 
+                               TextColor="#0D47A1" />
+
+                        <Picker x:Name="tipoEmpresaPicker" 
+                                Title="Selecciona una empresa"/>
+
+                        <!-- Locacion asociada -->
+                        <Label Text="Locacion asociada:" 
+                               FontSize="16" 
+                               TextColor="#0D47A1" />
+
+                        <Picker x:Name="tipoLocacionPicker" 
+                                Title="Selecciona una locacion"/>
+
+                        <!-- Tipo de usuario -->
+                        <Label Text="Tipo Usuario:" FontSize="16" TextColor="#0D47A1" />
+                        <Picker x:Name="tipoUsuarioPicker" 
+                                Title="Selecciona el tipo de usuario"
+                                SelectedIndexChanged="OnTipoUsuarioPickerChanged"/>
+
+                        <!-- Correo -->
+                        <Label Text="Correo:" FontSize="16" TextColor="#0D47A1" />
+                        <Entry x:Name="correoEntry" Placeholder="Ingresa tu correo electrónico" FontSize="16" TextColor="#333" />
+
+                    </StackLayout>
+                </Frame>
+
+                <!-- Tarjetero -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <!-- Para el Label -->
+                        <RowDefinition Height="*" />
+                        <!-- Para el ScrollView -->
+                    </Grid.RowDefinitions>
+                    <Label Text="Números del Tarjetero"
+                           FontSize="20"
+                           TextColor="#004F73"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start"
+                           Margin="10" 
+                           Grid.Row="0" />
+                    <ScrollView Grid.Row="1"
+                                Orientation="Both"
+                                HeightRequest="400" 
+                                WidthRequest="300"
+                                VerticalOptions="Start">
+                        <Grid x:Name="gridTarjetero" 
+                              HorizontalOptions="Start" 
+                              VerticalOptions="Start" />
+                    </ScrollView>
+                </Grid>
+
+
+                <!-- Botón de Guardar -->
+                <Button Text="Guardar"
+                        BackgroundColor="#0D47A1"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="25"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand" 
+                        Clicked="ButtonGuardar_Clicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

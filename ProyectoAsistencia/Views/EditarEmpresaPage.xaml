@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ms="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Class="ProyectoAsistencia.Views.EditarEmpresaPage"
+             Title="Editar Empresa"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="25">
+
+            <!-- Título -->
+            <Label Text="Editar Información de la Empresa" 
+                   FontSize="24" 
+                   TextColor="#1E88E5" 
+                   HorizontalOptions="Center" />
+
+            <!-- Campo para editar el nombre de la empresa -->
+            <StackLayout Spacing="5">
+                <Label Text="Nombre de la empresa:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryNombre" Placeholder="Ingrese el nombre" 
+                       Text="{Binding NombreEmpresa}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Campo para editar el NIT -->
+            <StackLayout Spacing="5">
+                <Label Text="NIT de la empresa:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryNIT" Placeholder="Ingrese el NIT" 
+                       Text="{Binding NITEmpresa}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Campo para editar el estado -->
+            <StackLayout Spacing="5">
+                <!-- Campo para editar el estado -->
+                <Picker x:Name="PickerEstado" Title="Estado" SelectedItem="{Binding EstadoEmpresa}">
+                    <Picker.Items>
+                        <x:String>Activo</x:String>
+                        <x:String>Inactivo</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <!-- Selección y previsualización del logo -->
+            <StackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
+                <Label Text="Logo Empresa:" FontSize="16" TextColor="#424242" />
+                <Button Text="Seleccionar Logo" 
+                        Clicked="OnSelectLogoClicked" 
+                        BackgroundColor="#1E88E5" 
+                        TextColor="White" />
+                <Image x:Name="LogoPreview" 
+                       HeightRequest="120" 
+                       WidthRequest="120" 
+                       Aspect="AspectFit" 
+                       BackgroundColor="#EEEEEE" />
+            </StackLayout>
+
+            <!-- Botones -->
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand">
+                <Button Text="Guardar" 
+                        BackgroundColor="#4CAF50" 
+                        TextColor="White" 
+                        WidthRequest="120" 
+                        CornerRadius="20" 
+                        Clicked="OnSaveClicked" />
+
+                <Button Text="Cancelar" 
+                        BackgroundColor="#F44336" 
+                        TextColor="White" 
+                        WidthRequest="120" 
+                        CornerRadius="20" 
+                        Clicked="OnCancelClicked" />
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+

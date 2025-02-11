@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.PrincipalAdminPage"
+             Title="Panel Administrador">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="home"
+             IconImageSource="home.png"
+             Order="Primary"
+             Priority="1"
+             Clicked="OnNavigateButtonClicked"
+             >
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#0082A6" Padding="10">
+
+            <!-- Buttons -->
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="20" Padding="10">
+                <Button Text="Crear Informe"
+                        BackgroundColor="White"
+                        TextColor="#004F73"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Clicked="OnCrearInformeClicked" />
+
+                <Button Text="Gestión de Usuarios"
+                        BackgroundColor="White"
+                        TextColor="#004F73"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Clicked="OnGestionUsuariosClicked" />
+
+                <Button Text="Cambiar contraseña"
+                        BackgroundColor="White"
+                        TextColor="#004F73"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Clicked="Button_NewPass" />
+                <!--
+                <Button Text="Panel Administrador Principal"
+                        BackgroundColor="White"
+                        TextColor="#004F73"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Clicked="OnPanelAdministradorClicked"
+                        IsVisible="{Binding EsAdminPrincipal}" />
+                -->
+                <StackLayout x:Name="mainStackLayout">                    
+                </StackLayout>                
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

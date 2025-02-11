@@ -1,0 +1,115 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ms="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Class="ProyectoAsistencia.Views.MostrarEmpresaPage"
+             Title="Gestion de Empresa">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="home"
+             IconImageSource="home.png"
+             Order="Primary"
+             Priority="1"
+             Clicked="OnHomeClicked"
+             >
+
+        </ToolbarItem>
+        <ToolbarItem Text="addUser"
+             IconImageSource="addUser.png"
+             Order="Primary"
+             Priority="1"
+             Clicked="OnAddEmpresaClicked"
+             >
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#0082A6" Padding="20">
+
+                <!-- Barra de búsqueda -->
+                <SearchBar x:Name="EmpresaSearchBar"
+                           Placeholder="Buscar empleados..."
+                           TextChanged="OnSearchBarTextChanged" />
+
+                <!-- ListView con diseño más atractivo -->
+                <ListView x:Name="Lista_Empresas" HasUnevenRows="True" SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" BackgroundColor="White" Margin="5" Spacing="10" 
+                                             HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    <!-- Nombre de la empresa 
+                                    <Label Text="{Binding NombreEmpresa}" FontSize="Large" 
+                                           TextColor="#0082A6" FontAttributes="Bold"/> -->
+                                    <Label FontSize="Large" TextColor="#0082A6" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Empresa: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding NombreEmpresa}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- NIT y Estado -->
+                                    <StackLayout Orientation="Horizontal" Spacing="15">
+                                        <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <!-- Título fijo -->
+                                                    <Span Text="NIT: " FontAttributes="Bold" />
+
+                                                    <!-- Valor enlazado desde la base de datos -->
+                                                    <Span Text="{Binding NITEmpresa}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <!-- Título fijo -->
+                                                    <Span Text="Estado: " FontAttributes="Bold" />
+
+                                                    <!-- Valor enlazado desde la base de datos -->
+                                                    <Span Text="{Binding EstadoEmpresa}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>                                   
+                                    </StackLayout>
+
+                                    <!-- Logo de la empresa (si es necesario mostrarlo como imagen) 
+                                    <Label Text="{Binding LogoEmpresa}" FontSize="Small" TextColor="#888" /> -->
+                                    <Image Source="{Binding LogoEmpresa}" 
+                                           HeightRequest="120" 
+                                           WidthRequest="120" 
+                                           Aspect="AspectFit" 
+                                           BackgroundColor="#EEEEEE" />
+
+
+                                    <!-- Botones de Eliminar y Editar -->
+                                    <StackLayout Orientation="Horizontal" Spacing="10">
+                                        <Button Text="Eliminar" BackgroundColor="Red" TextColor="White" 
+                                                CommandParameter="{Binding .}" Clicked="BtnDelete_Clicked" 
+                                                CornerRadius="20" HeightRequest="40" HorizontalOptions="FillAndExpand"/>
+                                        <Button Text="Editar" BackgroundColor="RoyalBlue" TextColor="White" 
+                                                CommandParameter="{Binding .}" Clicked="BtnEdit_Clicked" 
+                                                CornerRadius="20" HeightRequest="40" HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Botón de volver -->
+                <Button Text="Volver" BackgroundColor="Red" TextColor="White" CornerRadius="20" 
+                        VerticalOptions="End" Margin="0,20,0,0" HeightRequest="50" 
+                        Clicked="OnNavigateButtonClicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

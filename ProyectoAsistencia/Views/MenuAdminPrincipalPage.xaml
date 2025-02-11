@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.MenuAdminPrincipalPage"
+             Title="Panel Administrador Principal">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="home"
+         IconImageSource="home.png"
+         Order="Primary"
+         Priority="1"
+         Clicked="OnNavigateButtonClicked"
+         >
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#0082A6" Padding="10">
+                <!-- Header
+                <Grid Padding="10" BackgroundColor="#004F73" HeightRequest="50">
+                    <Label Text="Panel Opciones Administrador"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontAttributes="Bold"
+                           FontSize="18" />
+                    <Button ImageSource="warehouse.png"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            Clicked="OnNavigateButtonClicked"/>
+                </Grid> -->
+
+                <!-- Buttons -->
+                <StackLayout VerticalOptions="CenterAndExpand" Spacing="20" Padding="10">
+
+                    <Button Text="Asignar usuario administrador"
+                            BackgroundColor="White"
+                            TextColor="#004F73"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Clicked="Button_AsignarAdmin" />
+
+                    <Button Text="Asignar nuevo administrador principal"
+                            BackgroundColor="White"
+                            TextColor="#004F73"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Clicked="Button_AsignarAdminOne" />
+
+                    <Button Text="Degradar administrador"
+                            BackgroundColor="White"
+                            TextColor="#004F73"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Clicked="Button_DownAdminOne" />
+
+                    <Button Text="Gestion de Empresas"
+                            BackgroundColor="White"
+                            TextColor="#004F73"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Clicked="Button_GestionEmpresas" />
+
+                    <Button Text="Gestión de Locaciones"
+                            BackgroundColor="White"
+                            TextColor="#004F73"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Clicked="Button_GestiónLocaciones" />                    
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProyectoAsistencia.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             Title="Login Administrator"
+             BackgroundColor="#f5f5f5">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" VerticalOptions="Center">
+                <!-- Logo -->
+                <Image Source="security.png" HeightRequest="100" Margin="0,0,0,20" HorizontalOptions="Center" />
+
+                <!-- Identificación -->
+                <Label Text="Identificación"
+                       FontSize="18"
+                       TextColor="#333"
+                       HorizontalOptions="Start"
+                       Margin="0,0,0,5" />
+
+                <Frame CornerRadius="8" BackgroundColor="White" Padding="10" HasShadow="True">
+                    <Entry x:Name="identificacionEntry"
+                           Placeholder="Ingresa tu identificación"
+                           PlaceholderColor="#888"
+                           FontSize="16"
+                           TextColor="#333"/>
+                </Frame>
+
+                <!-- Contraseña -->
+                <Label Text="Contraseña"
+                       FontSize="18"
+                       TextColor="#333"
+                       HorizontalOptions="Start"
+                       Margin="0,15,0,5" />
+
+                <Frame CornerRadius="8" BackgroundColor="White" Padding="10" HasShadow="True">
+                    <Entry x:Name="contrasenaEntry"
+                           Placeholder="Ingresa tu contraseña"
+                           PlaceholderColor="#888"
+                           IsPassword="True"
+                           FontSize="16"
+                           TextColor="#333" />
+                </Frame>
+
+                <!-- Botón de Login -->
+                <Button Text="Iniciar Sesión"
+                        BackgroundColor="#007AFF"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        Margin="0,20,0,0"
+                        Clicked="Button_Clicked" />
+
+                <!-- Enlace para recuperar contraseña 
+                <Label Text="¿Olvidaste tu contraseña?"
+                       FontSize="14"
+                       TextColor="#007AFF"
+                       HorizontalOptions="Center"
+                       Margin="0,10"
+                       GestureRecognizers="{Binding OlvidarContrasenaCommand}" />
+                -->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

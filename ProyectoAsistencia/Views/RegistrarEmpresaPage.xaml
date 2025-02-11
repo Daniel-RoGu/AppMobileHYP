@@ -1,0 +1,95 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.RegistrarEmpresaPage"
+             BackgroundColor="#1E88E5">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Encabezado -->
+            <Grid BackgroundColor="#0D47A1" Padding="10">
+                <Label Text="Vista Registro Empresa Nueva"
+                       FontSize="20"
+                       HorizontalOptions="Center"
+                       TextColor="White" />
+            </Grid>
+
+            <!-- Formulario -->
+            <StackLayout Padding="20" Spacing="20">
+                
+                <!-- Campo Nombre Empresa -->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="NombreEmpresa:" 
+                           FontSize="16" 
+                           TextColor="White" 
+                           WidthRequest="120" />
+                    <Entry Placeholder="----------" 
+                           BackgroundColor="White" 
+                           TextColor="Black" 
+                           HorizontalOptions="FillAndExpand"
+                           x:Name="Empresa"/>
+                </StackLayout>
+
+                <!-- Campo NIT -->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="NIT:" 
+                       FontSize="16" 
+                       TextColor="White" 
+                       WidthRequest="120" />
+                    <Entry Placeholder="----------" 
+                       BackgroundColor="White" 
+                       TextColor="Black" 
+                       HorizontalOptions="FillAndExpand"
+                       x:Name="NIT"/>
+                </StackLayout>
+                
+                <!-- Campo Logo 
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Logo:" 
+                           FontSize="16" 
+                           TextColor="White" 
+                           WidthRequest="120" />
+                    <Entry Placeholder="" 
+                           BackgroundColor="White" 
+                           TextColor="Black" 
+                           HorizontalOptions="FillAndExpand" 
+                           x:Name="Logo"/>
+                    <Button Text="📁" 
+                            BackgroundColor="White" 
+                            TextColor="#1E88E5" 
+                            WidthRequest="50" />
+                </StackLayout> -->
+
+                <Button Text="📁" 
+                    BackgroundColor="White" 
+                    TextColor="#1E88E5" 
+                    WidthRequest="50" 
+                    Clicked="OnSelectImageClicked" />
+
+            </StackLayout>
+
+            <!-- Botón Guardar 
+            <StackLayout Padding="20">
+                <Button Text="Guardar" 
+                        BackgroundColor="Red" 
+                        TextColor="White" 
+                        FontSize="18" 
+                        CornerRadius="10"
+                        HeightRequest="50" 
+                        Clicked="ButtonGuardar_Clicked"/>
+            </StackLayout> -->
+
+            <!-- Botón de Inicio -->
+            <AbsoluteLayout HorizontalOptions="End" VerticalOptions="End" Margin="20">
+                <Button Text="🏠" 
+                        BackgroundColor="White" 
+                        TextColor="#0D47A1" 
+                        WidthRequest="50" 
+                        HeightRequest="50" 
+                        CornerRadius="25"
+                        Clicked="OnNavigateButtonClicked" />
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="BtnGuardar" Text="Guardar" Clicked="ButtonGuardar_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+</ContentPage>

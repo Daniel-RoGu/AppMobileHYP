@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.ControlAsistenciaPage"
+             BackgroundColor="#005F73">
+    <Grid RowSpacing="10">
+        <!-- Definir filas del Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Encabezado -->
+        <Label Text="Panel Estado Asistencia"
+               FontSize="24"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="10"
+               BackgroundColor="#005F73"
+               Grid.Row="0" />
+
+        <!-- Contenido central -->
+        <Grid Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Etiqueta -->
+            <Label Text="Ausente"
+                   FontSize="18"
+                   TextColor="White"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"
+                   Margin="10"
+                   Grid.Column="0" 
+                   x:Name="LabelEstadoAsistencia"/>
+
+            <!-- Switch -->
+            <Switch x:Name="AsistenciaSwitch"
+                    ThumbColor="White"
+                    OnColor="Green"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Scale="3" 
+                    Margin="20,0,0,0"
+                    Grid.Column="1"
+                    Toggled="AsistenciaSwitch_Toggled"  
+            />
+            
+        </Grid>
+
+        <!-- Botón Volver -->
+        <Button Text="Guardar"
+                BackgroundColor="#2962FF"
+                TextColor="White"
+                FontSize="18"
+                CornerRadius="10"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="10"
+                Grid.Row="2"
+                Clicked="Button_Clicked" />
+    </Grid>
+</ContentPage>

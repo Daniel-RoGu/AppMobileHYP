@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.ArranqueDevPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Botón de Guardar -->
+            <Button Text="Iniciar"
+                    BackgroundColor="#E53935"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand" 
+                    Clicked="Button_Clicked"/>
+            
+            <!-- Botón de Receteo -->
+            <Button Text="Recetear"
+                    BackgroundColor="#E65100"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand" 
+                    Clicked="ButtonRecet"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

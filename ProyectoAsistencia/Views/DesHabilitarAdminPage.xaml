@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.DesHabilitarAdminPage"
+             Title="Inhabilitar Usuario Administrador"
+             BackgroundColor="#F5F5F5">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#0082A6" Padding="20">
+                <!-- Barra de búsqueda -->
+                <SearchBar x:Name="AdmisSearchBar"
+                           Placeholder="Buscar empleados..."
+                           TextChanged="OnSearchBarTextChanged" />
+
+                <!-- ListView con diseño más atractivo -->
+                <ListView x:Name="Lista_Usuarios" HasUnevenRows="True" SeparatorVisibility="Default"
+   >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" BackgroundColor="White" Margin="5" Spacing="10" 
+                                     HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    
+                                    <!-- Documento -->
+                                    <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Identificacion Usuario: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding IdentificacionUsuario}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- Nombre Usuario -->
+                                    <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Usuario: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding NombreUsuario}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- Cargo Usuario -->
+                                    <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Cargo Usuario: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding CargoUsuario}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- Celular Usuario -->
+                                    <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Celular Usuario: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding CelularUsuario}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- Correo Usuario -->
+                                    <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Correo Usuario: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding CorreoUsuario}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- Tipo Usuario -->
+                                    <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Tipo Usuario: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding TipoUsuario}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- Código Tarjetero Usuario -->
+                                    <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Código en tarjetero del usuario: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding NumeroTarjetero}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- Botones -->
+                                    <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand">
+                                        <Button Text="Degradar" 
+                                                BackgroundColor="#4CAF50" 
+                                                TextColor="White" 
+                                                WidthRequest="120" 
+                                                CornerRadius="20"
+                                                CommandParameter="{Binding .}"
+                                                Clicked="OnSaveClicked" />
+
+                                        <Button Text="Cancelar" 
+                                                BackgroundColor="#F44336" 
+                                                TextColor="White" 
+                                                WidthRequest="120" 
+                                                CornerRadius="20" 
+                                                Clicked="OnCancelClicked" />
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>                         
+                                
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

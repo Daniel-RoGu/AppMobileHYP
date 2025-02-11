@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.EditarUsuarioPage"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ms="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="Editar Usuario"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="25">
+
+            <!-- Título -->
+            <Label Text="Editar Información del Usuario" 
+               FontSize="24" 
+               TextColor="#1E88E5" 
+               HorizontalOptions="Center" />
+
+            <!-- Campo para editar la identificacion del usuario -->
+            <StackLayout Spacing="5">
+                <Label Text="Identificacion del usuario:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryIdUsuario" Placeholder="Ingrese la identificacion" 
+                       Text="{Binding IdentificacionUsuario}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Campo para editar el tipo de documento -->
+            <StackLayout Spacing="5">
+                <Label Text="Tipo de documento:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryTipoDocumento" Placeholder="Ingrese el tipo de documento" 
+                       Text="{Binding TipoDocumento}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Campo para editar el nombre del usuario -->
+            <StackLayout Spacing="5">
+                <Label Text="Nombre del usuario:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryNombre" Placeholder="Ingrese el nombre" 
+                   Text="{Binding NombreUsuario}" 
+                   FontSize="Medium" 
+                   BackgroundColor="White" 
+                   TextColor="Black" />
+            </StackLayout>            
+
+            <!-- Campo para editar el genero -->
+            <StackLayout Spacing="5">
+                <Label Text="Selecciona el género:" 
+                       FontSize="16" 
+                       TextColor="#424242" 
+                       VerticalOptions="Center" />
+                <Picker x:Name="PickerGenero" Title="Genero" SelectedItem="{Binding GeneroUsuario}">
+                    <Picker.Items>
+                        <x:String>Hombre</x:String>
+                        <x:String>Mujer</x:String>
+                        <x:String>Otro</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            
+            <!-- Campo para editar el cargo -->
+            <StackLayout Spacing="5">
+                <Label Text="Cargo del usuario:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryCargo" Placeholder="Ingrese el cargo" 
+                       Text="{Binding CargoUsuario}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Campo para editar el celular -->
+            <StackLayout Spacing="5">
+                <Label Text="Celular del usuario:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryCelular" Placeholder="Ingrese el celular" 
+                       Text="{Binding CelularUsuario}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Campo para editar el Correo -->
+            <StackLayout Spacing="5">
+                <Label Text="Correo del usuario:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryCorreo" Placeholder="Ingrese el correo" 
+                       Text="{Binding CorreoUsuario}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Campo para editar el estado de usuario -->
+            <StackLayout Spacing="5">
+                <Label Text="Selecciona el estado del usuario:" 
+                       FontSize="16" 
+                       TextColor="#424242" 
+                       VerticalOptions="Center" />
+                <Picker x:Name="PickerEstadoEmpleado" Title="Estado Usuario" SelectedItem="{Binding EstadoEmpleado}">
+                    <Picker.Items>
+                        <x:String>Activo</x:String>
+                        <x:String>Inactivo</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <!-- Campo para editar EPS -->
+            <StackLayout Spacing="5">
+                <Label Text="Selecciona la EPS:" 
+                       FontSize="16" 
+                       TextColor="#424242" 
+                       VerticalOptions="Center" />
+                <Picker x:Name="PickerEPS" Title="EPS" SelectedItem="{Binding EPSUsuario}">
+                    <Picker.Items>
+                        <x:String>Sanitas</x:String>
+                        <x:String>Famisanar</x:String>
+                        <x:String>SURA</x:String>
+                        <x:String>Coomeva</x:String>
+                        <x:String>Compensar</x:String>
+                        <x:String>Salud Total</x:String>
+                        <x:String>Medimás</x:String>
+                        <x:String>EPS Sura</x:String>
+                        <x:String>Mutual SER</x:String>
+                        <x:String>Aliansalud</x:String>
+                        <x:String>Emssanar</x:String>
+                        <x:String>Capresoca</x:String>
+                        <x:String>Asmet Salud</x:String>
+                        <x:String>Cafesalud</x:String>
+                        <x:String>Ecoopsos</x:String>
+                        <x:String>Otro</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <!-- Campo para editar ARL -->
+            <StackLayout Spacing="5">
+                <Label Text="Selecciona la ARL:" 
+                       FontSize="16" 
+                       TextColor="#424242" 
+                       VerticalOptions="Center" />
+                <Picker x:Name="PickerARL" Title="ARL" SelectedItem="{Binding ARLUsuario}">
+                    <Picker.Items>
+                        <x:String>ARL SURA</x:String>
+                        <x:String>Colpatria ARL</x:String>
+                        <x:String>Positiva ARL</x:String>
+                        <x:String>Colmena ARL</x:String>
+                        <x:String>ARL Bolívar</x:String>
+                        <x:String>Seguros de Vida Aurora</x:String>
+                        <x:String>Seguros Alfa ARL</x:String>
+                        <x:String>La Equidad Seguros ARL</x:String>
+                        <x:String>Liberty Seguros ARL</x:String>
+                        <x:String>Seguros del Estado ARL</x:String>
+                        <x:String>Otro</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <!-- Campo para editar tipo de sangre -->
+            <StackLayout Spacing="5">
+                <Label Text="Selecciona el tipo de sangre:" 
+                       FontSize="16" 
+                       TextColor="#424242" 
+                       VerticalOptions="Center" />
+                <Picker x:Name="PickerTipoSangre" Title="Tipo de sangre" SelectedItem="{Binding TipoSangreUsuario}">
+                    <Picker.Items>
+                        <x:String>A+</x:String>
+                        <x:String>A-</x:String>
+                        <x:String>B+</x:String>
+                        <x:String>B-</x:String>
+                        <x:String>AB+</x:String>
+                        <x:String>AB-</x:String>
+                        <x:String>O+</x:String>
+                        <x:String>O-</x:String>
+                        <x:String>Otro</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
+            <!-- Campo para editar nombre contacto emergencia del usuario -->
+            <StackLayout Spacing="5">
+                <Label Text="Nombre contacto de emergencia:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryNombreContactoEmergencia" Placeholder="Ingrese el nombre de un contacto de emergencia" 
+                       Text="{Binding NombreContactoEmergencia}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Campo para editar numero contacto emergencia del usuario -->
+            <StackLayout Spacing="5">
+                <Label Text="Numero contacto de emergencia:" FontSize="16" TextColor="#424242" />
+                <Entry x:Name="EntryNumeroContactoEmergencia" Placeholder="Ingrese el numero telefonico del contacto de emergencia" 
+                       Text="{Binding NumeroContactoEmergencia}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
+            </StackLayout>
+
+            <!-- Empresa asociada -->
+            <Label Text="Empresa asociada:" 
+                   FontSize="16" 
+                   TextColor="#0D47A1" />
+
+            <Picker x:Name="tipoEmpresaPicker" 
+                    Title="Selecciona una empresa"/>
+
+            <!-- Locacion asociada -->
+            <Label Text="Locacion asociada:" 
+                   FontSize="16" 
+                   TextColor="#0D47A1" />
+
+            <Picker x:Name="tipoLocacionPicker" 
+                    Title="Selecciona una locacion"/>
+
+            <!-- Tipo de usuario -->
+            <Label Text="Tipo Usuario:" FontSize="16" TextColor="#0D47A1" />
+            <Picker x:Name="tipoUsuarioPicker" 
+                    Title="Selecciona el tipo de usuario"
+                    SelectedIndexChanged="OnTipoUsuarioPickerChanged"/>
+
+            <!-- Tarjetero -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Para el Label -->
+                    <RowDefinition Height="*" />
+                    <!-- Para el ScrollView -->
+                </Grid.RowDefinitions>
+                
+                <Label Text="Números del Tarjetero"
+                       FontSize="20"
+                       TextColor="#004F73"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start"
+                       Margin="10" 
+                       Grid.Row="0" 
+                />
+                <ScrollView Grid.Row="1"
+                            Orientation="Both"
+                            HeightRequest="400" 
+                            WidthRequest="300"
+                            VerticalOptions="Start">
+                    <Grid x:Name="gridTarjetero" 
+                          HorizontalOptions="Start" 
+                          VerticalOptions="Start" 
+                    />
+                    
+                </ScrollView>
+            </Grid>
+
+            <!-- Botones -->
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand">
+                <Button Text="Guardar" 
+                    BackgroundColor="#4CAF50" 
+                    TextColor="White" 
+                    WidthRequest="120" 
+                    CornerRadius="20" 
+                    Clicked="OnSaveClicked" />
+
+                <Button Text="Cancelar" 
+                    BackgroundColor="#F44336" 
+                    TextColor="White" 
+                    WidthRequest="120" 
+                    CornerRadius="20" 
+                    Clicked="OnCancelClicked" />
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

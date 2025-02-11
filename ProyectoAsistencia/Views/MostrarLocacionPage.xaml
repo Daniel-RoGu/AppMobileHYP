@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.MostrarLocacionPage"
+             BackgroundColor="#0D658A"
+             Title="Gestion de Locacion">
+
+    <ContentPage.ToolbarItems>
+            <ToolbarItem Text="home"
+                 IconImageSource="home.png"
+                 Order="Primary"
+                 Priority="1"
+                 Clicked="OnHomeClicked"
+                 >
+
+            </ToolbarItem>
+            <ToolbarItem Text="addUser"
+                 IconImageSource="addUser.png"
+                 Order="Primary"
+                 Priority="1"
+                 Clicked="OnAddLocacionClicked"
+                 >
+
+            </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#0082A6" Padding="20">
+
+                <!-- Barra de búsqueda -->
+                <SearchBar x:Name="LocacionesSearchBar"
+                           Placeholder="Buscar empleados..."
+                           TextChanged="OnSearchBarTextChanged" />
+
+                <!-- ListView con diseño más atractivo -->
+                <ListView x:Name="Lista_Locaciones" HasUnevenRows="True" SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" BackgroundColor="White" Margin="5" Spacing="10" 
+                                         HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    <!-- Nombre de la locacion -->
+                                    <Label FontSize="Large" TextColor="#0082A6" FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <!-- Título fijo -->
+                                                <Span Text="Locacion: " FontAttributes="Bold" />
+
+                                                <!-- Valor enlazado desde la base de datos -->
+                                                <Span Text="{Binding NombreLocacion}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!-- NIT y Estado -->
+                                    <StackLayout Orientation="Horizontal" Spacing="15">
+                                        <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <!-- Título fijo -->
+                                                    <Span Text="RIG: " FontAttributes="Bold" />
+
+                                                    <!-- Valor enlazado desde la base de datos -->
+                                                    <Span Text="{Binding RIG}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <!-- Título fijo -->
+                                                    <Span Text="NombrePozo: " FontAttributes="Bold" />
+
+                                                    <!-- Valor enlazado desde la base de datos -->
+                                                    <Span Text="{Binding NombrePozo}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label FontSize="Small" TextColor="#666" FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <!-- Título fijo -->
+                                                    <Span Text="Estado: " FontAttributes="Bold" />
+
+                                                    <!-- Valor enlazado desde la base de datos -->
+                                                    <Span Text="{Binding EstadoLocacion}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                
+                                    <!-- Botones de Eliminar y Editar -->
+                                    <StackLayout Orientation="Horizontal" Spacing="10">
+                                        <Button Text="Eliminar" BackgroundColor="Red" TextColor="White" 
+                                            CommandParameter="{Binding .}" Clicked="BtnDelete_Clicked" 
+                                            CornerRadius="20" HeightRequest="40" HorizontalOptions="FillAndExpand"/>
+                                        <Button Text="Editar" BackgroundColor="RoyalBlue" TextColor="White" 
+                                            CommandParameter="{Binding .}" Clicked="BtnEdit_Clicked" 
+                                            CornerRadius="20" HeightRequest="40" HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Botón de volver -->
+                <Button Text="Volver" BackgroundColor="Red" TextColor="White" CornerRadius="20" 
+                    VerticalOptions="End" Margin="0,20,0,0" HeightRequest="50" 
+                    Clicked="OnNavigateButtonClicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

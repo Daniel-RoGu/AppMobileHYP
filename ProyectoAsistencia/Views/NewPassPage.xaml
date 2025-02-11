@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.NewPassPage"
+             Title="Asignacion de administrador principal">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" VerticalOptions="Center">
+                <!-- Logo -->
+                <Image Source="security.png" HeightRequest="100" Margin="0,0,0,20" HorizontalOptions="Center" />
+
+                <!-- Identificación - Nombre - del usuario -->
+                <Label Text="Nueva contraseña"
+                   FontSize="18"
+                   TextColor="#333"
+                   HorizontalOptions="Start"
+                   Margin="0,0,0,5" />
+
+                <Frame CornerRadius="8" BackgroundColor="White" Padding="10" HasShadow="True">
+                    <Entry x:Name="passEntry"
+                       Placeholder="Ingresa la nueva constraseña"
+                       PlaceholderColor="#888"
+                       FontSize="16"
+                       TextColor="#333"/>
+                </Frame>
+
+                <!-- Botón de Guardar -->
+                <Button Text="Guardar"
+                    BackgroundColor="#007AFF"
+                    TextColor="White"
+                    FontSize="18"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Margin="0,20,0,0"
+                    Clicked="Button_Clicked" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
