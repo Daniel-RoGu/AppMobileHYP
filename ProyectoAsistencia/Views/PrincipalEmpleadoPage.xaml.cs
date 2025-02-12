@@ -69,6 +69,7 @@ namespace ProyectoAsistencia.Views
 
                     EmergencyModo.IsEnabled = false;
                     AdminModo.IsEnabled = false;
+                    EmpleadoEntry.IsEnabled = false;
 
                     // Crear el ToolbarItem
                     ToolbarItem InfoemergencyItem = new ToolbarItem
@@ -126,6 +127,7 @@ namespace ProyectoAsistencia.Views
         {
             try
             {
+                //App.Context.DeleteRegistrosEmergenciaAsync();
                 // Consulta SQL: Obtén los datos con el modelo de la base de datos
                 var datosConsulta = await App.Context.GetEmpresasActivas();
 
@@ -324,7 +326,8 @@ namespace ProyectoAsistencia.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var registrosActuales = await App.Context.GetHorariosEmergenciaTodos();
-            
+            await Application.Current.MainPage.DisplayAlert("Registros de emergencia", Convert.ToString(registrosActuales.Count), "OK");
+
             if (modoEmergencia != true)
             {
                 if (!string.IsNullOrEmpty(EmpleadoEntry.Text))
@@ -341,9 +344,6 @@ namespace ProyectoAsistencia.Views
             }
             else
             {
-                //await Application.Current.MainPage.DisplayAlert("Numero de registros de tarjetero", Convert.ToString(tarjeteroRef.Count), "OK");
-                //await Application.Current.MainPage.DisplayAlert("Numero de registros en tabla emergencia", Convert.ToString(registrosActuales.Count), "OK");
-
                 for (int i = 0; i < tarjeteroRef.Count; i++)
                 {
                     try
@@ -373,8 +373,16 @@ namespace ProyectoAsistencia.Views
                                             NumeroTarjeteroReporte = numRefTarjetero,
                                         };
 
-                                        await App.Context.InsertHoraModoEmergencia(registro);
-                                        //registrosActuales = await App.Context.GetHorariosEmergenciaTodos();
+                                        if (!registrosActuales.Any(u => u.HoraReporte == registro.HoraReporte && u.EstadoHoraReporte == registro.EstadoHoraReporte
+                                                                   && u.AsistenciaRelacionada == registro.AsistenciaRelacionada && u.UsuarioRelacionado == registro.UsuarioRelacionado
+                                                                   && u.NumeroTarjeteroReporte == registro.NumeroTarjeteroReporte
+                                                                   )
+                                            )
+                                        {
+
+                                            await App.Context.InsertHoraModoEmergencia(registro);
+                                        }                                       
+                                        
                                     }
                                 }
                             }
@@ -392,7 +400,14 @@ namespace ProyectoAsistencia.Views
                                 };
 
 
-                                await App.Context.InsertHoraModoEmergencia(registro);
+                                if (!registrosActuales.Any(u => u.HoraReporte == registro.HoraReporte && u.EstadoHoraReporte == registro.EstadoHoraReporte
+                                                                   && u.AsistenciaRelacionada == registro.AsistenciaRelacionada && u.UsuarioRelacionado == registro.UsuarioRelacionado
+                                                                   && u.NumeroTarjeteroReporte == registro.NumeroTarjeteroReporte
+                                                                   )
+                                            )
+                                {
+                                    await App.Context.InsertHoraModoEmergencia(registro);
+                                }
                             }
                         }
                         else
@@ -422,7 +437,14 @@ namespace ProyectoAsistencia.Views
                                 };
 
 
-                                await App.Context.InsertHoraModoEmergencia(registro);                                
+                                if (!registrosActuales.Any(u => u.HoraReporte == registro.HoraReporte && u.EstadoHoraReporte == registro.EstadoHoraReporte
+                                                                   && u.AsistenciaRelacionada == registro.AsistenciaRelacionada && u.UsuarioRelacionado == registro.UsuarioRelacionado
+                                                                   && u.NumeroTarjeteroReporte == registro.NumeroTarjeteroReporte
+                                                                   )
+                                            )
+                                {
+                                    await App.Context.InsertHoraModoEmergencia(registro);
+                                }
                             }
                         }
 
@@ -442,10 +464,12 @@ namespace ProyectoAsistencia.Views
                     botonRef.Text = "&#xE80F;";
                     EmergencyModo.IsEnabled = true;
                     AdminModo.IsEnabled = true;
+                    EmpleadoEntry.IsEnabled = true;
                 }
 
                 //Console.WriteLine(registrosActuales);
                 //mdEmergenciaRef = registrosActuales; // Lista para guardar los elementos del modo emergencia que se van a usar en el informe
+                await Application.Current.MainPage.DisplayAlert("Registros de emergencia", Convert.ToString(registrosActuales.Count), "OK");
                 await Navigation.PushAsync(new PrincipalEmpleadoPage());
             }
 
@@ -492,46 +516,65 @@ namespace ProyectoAsistencia.Views
 
         }
 
+        //public void FechaActual()
+        //{
+        //    TimeZoneInfo zonaHorariaColombia;
+
+        //    try
+        //    {
+        //        // Intentar con el identificador de Windows
+        //        zonaHorariaColombia = TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time");
+        //    }
+        //    catch (TimeZoneNotFoundException)
+        //    {
+        //        try
+        //        {
+        //            // Intentar con el identificador de IANA (para Linux/macOS)
+        //            zonaHorariaColombia = TimeZoneInfo.FindSystemTimeZoneById("America/Bogota");
+        //        }
+        //        catch (TimeZoneNotFoundException)
+        //        {
+        //            // Si falla, usar UTC como fallback
+        //            Console.WriteLine("No se pudo encontrar la zona horaria de Colombia. Usando UTC.");
+        //            zonaHorariaColombia = TimeZoneInfo.Utc;
+        //        }
+        //    }
+
+        //    // Hora UTC actual
+        //    DateTime utcNow = DateTime.UtcNow;
+
+        //    // Convertir a hora de Colombia
+        //    DateTime horaColombia = TimeZoneInfo.ConvertTimeFromUtc(utcNow, zonaHorariaColombia);
+
+        //    // Mostrar la fecha actual
+        //    fechaActual = horaColombia.ToString("dd/MM/yyyy");
+
+        //    // Obtener solo la hora (ejemplo: "14:35:00")
+        //    horaActual = horaColombia.ToString("HH:mm:ss");
+        //}
+
         public void FechaActual()
         {
-            TimeZoneInfo zonaHorariaColombia;
-
-            try
-            {
-                // Intentar con el identificador de Windows
-                zonaHorariaColombia = TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time");
-            }
-            catch (TimeZoneNotFoundException)
-            {
-                try
-                {
-                    // Intentar con el identificador de IANA (para Linux/macOS)
-                    zonaHorariaColombia = TimeZoneInfo.FindSystemTimeZoneById("America/Bogota");
-                }
-                catch (TimeZoneNotFoundException)
-                {
-                    // Si falla, usar UTC como fallback
-                    Console.WriteLine("No se pudo encontrar la zona horaria de Colombia. Usando UTC.");
-                    zonaHorariaColombia = TimeZoneInfo.Utc;
-                }
-            }
+            // Obtener la zona horaria del dispositivo en Android
+            TimeZoneInfo zonaHorariaLocal = TimeZoneInfo.Local;
 
             // Hora UTC actual
             DateTime utcNow = DateTime.UtcNow;
 
-            // Convertir a hora de Colombia
-            DateTime horaColombia = TimeZoneInfo.ConvertTimeFromUtc(utcNow, zonaHorariaColombia);
+            // Convertir a la hora local del dispositivo
+            DateTime horaLocal = TimeZoneInfo.ConvertTimeFromUtc(utcNow, zonaHorariaLocal);
 
-            // Mostrar la fecha actual
-            fechaActual = horaColombia.ToString("dd/MM/yyyy");
-
-            // Obtener solo la hora (ejemplo: "14:35:00")
-            horaActual = horaColombia.ToString("HH:mm:ss");
+            // Formatear fecha y hora
+            fechaActual = horaLocal.ToString("dd/MM/yyyy");
+            horaActual = horaLocal.ToString("HH:mm:ss");
         }
+
 
         public async void GenerarInformeEmergencia()
         {
-            List<string> noReportados = new List<string>();           
+            List<string> noReportados = new List<string>();
+            ModoEmergencia mdEmergenciaRef = new ModoEmergencia();
+            Hora hora = new Hora();
 
             try
             {                
@@ -541,16 +584,15 @@ namespace ProyectoAsistencia.Views
 
 
                 for (int i = 0; i < userRef.Count; i++)
-                {
-                    var mdEmergenciaRef = await App.Context.GetUltimoHorarioModoEmergencia(userRef[i].IdentificacionUsuario);
-                                        
+                {                    
+                    mdEmergenciaRef = await App.Context.GetUltimoHorarioModoEmergencia(userRef[i].IdentificacionUsuario);
                     bool esMdEmergenciaRef = ( (mdEmergenciaRef != null && (TimeSpan.Parse(horaActual).Add((TimeSpan.FromSeconds(-10))) < TimeSpan.Parse(mdEmergenciaRef.HoraReporte)) ) &&
                                                (mdEmergenciaRef.AsistenciaRelacionada == fechaActual
                                                && mdEmergenciaRef.UsuarioRelacionado == userRef[i].IdentificacionUsuario
                                                && (mdEmergenciaRef.EstadoHoraReporte == "A salvo"))
                                              );
 
-                    var hora = await App.Context.GetUltimoHorariosUsuario(userRef[i].IdentificacionUsuario);
+                    hora = await App.Context.GetUltimoHorariosUsuario(userRef[i].IdentificacionUsuario);
 
                     bool esHora = hora != null;
 
@@ -558,18 +600,17 @@ namespace ProyectoAsistencia.Views
                                       (hora.UsuarioRelacionado == userRef[i].IdentificacionUsuario
                                       && hora.AsistenciaRelacionada == fechaActual
                                       && hora.EstadoHora == "Presente")
-                                     );                    
-
+                                     );
+                   
                     if (hora != null && mdEmergenciaRef != null && userRef != null)
                     {                        
-
                         if ((esMdEmergenciaRef == false && esHoraRef) || (esMdEmergenciaRef == false
                                                                           && hora.AsistenciaRelacionada != fechaActual
                                                                           && hora.EstadoHora == "Presente")
                            )
-                        {
+                        {                            
                             if (usuariosEmergencia != null)
-                            {
+                            {                                
                                 if (!usuariosEmergencia.Any(u => u.nombre == userRef[i].NombreUsuario && u.numero == userRef[i].NumeroTarjetero))
                                 {
                                     usuariosEmergencia.Add(new usuarioEmergencia
@@ -587,10 +628,11 @@ namespace ProyectoAsistencia.Views
                                     numero = userRef[i].NumeroTarjetero
                                 });
                             }
-                        }                       
+                        }
+                        
                     }
-                    else if (mdEmergenciaRef.UsuarioRelacionado != userRef[i].IdentificacionUsuario && !esHora)
-                    {
+                    else if ((mdEmergenciaRef == null && esHoraRef == true) || (mdEmergenciaRef != null && mdEmergenciaRef.UsuarioRelacionado != userRef[i].IdentificacionUsuario && !esHora))
+                    {                        
                         if (usuariosEmergencia != null)
                         {
                             if (!usuariosEmergencia.Any(u => u.nombre == userRef[i].NombreUsuario && u.numero == userRef[i].NumeroTarjetero))

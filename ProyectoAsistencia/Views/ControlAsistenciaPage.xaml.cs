@@ -65,7 +65,8 @@ namespace ProyectoAsistencia.Views
             var switchControl = (Switch)sender;
 
             // Gestion fecha y hora actual
-            ObtenerFechaHoraActual();
+            //ObtenerFechaHoraActual();
+            FechaActual();
 
             try
             {
@@ -139,42 +140,58 @@ namespace ProyectoAsistencia.Views
         }
 
         // Metodo para obtener la fecha actual en el sistema de zona horaria Bogota
-        public void ObtenerFechaHoraActual()
-        {
-            TimeZoneInfo zonaHorariaColombia;
+        //public void ObtenerFechaHoraActual()
+        //{
+        //    TimeZoneInfo zonaHorariaColombia;
 
-            try
-            {
-                // Intentar con el identificador de Windows
-                zonaHorariaColombia = TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time");
-            }
-            catch (TimeZoneNotFoundException)
-            {
-                try
-                {
-                    // Intentar con el identificador de IANA (para Linux/macOS)
-                    zonaHorariaColombia = TimeZoneInfo.FindSystemTimeZoneById("America/Bogota");
-                }
-                catch (TimeZoneNotFoundException)
-                {
-                    // Si falla, usar UTC como fallback
-                    Console.WriteLine("No se pudo encontrar la zona horaria de Colombia. Usando UTC.");
-                    zonaHorariaColombia = TimeZoneInfo.Utc;
-                }
-            }
+        //    try
+        //    {
+        //        // Intentar con el identificador de Windows
+        //        zonaHorariaColombia = TimeZoneInfo.FindSystemTimeZoneById("SA Pacific Standard Time");
+        //    }
+        //    catch (TimeZoneNotFoundException)
+        //    {
+        //        try
+        //        {
+        //            // Intentar con el identificador de IANA (para Linux/macOS)
+        //            zonaHorariaColombia = TimeZoneInfo.FindSystemTimeZoneById("America/Bogota");
+        //        }
+        //        catch (TimeZoneNotFoundException)
+        //        {
+        //            // Si falla, usar UTC como fallback
+        //            Console.WriteLine("No se pudo encontrar la zona horaria de Colombia. Usando UTC.");
+        //            zonaHorariaColombia = TimeZoneInfo.Utc;
+        //        }
+        //    }
+
+        //    // Hora UTC actual
+        //    DateTime utcNow = DateTime.UtcNow;
+
+        //    // Convertir a hora de Colombia
+        //    DateTime horaColombia = TimeZoneInfo.ConvertTimeFromUtc(utcNow, zonaHorariaColombia);
+
+        //    // Mostrar la fecha actual
+        //    fechaActual = horaColombia.ToString("dd/MM/yyyy");
+
+        //    // Obtener solo la hora (ejemplo: "14:35:00")
+        //    horaActual = horaColombia.ToString("HH:mm:ss");
+           
+        //}
+
+        public void FechaActual()
+        {
+            // Obtener la zona horaria del dispositivo en Android
+            TimeZoneInfo zonaHorariaLocal = TimeZoneInfo.Local;
 
             // Hora UTC actual
             DateTime utcNow = DateTime.UtcNow;
 
-            // Convertir a hora de Colombia
-            DateTime horaColombia = TimeZoneInfo.ConvertTimeFromUtc(utcNow, zonaHorariaColombia);
+            // Convertir a la hora local del dispositivo
+            DateTime horaLocal = TimeZoneInfo.ConvertTimeFromUtc(utcNow, zonaHorariaLocal);
 
-            // Mostrar la fecha actual
-            fechaActual = horaColombia.ToString("dd/MM/yyyy");
-
-            // Obtener solo la hora (ejemplo: "14:35:00")
-            horaActual = horaColombia.ToString("HH:mm:ss");
-           
+            // Formatear fecha y hora
+            fechaActual = horaLocal.ToString("dd/MM/yyyy");
+            horaActual = horaLocal.ToString("HH:mm:ss");
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

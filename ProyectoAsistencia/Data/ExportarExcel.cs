@@ -20,18 +20,7 @@ namespace ProyectoAsistencia.Data
         private List<InformeUsuario> refUsuarioReporte = new List<InformeUsuario>();
         List<ModoEmergencia> mdEmergenciaRef = new List<ModoEmergencia>();
         List<Usuario> userRef = new List<Usuario>();
-        List<Hora> horaRef = new List<Hora>();
-
-        //public ExportarExcel(List<ModoEmergencia> mdEmergenciaRef, List<Usuario> userRef, List<Hora> horaRef)
-        //{
-        //    this.mdEmergenciaRef = mdEmergenciaRef;
-        //    this.userRef = userRef;
-        //    this.horaRef = horaRef;
-        //}
-
-        //public ExportarExcel()
-        //{
-        //}
+        List<Hora> horaRef = new List<Hora>();        
 
         public async void ObjetosConsulta(string tipoObjetoRetorno)
         {
@@ -137,13 +126,10 @@ namespace ProyectoAsistencia.Data
 
         }
 
-        public Stream GenerarExcel(string tipoReporte, List<InformeUsuario> refUsuarioInfoReporte)
+        public Stream GenerarExcel(List<InformeUsuario> refUsuarioInfoReporte)
         {
             try
             {
-                //ObjetosConsulta(tipoReporte);
-                //Application.Current.MainPage.DisplayAlert("Observacion", $"Registros retornados del excel {Convert.ToString(refUsuarioReporte.Count)}", "Aceptar");
-
                 // Definiendo Stream
                 var stream = new MemoryStream();
 
@@ -284,9 +270,9 @@ namespace ProyectoAsistencia.Data
                 List<Usuario> UsuariosAdmin = await App.Context.GetUsuariosAdminPrincipalActivos();
                 List<string> correos = new List<string>();
 
-                if(UsuariosAdmin != null)
+                if (UsuariosAdmin != null)
                 {
-                    for (int i = 0; UsuariosAdmin.Count > 0; i++)
+                    for (int i = 0; i < UsuariosAdmin.Count; i++)
                     {
                         correos.Add(UsuariosAdmin[i].CorreoUsuario);
                     }
@@ -297,7 +283,7 @@ namespace ProyectoAsistencia.Data
 
                 if (!File.Exists(filePath))
                 {
-                    Console.WriteLine($"Error: El archivo {filePath} no existe.");
+                    await Application.Current.MainPage.DisplayAlert("Observacion", $"Error: El archivo {filePath} no existe.", "Aceptar");
                     return;
                 }
 
@@ -342,11 +328,8 @@ namespace ProyectoAsistencia.Data
                 mdEmergenciaRef = await App.Context.GetHorariosEmergenciaTodos();
                 userRef = await App.Context.GetUsuariosTodosAsync();
                 horaRef = await App.Context.GetHorariosTodos();
-
-                //await Application.Current.MainPage.DisplayAlert("Observacion", $"Tipo de informe: {tipoObjetoRetorno}", "Aceptar");
+                                
                 //await Application.Current.MainPage.DisplayAlert("Observacion", $"Numero de usuarios: {Convert.ToString(userRef.Count)}", "Aceptar");
-                //await Application.Current.MainPage.DisplayAlert("Observacion", $"Registros del modo emergencia: {Convert.ToString(mdEmergenciaRef.Count)}", "Aceptar");
-                //await Application.Current.MainPage.DisplayAlert("Observacion", $"Registros del modo reporte: {Convert.ToString(horaRef.Count)}", "Aceptar");
 
                 if (mdEmergenciaRef != null && tipoObjetoRetorno == "ModoEmergencia")
                 {
@@ -424,29 +407,25 @@ namespace ProyectoAsistencia.Data
                             }
                         }
                     }
-                }
-                //await Application.Current.MainPage.DisplayAlert("Observacion", $"Numero de registros del modo emergencia: {Convert.ToString(infoUsuariosEmergencia.Count)}", "Aceptar");
-                //await Application.Current.MainPage.DisplayAlert("Observacion", $"Numero de registros del modo reporte: {Convert.ToString(infoUsuariosRutinario.Count)}", "Aceptar");
+                }                
 
                 refUsuarioReporte = tipoObjetoRetorno == "ModoEmergencia"
                                    ? infoUsuariosEmergencia
                                    : infoUsuariosRutinario;
-
-                //await Application.Current.MainPage.DisplayAlert("Observacion", $"Registros retornados del excel {Convert.ToString(refUsuarioReporte.Count)}", "Aceptar");
+                
             }
             catch (Exception ex)
             {
                 await Application.Current.MainPage.DisplayAlert("Error", $"No se pudo generar los objetos de consulta para el informe: {ex.Message}", "Aceptar");
             }
-
-            var excelStream2 = GenerarExcel("ReporteNormal", refUsuarioReporte);
-            //await Application.Current.MainPage.DisplayAlert("Observacion", $"Registros retornados del excel {Convert.ToString(refUsuarioReporte.Count)}", "Aceptar");
+                        
+            var excelStream2 = GenerarExcel(refUsuarioReporte);
 
             //Enviar el correo con el adjunto
             if (excelStream2 != null)
             {
                 await Application.Current.MainPage.DisplayAlert("Exito", "Se genero excelStream2", "Aceptar");
-                SendEmailWithAttachmentStream("Reporte Excel", "Por favor, revisa el archivo adjunto.", excelStream2, "Reporte.xlsx");
+                SendEmailWithAttachmentStream("Reporte Excel", "Por favor, revisa el archivo adjunto.", excelStream2, $"Reporte{tipoObjetoRetorno}.xlsx");
             }
             else
             {

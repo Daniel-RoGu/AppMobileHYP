@@ -53,6 +53,8 @@ namespace ProyectoAsistencia.Views
                     exportarExcel.GenerateAndSendExcel("ReporteNormal");
                 }
 
+                await Task.Delay(3000); // Espera 5 segundos
+
                 confirm = await Application.Current.MainPage.DisplayAlert(
                     "Eliminar",
                     "Desea enviar por correo el informe de la asistencia del modo emergencia",
