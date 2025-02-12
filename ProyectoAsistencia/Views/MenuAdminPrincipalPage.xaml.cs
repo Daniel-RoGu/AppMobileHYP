@@ -12,9 +12,8 @@ namespace ProyectoAsistencia.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuAdminPrincipalPage : ContentPage
-    {
-        //private string identificador;
-        //public MenuAdminPrincipalPage(string identificacion)
+    {       
+
         public MenuAdminPrincipalPage()
         {
             InitializeComponent();
@@ -76,7 +75,7 @@ namespace ProyectoAsistencia.Views
         {
             try
             {               
-                await Navigation.PushAsync(new AsignacionAdminOnePage());
+                await Navigation.PushAsync(new AsignacionAdminOnePage(true));
             }
             catch (Exception ex)
             {

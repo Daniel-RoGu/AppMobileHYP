@@ -42,7 +42,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -113,7 +113,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -127,7 +127,7 @@
             },
             "ClosedXML": {
               "target": "Package",
-              "version": "[0.102.3, )"
+              "version": "[0.104.2, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -135,13 +135,25 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Renci.SshNet.Abstractions": {
+              "target": "Package",
+              "version": "[2020.0.2, )"
+            },
+            "Renci.SshNet.Async": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.8.1, )"
+              "version": "[1.7.0, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2662, )"
+              "version": "[5.0.0.2196, )"
             },
             "Xamarin.Forms.FontAwesome.Solid": {
               "target": "Package",
@@ -163,7 +175,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

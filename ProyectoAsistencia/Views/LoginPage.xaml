@@ -56,14 +56,15 @@
                         Margin="0,20,0,0"
                         Clicked="Button_Clicked" />
 
-                <!-- Enlace para recuperar contraseña 
-                <Label Text="¿Olvidaste tu contraseña?"
-                       FontSize="14"
-                       TextColor="#007AFF"
-                       HorizontalOptions="Center"
-                       Margin="0,10"
-                       GestureRecognizers="{Binding OlvidarContrasenaCommand}" />
-                -->
+                <!-- Enlace para recuperar contraseña -->
+                <Button Text="¿Olvidaste tu contraseña?"
+                        FontSize="14"
+                        TextColor="#007AFF"
+                        BackgroundColor="Transparent"
+                        BorderWidth="0"
+                        HorizontalOptions="Center"
+                        Margin="0,10"
+                        Clicked="Button_Clicked_1" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

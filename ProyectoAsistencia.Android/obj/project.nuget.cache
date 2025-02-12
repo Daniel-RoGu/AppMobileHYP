@@ -1,32 +1,31 @@
 {
   "version": 2,
-  "dgSpecHash": "a2Al17w06fA=",
+  "dgSpecHash": "Vz+BH+vNwh0=",
   "success": true,
   "projectFilePath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daniel\\.nuget\\packages\\acr.userdialogs\\8.0.0\\acr.userdialogs.8.0.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\closedxml\\0.102.3\\closedxml.0.102.3.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\documentformat.openxml\\2.16.0\\documentformat.openxml.2.16.0.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\closedxml\\0.104.2\\closedxml.0.104.2.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\closedxml.parser\\1.2.0\\closedxml.parser.1.2.0.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\documentformat.openxml\\3.1.1\\documentformat.openxml.3.1.1.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\documentformat.openxml.framework\\3.1.1\\documentformat.openxml.framework.3.1.1.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\excelnumberformat\\1.1.0\\excelnumberformat.1.1.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\irony.netcore\\1.0.11\\irony.netcore.1.0.11.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\rbush\\4.0.0\\rbush.4.0.0.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\renci.sshnet.abstractions\\2020.0.2\\renci.sshnet.abstractions.2020.0.2.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\renci.sshnet.async\\1.4.0\\renci.sshnet.async.1.4.0.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\sixlabors.fonts\\1.0.0\\sixlabors.fonts.1.0.0.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\sqlite-net-pcl\\1.9.172\\sqlite-net-pcl.1.9.172.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.1.2\\sqlitepclraw.bundle_green.2.1.2.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3.android\\2.1.2\\sqlitepclraw.lib.e_sqlite3.android.2.1.2.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.2\\sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.io.packaging\\6.0.0\\system.io.packaging.6.0.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.net.http\\4.3.4\\system.net.http.4.3.4.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.7.0\\system.runtime.compilerservices.unsafe.4.7.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.runtime.numerics\\4.3.0\\system.runtime.numerics.4.3.0.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\system.text.regularexpressions\\4.3.1\\system.text.regularexpressions.4.3.1.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\ssh.net\\2020.0.2\\ssh.net.2020.0.2.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\sshnet.security.cryptography\\1.3.0\\sshnet.security.cryptography.1.3.0.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\system.buffers\\4.6.0\\system.buffers.4.6.0.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\system.io.packaging\\8.0.1\\system.io.packaging.8.0.1.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\system.memory\\4.6.0\\system.memory.4.6.0.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\system.numerics.vectors\\4.6.0\\system.numerics.vectors.4.6.0.nupkg.sha512",
+    "C:\\Users\\daniel\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.1.0\\system.runtime.compilerservices.unsafe.6.1.0.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\xamarin.androidx.activity\\1.2.4.1\\xamarin.androidx.activity.1.2.4.1.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\xamarin.androidx.annotation\\1.2.0.1\\xamarin.androidx.annotation.1.2.0.1.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\xamarin.androidx.annotation.experimental\\1.1.0.1\\xamarin.androidx.annotation.experimental.1.1.0.1.nupkg.sha512",
@@ -85,49 +84,7 @@
     "C:\\Users\\daniel\\.nuget\\packages\\xamarin.forms.fontawesome.solid\\1.0.0\\xamarin.forms.fontawesome.solid.1.0.0.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\xamarin.forms.iconfonthelper\\1.0.0\\xamarin.forms.iconfonthelper.1.0.0.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\xamarin.google.android.material\\1.4.0.2\\xamarin.google.android.material.1.4.0.2.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
-    "C:\\Users\\daniel\\.nuget\\packages\\xlparser\\1.5.2\\xlparser.1.5.2.nupkg.sha512"
+    "C:\\Users\\daniel\\.nuget\\packages\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"System.IO.Packaging\" 6.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-f32c-w444-8ppv",
-      "libraryId": "System.IO.Packaging",
-      "targetGraphs": [
-        "MonoAndroid,Version=v13.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"System.IO.Packaging\" 6.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-qj66-m88j-hmgj",
-      "libraryId": "System.IO.Packaging",
-      "targetGraphs": [
-        "MonoAndroid,Version=v13.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Degradación del paquete detectada: Xamarin.Essentials de 1.8.1 a 1.7.0. Haga referencia al paquete directamente desde el proyecto para seleccionar una versión diferente. \r\n ProyectoAsistencia.Android -> ProyectoAsistencia -> Xamarin.Essentials (>= 1.8.1) \r\n ProyectoAsistencia.Android -> Xamarin.Essentials (>= 1.7.0)",
-      "libraryId": "Xamarin.Essentials",
-      "targetGraphs": [
-        "MonoAndroid,Version=v13.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Degradación del paquete detectada: Xamarin.Forms de 5.0.0.2662 a 5.0.0.2196. Haga referencia al paquete directamente desde el proyecto para seleccionar una versión diferente. \r\n ProyectoAsistencia.Android -> ProyectoAsistencia -> Xamarin.Forms (>= 5.0.0.2662) \r\n ProyectoAsistencia.Android -> Xamarin.Forms (>= 5.0.0.2196)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "MonoAndroid,Version=v13.0"
-      ]
-    }
-  ]
+  "logs": []
 }

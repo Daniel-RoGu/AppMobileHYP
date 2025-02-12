@@ -7,12 +7,13 @@ using ProyectoAsistencia.ViewModels;
 using ProyectoAsistencia.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Renci.SshNet.Messages;
 
 namespace ProyectoAsistencia.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PrincipalEmpleadoPage : ContentPage
-	{
+    {
 
         string estadoHora = "0";
         bool modoEmergencia = false;
@@ -24,21 +25,21 @@ namespace ProyectoAsistencia.Views
         private string fechaActual = "";
         private string horaActual = "";
 
-        public PrincipalEmpleadoPage ()
-		{
-			InitializeComponent ();            
+        public PrincipalEmpleadoPage()
+        {
+            InitializeComponent();
             OnAppearing();
             this.BindingContext = new PrincipalEmpleadoViewModel();
             //LoadItems();            
         }
 
         protected override void OnAppearing()
-        {           
+        {
             base.OnAppearing();
             //estadoHora = "0";
             CargarEmpresas();
             CargarLocaciones();
-            CargarNumerosTarjetero();            
+            CargarNumerosTarjetero();
         }
 
         //private void LoadItems()
@@ -56,7 +57,8 @@ namespace ProyectoAsistencia.Views
 
         private void OnAlarmaClicked(object sender, EventArgs e)
         {
-            modoEmergencia = true;            
+            modoEmergencia = true;
+            FechaActual();
 
             try
             {
@@ -80,6 +82,19 @@ namespace ProyectoAsistencia.Views
 
                     // Agregarlo inicialmente si es necesario
                     ToolbarItems.Add(InfoemergencyItem);
+
+                    // Crear el ToolbarItem
+                    ToolbarItem HomeItem = new ToolbarItem
+                    {
+                        Text = "Home",
+                        IconImageSource = "home.png",
+                        Order = ToolbarItemOrder.Primary,
+                        Priority = 1,
+                        Command = new Command(OnHomeClicked)
+                    };
+
+                    // Agregarlo inicialmente si es necesario
+                    ToolbarItems.Add(HomeItem);
                 }
             }
             catch (Exception ex)
@@ -93,7 +108,18 @@ namespace ProyectoAsistencia.Views
         private async void OnAdministracionClicked(object sender, EventArgs e)
         {
             // Redirige a la página 'SecondPage'
+            if (mdEmergenciaRef.Count < 0)
+            {
+                mdEmergenciaRef = await App.Context.GetHorariosEmergenciaTodos();
+                userRef = await App.Context.GetUsuariosActivos();
+            }
+
             await Navigation.PushAsync(new LoginPage());
+        }
+
+        private async void OnHomeClicked()
+        {            
+            await Navigation.PushAsync(new PrincipalEmpleadoPage());
         }
 
         private async void CargarEmpresas()
@@ -111,7 +137,7 @@ namespace ProyectoAsistencia.Views
 
                 // Enlaza los datos al Picker
                 tipoEmpresaPicker.ItemsSource = listaEmpresas;
-                
+
             }
             catch (Exception ex)
             {
@@ -151,11 +177,11 @@ namespace ProyectoAsistencia.Views
                 string empleadoSearch = EmpleadoEntry.Text;
 
                 // Se actualiza el titulo del tarjetero con el nombre de la empresa seleccionada
-                if(!string.IsNullOrEmpty(empresaSelect) && empresaSelect != "-1" && empresaSelect != "")
+                if (!string.IsNullOrEmpty(empresaSelect) && empresaSelect != "-1" && empresaSelect != "")
                 {
                     LabelTarjetero.Text = empresaSelect;
-                }                               
-                                
+                }
+
                 // Se Obtienen los datos del tarjetero
                 var datosConsulta = !string.IsNullOrEmpty(empresaSelect) && empresaSelect != "-1" && empresaSelect != ""
                                     ? await App.Context.GetNumerosTarjeteroNoDisponiblesXEmpresaAsync(empresaSelect)
@@ -255,7 +281,7 @@ namespace ProyectoAsistencia.Views
             var botonActual = sender as Button;
             // Cambiar el color del botón previamente seleccionado, si existe
             if (modoEmergencia == true)
-            {               
+            {
                 if (botonActual != null)
                 {
                     botonActual.BackgroundColor = Color.LightSkyBlue;
@@ -266,8 +292,8 @@ namespace ProyectoAsistencia.Views
                     // Hay que actualizar el estado actual de los tarjeteros del modo emergencia
                     try
                     {
-                        registroTarjetasSelect.Add(botonActual.Text);                               
-                         
+                        registroTarjetasSelect.Add(botonActual.Text);
+
                         ModoEmergencia registro = new ModoEmergencia()
                         {
                             HoraReporte = horaActual,
@@ -288,7 +314,7 @@ namespace ProyectoAsistencia.Views
                 }
             }
 
-        }              
+        }
 
         private void OnTipoUsuarioPickerChanged(object sender, EventArgs e)
         {
@@ -298,7 +324,7 @@ namespace ProyectoAsistencia.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var registrosActuales = await App.Context.GetHorariosEmergenciaTodos();
-
+            
             if (modoEmergencia != true)
             {
                 if (!string.IsNullOrEmpty(EmpleadoEntry.Text))
@@ -315,6 +341,8 @@ namespace ProyectoAsistencia.Views
             }
             else
             {
+                //await Application.Current.MainPage.DisplayAlert("Numero de registros de tarjetero", Convert.ToString(tarjeteroRef.Count), "OK");
+                //await Application.Current.MainPage.DisplayAlert("Numero de registros en tabla emergencia", Convert.ToString(registrosActuales.Count), "OK");
 
                 for (int i = 0; i < tarjeteroRef.Count; i++)
                 {
@@ -322,52 +350,82 @@ namespace ProyectoAsistencia.Views
                     {
                         var user = await App.Context.GetUsuarioIndividual(Convert.ToString(tarjeteroRef[i].NumeroEnTarjetero));
                         userRef.Add(user); // Lista para guardar los registros de usario que se van a usar en el informe de emergencia
-                        var horas = await App.Context.GetUltimoHorariosUsuario(user.IdentificacionUsuario);                        
+                        var horas = await App.Context.GetUltimoHorariosUsuario(user.IdentificacionUsuario);
 
-                        if (registroTarjetasSelect.Count > 0)
+                        if (horas != null)
                         {
-                            for (int j = 0; j < registroTarjetasSelect.Count; j++)
-                            {                               
-
-                                string numRefTarjetero = Convert.ToString(tarjeteroRef[i].NumeroEnTarjetero);
-                                //string nomRefRegistrosAsalvo = registroTarjetasSelect[j];    
-                                
-                                if (!registroTarjetasSelect.Contains(numRefTarjetero) && registrosActuales[registrosActuales.Count - 1].NumeroTarjeteroReporte != numRefTarjetero)
+                            if (registroTarjetasSelect.Count > 0)
+                            {
+                                for (int j = 0; j < registroTarjetasSelect.Count; j++)
                                 {
-                                    
-                                    //await DisplayAlert("Error", $"En tarjetero: {numRefTarjetero}, a salvo: {nomRefRegistrosAsalvo}", "OK");
 
-                                    ModoEmergencia registro = new ModoEmergencia()
-                                    {
-                                        HoraReporte = horaActual,
-                                        EstadoHoraReporte = horas.EstadoHora != null && horas.EstadoHora != "Ausente" ? "No se presento" : "Ausente",
-                                        AsistenciaRelacionada = fechaActual,
-                                        UsuarioRelacionado = user.IdentificacionUsuario,
-                                        NumeroTarjeteroReporte = numRefTarjetero,
-                                    };
+                                    string numRefTarjetero = Convert.ToString(tarjeteroRef[i].NumeroEnTarjetero);
+                                    //string nomRefRegistrosAsalvo = registroTarjetasSelect[j];    
 
-                                    await App.Context.InsertHoraModoEmergencia(registro);
-                                    registrosActuales = await App.Context.GetHorariosEmergenciaTodos();
+                                    if (!registroTarjetasSelect.Contains(numRefTarjetero) && registrosActuales[registrosActuales.Count - 1].NumeroTarjeteroReporte != numRefTarjetero)
+                                    {                                       
+                                        ModoEmergencia registro = new ModoEmergencia()
+                                        {
+                                            HoraReporte = horaActual,
+                                            EstadoHoraReporte = horas.EstadoHora != null && horas.EstadoHora != "Ausente" ? "No se presento" : "Ausente",
+                                            AsistenciaRelacionada = fechaActual,
+                                            UsuarioRelacionado = user.IdentificacionUsuario,
+                                            NumeroTarjeteroReporte = numRefTarjetero,
+                                        };
+
+                                        await App.Context.InsertHoraModoEmergencia(registro);
+                                        //registrosActuales = await App.Context.GetHorariosEmergenciaTodos();
+                                    }
                                 }
+                            }
+                            else
+                            {
+                                //await Application.Current.MainPage.DisplayAlert("Estado ultimo horario normal registrado", Convert.ToString(horas.EstadoHora), "OK");
+
+                                ModoEmergencia registro = new ModoEmergencia()
+                                {
+                                    HoraReporte = horaActual,
+                                    EstadoHoraReporte = horas.EstadoHora != null && horas.EstadoHora != "Ausente" ? "No se presento" : "Ausente",
+                                    AsistenciaRelacionada = fechaActual,
+                                    UsuarioRelacionado = user.IdentificacionUsuario,
+                                    NumeroTarjeteroReporte = Convert.ToString(tarjeteroRef[i].NumeroEnTarjetero),
+                                };
+
+
+                                await App.Context.InsertHoraModoEmergencia(registro);
                             }
                         }
                         else
                         {
-                            //await DisplayAlert("Error", $"Esta ingresando a la actualizacion Modo Emergencia sin registros previos", "OK");
+                            var mdEmergenciaRef = await App.Context.GetUltimoHorarioModoEmergencia(userRef[i].IdentificacionUsuario);
+                            bool limitadorHora = (TimeSpan.Parse(horaActual).Add((TimeSpan.FromSeconds(-10))) < TimeSpan.Parse(mdEmergenciaRef.HoraReporte));
+                            string estadoRef = "";                           
 
-                            ModoEmergencia registro = new ModoEmergencia()
+                            if (mdEmergenciaRef != null && horas == null)
                             {
-                                HoraReporte = horaActual,
-                                EstadoHoraReporte = horas.EstadoHora != null && horas.EstadoHora != "Ausente" ? "No se presento" : "Ausente",
-                                AsistenciaRelacionada = fechaActual,
-                                UsuarioRelacionado = user.IdentificacionUsuario,
-                                NumeroTarjeteroReporte = Convert.ToString(tarjeteroRef[i].NumeroEnTarjetero),
-                            };
+                                if (limitadorHora)
+                                {
+                                    estadoRef = mdEmergenciaRef.EstadoHoraReporte != null && mdEmergenciaRef.EstadoHoraReporte != "No se presento" ? "A salvo" : "No se presento";
+                                }
+                                else
+                                {
+                                    estadoRef = "No se presento";
+                                }
+
+                                ModoEmergencia registro = new ModoEmergencia()
+                                {
+                                    HoraReporte = horaActual,
+                                    EstadoHoraReporte = estadoRef,
+                                    AsistenciaRelacionada = fechaActual,
+                                    UsuarioRelacionado = user.IdentificacionUsuario,
+                                    NumeroTarjeteroReporte = Convert.ToString(tarjeteroRef[i].NumeroEnTarjetero),
+                                };
 
 
-                            await App.Context.InsertHoraModoEmergencia(registro);
-                            registrosActuales = await App.Context.GetHorariosEmergenciaTodos();
+                                await App.Context.InsertHoraModoEmergencia(registro);                                
+                            }
                         }
+
                     }
                     catch (Exception ex)
                     {
@@ -375,6 +433,7 @@ namespace ProyectoAsistencia.Views
                     }
                 }
 
+                registrosActuales = await App.Context.GetHorariosEmergenciaTodos();
                 modoEmergencia = false;
 
                 if (modoEmergencia == false)
@@ -384,9 +443,9 @@ namespace ProyectoAsistencia.Views
                     EmergencyModo.IsEnabled = true;
                     AdminModo.IsEnabled = true;
                 }
-                
-                Console.WriteLine(registrosActuales);
-                mdEmergenciaRef = registrosActuales; // Lista para guardar los elementos del modo emergencia que se van a usar en el informe
+
+                //Console.WriteLine(registrosActuales);
+                //mdEmergenciaRef = registrosActuales; // Lista para guardar los elementos del modo emergencia que se van a usar en el informe
                 await Navigation.PushAsync(new PrincipalEmpleadoPage());
             }
 
@@ -419,13 +478,13 @@ namespace ProyectoAsistencia.Views
                 }
                 else
                 {
-                   await DisplayAlert("Error", $"Sin usuario de referencia", "OK");
+                    await DisplayAlert("Error", $"Sin usuario de referencia", "OK");
                 }
 
             }
             catch (Exception ex)
             {
-               await DisplayAlert("Error color botones", $"Ocurrió un problema al cargar los datos: {ex.Message}", "OK");
+                await DisplayAlert("Error color botones", $"Ocurrió un problema al cargar los datos: {ex.Message}", "OK");
             }
 
             //var horarios = await App.Context.GetHorariosTodos();
@@ -472,53 +531,128 @@ namespace ProyectoAsistencia.Views
 
         public async void GenerarInformeEmergencia()
         {
-            List<InformeUsuario> infoUsuarios = null;
+            List<string> noReportados = new List<string>();           
 
             try
-            {
-                for (int i = 0; i < mdEmergenciaRef.Count; i++)
-                {
-                    for (int j = 0; j < userRef.Count; j++)
-                    {
-                        if (mdEmergenciaRef[i].UsuarioRelacionado == userRef[j].IdentificacionUsuario)
-                        {
-                            InformeUsuario infoUsuario = new InformeUsuario()
-                            {
-                                IdentificacionUsuario = userRef[j].IdentificacionUsuario,
-                                TipoDocumentoUsuario = userRef[j].TipoDocumentoUsuario,
-                                NombreUsuario = userRef[j].NombreUsuario,
-                                GeneroUsuario = userRef[j].GeneroUsuario,
-                                CargoUsuario = userRef[j].CargoUsuario,
-                                CelularUsuario = userRef[j].CelularUsuario,
-                                CorreoUsuario = userRef[j].CorreoUsuario,
-                                EstadoEmpleado = userRef[j].EstadoEmpleado,
-                                EPSEmpleado = userRef[j].EPSEmpleado,
-                                ARLEmpleado = userRef[j].ARLEmpleado,
-                                TipoSangreUsuario = userRef[j].TipoSangreUsuario,
-                                NumeroContactoEmergencia = userRef[j].NumeroContactoEmergencia,
-                                NombreContactoEmergencia = userRef[j].NombreContactoEmergencia,
-                                TipoUsuario = userRef[j].TipoUsuario,
-                                NumeroTarjetero = userRef[j].NumeroTarjetero,
-                                Empresa = userRef[j].Empresa,
-                                Locacion = userRef[j].Locacion,
-                                HoraReporte = mdEmergenciaRef[i].HoraReporte,
-                                EstadoHoraReporte = mdEmergenciaRef[i].EstadoHoraReporte,
-                                AsistenciaRelacionada = mdEmergenciaRef[i].AsistenciaRelacionada,
-                            };
+            {                
+                userRef = await App.Context.GetUsuariosTodosAsync();
+                //var horas = await App.Context.GetHorariosTodos();                
+                List<usuarioEmergencia> usuariosEmergencia = new List<usuarioEmergencia>();
 
-                            infoUsuarios.Add(infoUsuario);
+
+                for (int i = 0; i < userRef.Count; i++)
+                {
+                    var mdEmergenciaRef = await App.Context.GetUltimoHorarioModoEmergencia(userRef[i].IdentificacionUsuario);
+                                        
+                    bool esMdEmergenciaRef = ( (mdEmergenciaRef != null && (TimeSpan.Parse(horaActual).Add((TimeSpan.FromSeconds(-10))) < TimeSpan.Parse(mdEmergenciaRef.HoraReporte)) ) &&
+                                               (mdEmergenciaRef.AsistenciaRelacionada == fechaActual
+                                               && mdEmergenciaRef.UsuarioRelacionado == userRef[i].IdentificacionUsuario
+                                               && (mdEmergenciaRef.EstadoHoraReporte == "A salvo"))
+                                             );
+
+                    var hora = await App.Context.GetUltimoHorariosUsuario(userRef[i].IdentificacionUsuario);
+
+                    bool esHora = hora != null;
+
+                    bool esHoraRef = ((hora != null) &&
+                                      (hora.UsuarioRelacionado == userRef[i].IdentificacionUsuario
+                                      && hora.AsistenciaRelacionada == fechaActual
+                                      && hora.EstadoHora == "Presente")
+                                     );                    
+
+                    if (hora != null && mdEmergenciaRef != null && userRef != null)
+                    {                        
+
+                        if ((esMdEmergenciaRef == false && esHoraRef) || (esMdEmergenciaRef == false
+                                                                          && hora.AsistenciaRelacionada != fechaActual
+                                                                          && hora.EstadoHora == "Presente")
+                           )
+                        {
+                            if (usuariosEmergencia != null)
+                            {
+                                if (!usuariosEmergencia.Any(u => u.nombre == userRef[i].NombreUsuario && u.numero == userRef[i].NumeroTarjetero))
+                                {
+                                    usuariosEmergencia.Add(new usuarioEmergencia
+                                    {
+                                        nombre = userRef[i].NombreUsuario,
+                                        numero = userRef[i].NumeroTarjetero
+                                    });
+                                }
+                            }
+                            else
+                            {
+                                usuariosEmergencia.Add(new usuarioEmergencia
+                                {
+                                    nombre = userRef[i].NombreUsuario,
+                                    numero = userRef[i].NumeroTarjetero
+                                });
+                            }
+                        }                       
+                    }
+                    else if (mdEmergenciaRef.UsuarioRelacionado != userRef[i].IdentificacionUsuario && !esHora)
+                    {
+                        if (usuariosEmergencia != null)
+                        {
+                            if (!usuariosEmergencia.Any(u => u.nombre == userRef[i].NombreUsuario && u.numero == userRef[i].NumeroTarjetero))
+                            {
+                                usuariosEmergencia.Add(new usuarioEmergencia
+                                {
+                                    nombre = userRef[i].NombreUsuario,
+                                    numero = userRef[i].NumeroTarjetero
+                                });
+                            }
+                        }
+                        else
+                        {
+                            usuariosEmergencia.Add(new usuarioEmergencia
+                            {
+                                nombre = userRef[i].NombreUsuario,
+                                numero = userRef[i].NumeroTarjetero
+                            });
                         }
                     }
+
                 }
+
+                //await Application.Current.MainPage.DisplayAlert("Usuarios que no se reportaron", Convert.ToString(usuariosEmergencia.Count), "OK");
+
+                if (usuariosEmergencia != null && usuariosEmergencia.Count > 0)
+                {
+                    foreach (var usuario in usuariosEmergencia)
+                    {
+                        noReportados.Add($"🔹 Usuario: {usuario.nombre} con numero de tarjetero: {usuario.numero}");
+                    }
+                }
+
+                //Console.WriteLine(noReportados);
+
+                await DisplayAlert(
+                    "📋 Reporte de usuarios Modo Emergencia",
+                     $"{string.Join("\n", noReportados)}",
+                     "OK"
+                );
+
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Error en Generar Informe", $"Ocurrió un problema al cargar los datos: {ex.Message}", "OK");
             }
-            
-        }
-       
 
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            tipoEmpresaPicker.SelectedIndex = -1;
+            tipoLocacionPicker.SelectedIndex = -1;
+
+            CargarNumerosTarjetero();
+        }
+    }
+
+    public class usuarioEmergencia
+    {
+        public string nombre {  get; set; }
+        public string numero { get; set; }
     }
 
 }

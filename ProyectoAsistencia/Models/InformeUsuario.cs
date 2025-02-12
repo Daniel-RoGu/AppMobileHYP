@@ -21,11 +21,14 @@ namespace ProyectoAsistencia.Models
         public string NombreContactoEmergencia { get; set; }
         public string TipoUsuario { get; set; }
         public string NumeroTarjetero { get; set; }
-        public string Pass { get; set; }
+        //public string Pass { get; set; }
         public string Empresa { get; set; }
         public string Locacion { get; set; }
         public string HoraReporte { get; set; }
+        public string HoraIngresa { get; set; }
+        public string HoraSalida { get; set; }
         public string EstadoHoraReporte { get; set; }
-        public string AsistenciaRelacionada { get; set; } 
+        public string EstadoInformeNormal { get; set; }
+        public string AsistenciaRelacionada { get; set; }
     }
 }

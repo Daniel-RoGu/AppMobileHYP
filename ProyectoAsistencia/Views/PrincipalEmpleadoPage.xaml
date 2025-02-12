@@ -11,7 +11,7 @@
                      Clicked="OnAlarmaClicked"
                      x:Name="EmergencyModo"
                      >
-            
+
         </ToolbarItem>
         <ToolbarItem Text="login"
                      IconImageSource="login.png"
@@ -20,10 +20,10 @@
                      Clicked="OnAdministracionClicked"
                      x:Name="AdminModo"
                      >
-            
+
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
         <StackLayout Padding="10">
 
@@ -60,7 +60,7 @@
                                        VerticalOptions="Start" />
                             </ScrollView>
                         </Grid>
-                    </ScrollView>                
+                    </ScrollView>
 
                     <!-- Empresa asociada -->
                     <Label Text="Empresa asociada:"
@@ -82,6 +82,16 @@
                     <Picker x:Name="tipoLocacionPicker" 
                             Title="Selecciona una locacion"
                             SelectedIndexChanged="OnTipoUsuarioPickerChanged"
+                            IsVisible="true"/>
+
+                    <!-- Botón de Buscar -->
+                    <Button Text="Limpiar filtros" 
+                            BackgroundColor="#3A84B2" 
+                            TextColor="White" 
+                            CornerRadius="25"
+                            HeightRequest="50"
+                            Padding="10,0" 
+                            Clicked="Button_Clicked_1"
                             IsVisible="true"/>
 
                     <!-- Numero de identificacion, Nombre o Codigo en tarjetero de usuario -->
@@ -107,9 +117,11 @@
 
                 </StackLayout>
 
-            </ScrollView>           
-            
+            </ScrollView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
+
 

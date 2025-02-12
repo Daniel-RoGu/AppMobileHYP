@@ -67,23 +67,14 @@ namespace ProyectoAsistencia.Views
         private async void LoadItems()
         {
             try
-            {
+            {             
 
-                // Obtén los datos según si se esta buscando un usuario o no
-                //var items = !string.IsNullOrEmpty(idbusqueda) && interruptorAdminPrincipal != true
-                //    ? await App.Context.GetUsuarioBuscado(idbusqueda)
-                //    : await App.Context.GetUsuariosAsync();
-
-                var items = !string.IsNullOrEmpty(idbusqueda) && interruptorAdminPrincipal != true
+                var items = !string.IsNullOrEmpty(idbusqueda)
                             ? await App.Context.GetUsuarioBuscado(idbusqueda)
                             : interruptorAdminPrincipal == true
                                 ? await App.Context.GetUsuariosTodosAsync()
                                 : await App.Context.GetUsuariosAsync();
-
-                // Convertir List a ObservableCollection
-                //UsuariosRef = new ObservableCollection<ProyectoAsistencia.Models.Usuario>(items);
-
-                //var items = await App.Context.GetUsuariosAsync();
+                
 
                 var referencia = new List<Usuario>();
                 var empresaRef = "Sin definir";

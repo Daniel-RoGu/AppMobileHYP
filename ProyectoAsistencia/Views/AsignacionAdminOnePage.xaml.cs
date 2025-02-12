@@ -14,8 +14,16 @@ namespace ProyectoAsistencia.Views
 	public partial class AsignacionAdminOnePage : ContentPage
 	{
         private string identificacion;
+        private bool degradado = false;
+
         public AsignacionAdminOnePage ()
 		{
+			InitializeComponent ();
+		}
+        
+        public AsignacionAdminOnePage (bool esDegrado)
+		{
+            degradado = esDegrado;
 			InitializeComponent ();
 		}
 
@@ -27,24 +35,50 @@ namespace ProyectoAsistencia.Views
             {
                 if (!string.IsNullOrEmpty(identificacion))
                 {
-                    // Mostrar confirmación antes de proceder
-                    bool confirmacion = await Application.Current.MainPage.DisplayAlert(
-                        "Confirmar",
-                        $"¿Está seguro de actualizar al usuario con identificación '{identificacion}' como administrador principal?",
-                        "Sí",
-                        "No"
-                    );
-
-                    // Solo procede si el usuario confirma
-                    if (confirmacion)
+                    if (degradado == false)
                     {
-                        await App.Context.UpdateUsuarioComoAdminOneAsync(identificacion);
-                        await Application.Current.MainPage.DisplayAlert("Éxito", "Usuario actualizado correctamente", "OK");
-                        await Navigation.PushAsync(new MenuAdminPrincipalPage());
+                        // Mostrar confirmación antes de proceder
+                        bool confirmacion = await Application.Current.MainPage.DisplayAlert(
+                            "Confirmar",
+                            $"¿Está seguro de actualizar al usuario con identificación '{identificacion}' como administrador principal?",
+                            "Sí",
+                            "No"
+                        );
+
+                        // Solo procede si el usuario confirma
+                        if (confirmacion)
+                        {
+                            await App.Context.UpdateUsuarioComoAdminOneAsync(identificacion);
+                            await Application.Current.MainPage.DisplayAlert("Éxito", "Usuario actualizado correctamente", "OK");
+                            await Navigation.PushAsync(new MenuAdminPrincipalPage());
+                        }
+                        else
+                        {
+                            await Application.Current.MainPage.DisplayAlert("Cancelado", "Operación cancelada por el usuario", "OK");
+                        }
                     }
                     else
                     {
-                        await Application.Current.MainPage.DisplayAlert("Cancelado", "Operación cancelada por el usuario", "OK");
+                        // Mostrar confirmación antes de proceder
+                        bool confirmacion = await Application.Current.MainPage.DisplayAlert(
+                            "Confirmar",
+                            $"¿Está seguro de actualizar al usuario con identificación '{identificacion}' como empleado?",
+                            "Sí",
+                            "No"
+                        );
+
+                        // Solo procede si el usuario confirma
+                        if (confirmacion)
+                        {
+                            await App.Context.UpdateDesUsuarioComoEmpleadoAsync(identificacion);
+                            await Application.Current.MainPage.DisplayAlert("Éxito", "Usuario actualizado correctamente", "OK");
+                            await Navigation.PushAsync(new MenuAdminPrincipalPage());
+                        }
+                        else
+                        {
+                            await Application.Current.MainPage.DisplayAlert("Cancelado", "Operación cancelada por el usuario", "OK");
+                        }
+                        
                     }
                 }
                 else

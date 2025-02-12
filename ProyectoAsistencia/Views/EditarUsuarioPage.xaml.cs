@@ -17,6 +17,8 @@ namespace ProyectoAsistencia.Views
         public Usuario usuarios { get; set; }
         private string numeroActualTarjetero {  get; set; }
 
+        private string tipoUserRef = "Empleado";
+
         private Button botonSeleccionado;  // Variable global para almacenar el último botón seleccionado
 
         public EditarUsuarioPage(Usuario usuario)
@@ -36,32 +38,39 @@ namespace ProyectoAsistencia.Views
             EntryCargo.Text = usuario.CargoUsuario;
             EntryCelular.Text = usuario.CelularUsuario;
             EntryCorreo.Text = usuario.CorreoUsuario;
-            PickerEstadoEmpleado.SelectedItem = usuario.EstadoEmpleado;
-            PickerEPS.SelectedItem = usuario.EPSEmpleado;
-            PickerARL.SelectedItem = usuario.ARLEmpleado;
+            PickerEstadoEmpleado.SelectedItem = string.IsNullOrEmpty(usuario.EstadoEmpleado) ? "Selecciona un estado" : usuario.EstadoEmpleado;
+            EntryEPS.Text = usuario.EPSEmpleado;
+            EntryARL.Text = usuario.ARLEmpleado;
             PickerTipoSangre.SelectedItem = usuario.TipoSangreUsuario;            
             EntryNombreContactoEmergencia.Text = usuario.NombreContactoEmergencia;
             EntryNumeroContactoEmergencia.Text = usuario.NumeroContactoEmergencia;
-            tipoUsuarioPicker.SelectedItem = usuario.TipoUsuario;
-            tipoEmpresaPicker.SelectedItem = usuario.Empresa;
-            tipoLocacionPicker.SelectedItem = usuario.Locacion;
+            tipoUsuarioPicker.Title = usuario.TipoUsuario;
+            tipoEmpresaPicker.Title = usuario.Empresa;
+            tipoLocacionPicker.Title = usuario.Locacion;
+
             numeroActualTarjetero = usuario.NumeroTarjetero;
+            tipoUserRef = usuario.TipoUsuario;
         }
 
         private async void OnSaveClicked(object sender, EventArgs e)
-        {            
+        {
             bool success = await ActualizarUsuario(usuarios);
 
-            if (success)
+            try
             {
-                await DisplayAlert("Éxito", "Los cambios se han guardado correctamente.", "OK");
-                //await Navigation.PopAsync(); // Volver a la página anterior.
-                await Navigation.PushAsync(new MostrarUsuarioPage());
+                if (success)
+                {
+                    await DisplayAlert("Éxito", "Los cambios se han guardado correctamente.", "OK");
+                    //await Navigation.PopAsync(); // Volver a la página anterior.
+                    await Navigation.PushAsync(new MostrarUsuarioPage());
+                }
+                
             }
-            else
+            catch(Exception ex)
             {
-                await DisplayAlert("Error", "No se pudo guardar los cambios.", "OK");
-            }
+                await DisplayAlert("Error", $"No se pudo guardar los cambios: {ex.Message}", "OK");
+            } 
+
         }
 
         // Método para cancelar los cambios
@@ -73,39 +82,54 @@ namespace ProyectoAsistencia.Views
         // Método para actualizar los datos de la empresa en la base de datos.
         private async Task<bool> ActualizarUsuario(Usuario usuario)
         {
-            var item = new Usuario
+            var item = usuario;           
+
+            try
             {
-                IdentificacionUsuario = EntryIdUsuario.Text,
-                TipoDocumentoUsuario = EntryTipoDocumento.Text,
-                NombreUsuario = EntryNombre.Text,
-                GeneroUsuario = PickerGenero.SelectedItem.ToString(),
-                CargoUsuario = EntryCargo.Text,
-                CelularUsuario = EntryCelular.Text,
-                CorreoUsuario = EntryCorreo.Text,
-                EstadoEmpleado = PickerEstadoEmpleado.SelectedItem.ToString(),
-                EPSEmpleado = PickerEPS.SelectedItem.ToString(),
-                ARLEmpleado = PickerARL.SelectedItem.ToString(),
-                TipoSangreUsuario = PickerTipoSangre.SelectedItem.ToString(),
-                NombreContactoEmergencia = EntryNombreContactoEmergencia.Text,
-                NumeroContactoEmergencia = EntryNumeroContactoEmergencia.Text,
-                TipoUsuario = tipoUsuarioPicker.SelectedItem.ToString(),
-                NumeroTarjetero = botonSeleccionado.Text,
-                Pass = EntryIdUsuario.Text,
-                Empresa = tipoEmpresaPicker.SelectedItem.ToString(),
-                Locacion = tipoLocacionPicker.SelectedItem.ToString()
-            };
+                item = new Usuario
+                {
+                    IdentificacionUsuario = !string.IsNullOrEmpty(EntryIdUsuario?.Text) ? EntryIdUsuario.Text : usuario.IdentificacionUsuario,
+                    TipoDocumentoUsuario = !string.IsNullOrEmpty(EntryTipoDocumento?.Text) ? EntryTipoDocumento.Text : usuario.TipoDocumentoUsuario,
+                    NombreUsuario = !string.IsNullOrEmpty(EntryNombre?.Text) ? EntryNombre.Text : usuario.NombreUsuario,
+                    GeneroUsuario = PickerGenero?.SelectedItem != null ? PickerGenero.SelectedItem.ToString() : usuario.GeneroUsuario,
+                    CargoUsuario = !string.IsNullOrEmpty(EntryCargo?.Text) ? EntryCargo.Text : usuario.CargoUsuario,
+                    CelularUsuario = !string.IsNullOrEmpty(EntryCelular?.Text) ? EntryCelular.Text : usuario.CelularUsuario,
+                    CorreoUsuario = !string.IsNullOrEmpty(EntryCorreo?.Text) ? EntryCorreo.Text : usuario.CorreoUsuario,
+                    EstadoEmpleado = PickerEstadoEmpleado?.SelectedItem != null ? PickerEstadoEmpleado.SelectedItem.ToString() : usuario.EstadoEmpleado,
+                    EPSEmpleado = !string.IsNullOrEmpty(EntryEPS?.Text) ? EntryEPS.Text : usuario.EPSEmpleado,
+                    ARLEmpleado = !string.IsNullOrEmpty(EntryARL?.Text) ? EntryARL.Text : usuario.ARLEmpleado,
+                    TipoSangreUsuario = PickerTipoSangre?.SelectedItem != null ? PickerTipoSangre.SelectedItem.ToString() : usuario.TipoSangreUsuario,
+                    NombreContactoEmergencia = !string.IsNullOrEmpty(EntryNombreContactoEmergencia?.Text) ? EntryNombreContactoEmergencia.Text : usuario.NombreContactoEmergencia,
+                    NumeroContactoEmergencia = !string.IsNullOrEmpty(EntryNumeroContactoEmergencia?.Text) ? EntryNumeroContactoEmergencia.Text : usuario.NumeroContactoEmergencia,
+                    TipoUsuario = tipoUsuarioPicker?.SelectedItem != null ? tipoUsuarioPicker.SelectedItem.ToString() : tipoUserRef,
+                    NumeroTarjetero = botonSeleccionado?.IsPressed == true ? botonSeleccionado.Text ?? numeroActualTarjetero : numeroActualTarjetero,
+                    Pass = !string.IsNullOrEmpty(EntryIdUsuario?.Text) ? EntryIdUsuario.Text : usuario.IdentificacionUsuario,
+                    Empresa = tipoEmpresaPicker?.SelectedItem != null ? tipoEmpresaPicker.SelectedItem.ToString() : usuario.Empresa,
+                    Locacion = tipoLocacionPicker?.SelectedItem != null ? tipoLocacionPicker.SelectedItem.ToString() : usuario.Locacion
+                };                
+
+            }
+            catch (Exception ex)
+            {                
+                await DisplayAlert("Error.",  $"Recuerde llenar todos los campos de seleccion vacios: {ex.Message}", "Ok.");
+            }
 
             //para actualizar el nuevo numero en el tarjetero
             var numerNuevoEnTarjetero = item.NumeroTarjetero;
-            await App.Context.UpdateTarjeteroAsync(item.Empresa, item.Locacion, item.NumeroTarjetero);
 
-            //para limpiar el numero antiguo en el tarjetero
-            if (numeroActualTarjetero != "Sin definir" && numeroActualTarjetero != "")
+            if (!string.IsNullOrEmpty(numerNuevoEnTarjetero) && numerNuevoEnTarjetero != numeroActualTarjetero)
             {
-                await App.Context.UpdateDesTarjeteroAsync(numeroActualTarjetero);
-            }
+                await App.Context.UpdateTarjeteroAsync(item.Empresa, item.Locacion, item.NumeroTarjetero);
 
-            int result = await App.Context.UpdateUsuarioParcialAsync(item);            
+                //para limpiar el numero antiguo en el tarjetero
+                if (numeroActualTarjetero != "Sin definir" && !string.IsNullOrEmpty(numeroActualTarjetero))
+                {
+                    await App.Context.UpdateDesTarjeteroAsync(numeroActualTarjetero);
+                }
+
+            }                      
+
+            int result = await App.Context.UpdateUsuarioParcialAsync(item);
 
             if (result == 1)
             {
@@ -124,7 +148,6 @@ namespace ProyectoAsistencia.Views
             {
                 // Consulta SQL: Obtén los datos con el modelo de la base de datos
                 var datosConsulta = await App.Context.GetEmpresasActivas();
-
                 // Usamos LINQ para proyectar solo la propiedad NombreEmpresa
                 var listaEmpresas = datosConsulta.Select(d => d.NombreEmpresa).ToList();
 
@@ -146,7 +169,6 @@ namespace ProyectoAsistencia.Views
             {
                 // Consulta SQL: Obtén los datos con el modelo de la base de datos
                 var datosConsulta = await App.Context.GetLocacionesActivas();
-
                 // Usamos LINQ para proyectar solo la propiedad NombreLocacion
                 var listaLocaciones = datosConsulta.Select(d => d.NombreLocacion).ToList();
 

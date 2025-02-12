@@ -111,26 +111,11 @@
                        FontSize="16" 
                        TextColor="#424242" 
                        VerticalOptions="Center" />
-                <Picker x:Name="PickerEPS" Title="EPS" SelectedItem="{Binding EPSUsuario}">
-                    <Picker.Items>
-                        <x:String>Sanitas</x:String>
-                        <x:String>Famisanar</x:String>
-                        <x:String>SURA</x:String>
-                        <x:String>Coomeva</x:String>
-                        <x:String>Compensar</x:String>
-                        <x:String>Salud Total</x:String>
-                        <x:String>Medimás</x:String>
-                        <x:String>EPS Sura</x:String>
-                        <x:String>Mutual SER</x:String>
-                        <x:String>Aliansalud</x:String>
-                        <x:String>Emssanar</x:String>
-                        <x:String>Capresoca</x:String>
-                        <x:String>Asmet Salud</x:String>
-                        <x:String>Cafesalud</x:String>
-                        <x:String>Ecoopsos</x:String>
-                        <x:String>Otro</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Entry x:Name="EntryEPS" Placeholder="Ingrese la nueva EPS" 
+                       Text="{Binding EPSEmpleado}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
             </StackLayout>
 
             <!-- Campo para editar ARL -->
@@ -139,21 +124,11 @@
                        FontSize="16" 
                        TextColor="#424242" 
                        VerticalOptions="Center" />
-                <Picker x:Name="PickerARL" Title="ARL" SelectedItem="{Binding ARLUsuario}">
-                    <Picker.Items>
-                        <x:String>ARL SURA</x:String>
-                        <x:String>Colpatria ARL</x:String>
-                        <x:String>Positiva ARL</x:String>
-                        <x:String>Colmena ARL</x:String>
-                        <x:String>ARL Bolívar</x:String>
-                        <x:String>Seguros de Vida Aurora</x:String>
-                        <x:String>Seguros Alfa ARL</x:String>
-                        <x:String>La Equidad Seguros ARL</x:String>
-                        <x:String>Liberty Seguros ARL</x:String>
-                        <x:String>Seguros del Estado ARL</x:String>
-                        <x:String>Otro</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Entry x:Name="EntryARL" Placeholder="Ingrese la nueva ARL" 
+                       Text="{Binding ARLEmpleado}" 
+                       FontSize="Medium" 
+                       BackgroundColor="White" 
+                       TextColor="Black" />
             </StackLayout>
 
             <!-- Campo para editar tipo de sangre -->

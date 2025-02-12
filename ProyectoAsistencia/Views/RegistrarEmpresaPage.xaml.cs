@@ -38,7 +38,7 @@ namespace ProyectoAsistencia.Views
                     NombreEmpresa = Empresa.Text,
                     NITEmpresa = NIT.Text,
                     LogoEmpresa = rutaImg,
-                    EstadoEmpresa = "Activa"
+                    EstadoEmpresa = "Activo"
                 };
 
                 var result = await App.Context.InsertItemAsyn(item);

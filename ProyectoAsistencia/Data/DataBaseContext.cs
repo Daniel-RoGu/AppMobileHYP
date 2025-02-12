@@ -520,7 +520,6 @@ namespace ProyectoAsistencia.Data
         }
 
 
-
         public async Task<List<Usuario>> GetUsuariosActivos()
         {
             // Filtra los usuarios donde el estado es "Activo"
@@ -537,6 +536,13 @@ namespace ProyectoAsistencia.Data
                                    .ToListAsync();
         }
 
+        public async Task<List<Usuario>> GetUsuariosAdminPrincipalActivos()
+        {
+            // Filtra los usuarios de tipo administrador y administrador principal
+            return await Connection.Table<Usuario>()
+                                   .Where(e => e.TipoUsuario == "AdministradorPrincipal")
+                                   .ToListAsync();
+        }
 
         // ASISTENCIA
 
@@ -747,6 +753,12 @@ namespace ProyectoAsistencia.Data
                     "Inactivo", Item.IdentificacionUsuario);
         }
 
+        public async void DeleteRegistrosEmergenciaAsync()
+        {
+            await Connection.ExecuteAsync("DELETE FROM ModoEmergencia");
+
+        }
+
         // ----------------------------------------UpdateItems-----------------------------------------
 
         // Método para actualizar un objeto empresa en la base de datos
@@ -815,7 +827,16 @@ namespace ProyectoAsistencia.Data
                     "Administrador", identificacion, identificacion);
 
         }
-        
+
+        // Método para actualizar el tipo de usuario como empleado 
+        public async Task<int> UpdateDesUsuarioComoEmpleadoAsync(string identificacion)
+        {
+            return await Connection.ExecuteAsync(
+                    "UPDATE Usuario SET TipoUsuario = ? WHERE IdentificacionUsuario = ? OR NombreUsuario = ?",
+                    "Empleado", identificacion, identificacion);
+
+        }
+
         // Método para actualizar el tipo de usuario como administrador principal
         public async Task<int> UpdateUsuarioComoAdminOneAsync(string identificacion)
         {
@@ -925,6 +946,23 @@ namespace ProyectoAsistencia.Data
             {
                 // Consulta en la base de datos para verificar si existe un registro con la identiticacion y el pass del usuario
                 var resultado = await Connection.Table<Usuario>().FirstOrDefaultAsync(r => r.IdentificacionUsuario == identificacion && r.Pass == pass && (r.TipoUsuario == "AdministradorPrincipal" || r.TipoUsuario == "Desarrollador"));
+
+                // Si el resultado no es null, significa que existe al menos un registro
+                return resultado != null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al consultar la base de datos: {ex.Message}");
+                return false; // Devuelve false en caso de error
+            }
+        }
+
+        public async Task<bool> ExisteUsuarioDevAsync(string identificacion, string pass)
+        {
+            try
+            {
+                // Consulta en la base de datos para verificar si existe un registro con la identiticacion y el pass del usuario
+                var resultado = await Connection.Table<Usuario>().FirstOrDefaultAsync(r => r.IdentificacionUsuario == identificacion && r.Pass == pass && r.TipoUsuario == "Desarrollador");
 
                 // Si el resultado no es null, significa que existe al menos un registro
                 return resultado != null;

@@ -4,5 +4,6 @@
     <SelectedDevice>Asus _I005DA</SelectedDevice>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
     <ActiveDebugProfile>Asus _I005DA %28Android 9.0 - API 28%29</ActiveDebugProfile>
+    <DefaultDevice>pixel_7_-_api_35</DefaultDevice>
   </PropertyGroup>
 </Project>

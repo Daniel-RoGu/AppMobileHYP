@@ -141,11 +141,7 @@ namespace ProyectoAsistencia.Views
             catch (Exception ex)
             {
                 // Mostrar error si ocurre un problema
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    $"Ocurrió un problema: {ex.Message}",
-                    "OK"
-                );
+                await DisplayAlert("Error al cargar datos de inicio", $"Ocurrió un problema al cargar los datos: {ex.Message}", "OK");
             }
         }
 

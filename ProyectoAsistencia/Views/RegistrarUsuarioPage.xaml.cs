@@ -313,6 +313,7 @@ namespace ProyectoAsistencia.Views
                     CargoUsuario = CargoEntry.Text,
                     CelularUsuario = CelularEntry.Text,
                     CorreoUsuario = correoEntry.Text,
+                    EstadoEmpleado = "Activo",
                     EPSEmpleado = EPSEntry.Text,
                     ARLEmpleado = ARLEntry.Text,
                     TipoSangreUsuario = (bloodTypePicker.SelectedItem as string) ?? "No seleccionado",
