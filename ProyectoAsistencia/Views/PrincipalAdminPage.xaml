@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.PrincipalAdminPage"
+             Title="Administrador">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="home"
+                     IconImageSource="home.png"
+                     Order="Primary"
+                     Priority="1"
+                     Clicked="OnNavigateButtonClicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView Padding="40">
+            <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="650">
+                <StackLayout x:Name="mainStackLayout" Padding="10" Spacing="30">
+                    <StackLayout>
+                        <Label FontFamily="ManropeBold" FontSize="Title" TextColor="#424242">
+                            Bienvenido administrador
+                        </Label>
+                        <Label FontFamily="Roboto" FontSize="Subtitle">A continuacion temdra a su disposicion las funciones de administrador.</Label>
+                    </StackLayout>
+
+                    <StackLayout Spacing="20">
+                        <StackLayout Orientation="Horizontal" Spacing="30">
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Informes</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion genera los informes normales y de emergencia.</Label>
+                                    </StackLayout>
+
+                                    <FlexLayout>
+                                        <Button Text="Crear"
+                                                BackgroundColor="#00BFA5"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="OnCrearInformeClicked" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Usuarios</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion pemrite gestionar los usuarios.</Label>
+                                    </StackLayout>
+
+                                    <FlexLayout>
+                                        <Button Text="Gestionar"
+                                                BackgroundColor="#0091EA"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="OnGestionUsuariosClicked" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Spacing="30">
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Contrasenia</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion permite cambiar la contrasenia del administrador.</Label>
+                                    </StackLayout>
+                                    
+                                    <FlexLayout>
+                                        <Button Text="Cambiar"
+                                                BackgroundColor="#FF6D00"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="Button_NewPass" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+                            
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Avanzado</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion permite acceder al panel de administrador principal.</Label>
+                                    </StackLayout>
+                                    
+                                    <FlexLayout>
+                                        <Button Text="Acceder"
+                                                BackgroundColor="#6200EA"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="OnPanelAdministradorClicked" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <!--
+                <Button Text="Panel Administrador Principal"
+                        BackgroundColor="White"
+                        TextColor="#004F73"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Clicked="OnPanelAdministradorClicked"
+                        IsVisible="{Binding EsAdminPrincipal}" />
+                -->
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

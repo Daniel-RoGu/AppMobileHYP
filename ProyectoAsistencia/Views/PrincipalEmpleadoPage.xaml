@@ -1,0 +1,152 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.PrincipalEmpleadoPage"
+             Title="Control Asistencia">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="shield"
+                     IconImageSource="shield_lock.png"
+                     Order="Primary"
+                     Priority="1"
+                     Clicked="OnAlarmaClicked"
+                     x:Name="EmergencyModo">
+
+        </ToolbarItem>
+        <ToolbarItem Text="login"
+                     IconImageSource="login.png"
+                     Order="Primary"
+                     Priority="1"
+                     Clicked="OnAdministracionClicked"
+                     x:Name="AdminModo">
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView Padding="40" Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <ScrollView Padding="10" WidthRequest="400">
+                    <StackLayout Padding="10" Spacing="30">
+                        <Frame CornerRadius="15">
+                            <StackLayout Spacing="30">
+                                <StackLayout>
+                                    <Label FontFamily="ManropeBold" FontSize="Title" TextColor="#424242">
+                                        Filtrar
+                                    </Label>
+                                    <Label FontFamily="Roboto" FontSize="Subtitle">Formulario para el filtrado del tarjetero.</Label>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Label Text="Empresa asociada:"
+                                           x:Name="LabelEmpresa"
+                                           FontFamily="ManropeSemiBold"
+                                           FontSize="Body"
+                                           IsVisible="true" />
+                                    <Picker x:Name="tipoEmpresaPicker"
+                                            Title="Selecciona una empresa"
+                                            FontFamily="Roboto"
+                                            FontSize="Body"
+                                            SelectedIndexChanged="OnTipoUsuarioPickerChanged"
+                                            IsVisible="true" />
+                                </StackLayout>
+
+                                <Label Text="Locacion asociada:"
+                                       x:Name="LabelLocacion"
+                                       FontFamily="ManropeSemiBold"
+                                       FontSize="Body"
+                                       IsVisible="true" />
+                                <Picker x:Name="tipoLocacionPicker"
+                                        Title="Selecciona una locacion"
+                                        FontFamily="Roboto"
+                                        FontSize="Body"
+                                        SelectedIndexChanged="OnTipoUsuarioPickerChanged"
+                                        IsVisible="true" />
+
+                                <FlexLayout>
+                                    <Button Text="Limpiar"
+                                            BackgroundColor="#0091EA"
+                                            FontFamily="ManropeSemiBold"
+                                            FontSize="Small"
+                                            CornerRadius="15"
+                                            HeightRequest="40"
+                                            TextTransform="None"
+                                            Clicked="Button_Clicked_1"
+                                            IsVisible="true" />
+                                </FlexLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="15">
+                            <StackLayout Spacing="30">
+                                <StackLayout>
+                                    <Label FontFamily="ManropeBold" FontSize="Title" TextColor="#424242">Marcar asistencia</Label>
+                                    <Label FontFamily="Roboto" FontSize="Subtitle">Por favor ingrese su identificacion para marcar la asistencia</Label>
+                                </StackLayout>
+
+                                <StackLayout>
+                                    <Label Text="Empleado"
+                                           FontFamily="ManropeSemiBold"
+                                           FontSize="Body" />
+                                    <Entry Placeholder="Digite número de identificación"
+                                           x:Name="EmpleadoEntry"
+                                           FontFamily="Roboto"
+                                           FontSize="Body" />
+
+                                </StackLayout>
+
+                                <FlexLayout>
+                                    <Button Text="Marcar"
+                                            BackgroundColor="#FF6D00"
+                                            TextColor="#FFFFFF"
+                                            FontSize="Small"
+                                            CornerRadius="15"
+                                            HeightRequest="40"
+                                            TextTransform="None"
+                                            Clicked="Button_Clicked"
+                                            IsVisible="true"
+                                            x:Name="botonRef" />
+                                </FlexLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                </ScrollView>
+
+                <Frame CornerRadius="15" Padding="20" WidthRequest="700">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <StackLayout HorizontalOptions="Start" Margin="0,0,0,20">
+                                    <Label Text="Tarjetero"
+                                           x:Name="LabelTarjetero"
+                                           FontSize="Title"
+                                           TextColor="#424242"
+                                           VerticalOptions="Start"
+                                           FontFamily="ManropeBold" />
+                                    <Label Text="Numeros del tarjetero"
+                                           FontFamily="Roboto"
+                                           FontSize="Subtitle"
+                                           TextColor="#616161"
+                                           VerticalOptions="Start" />
+                                </StackLayout>
+                                <ScrollView Grid.Row="1"
+                                            Orientation="Both"
+                                            HeightRequest="400"
+                                            WidthRequest="300"
+                                            VerticalOptions="Start">
+                                    <Grid x:Name="gridTarjetero"
+                                          HorizontalOptions="Start"
+                                          VerticalOptions="Start" />
+                                </ScrollView>
+                            </Grid>
+                        </ScrollView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

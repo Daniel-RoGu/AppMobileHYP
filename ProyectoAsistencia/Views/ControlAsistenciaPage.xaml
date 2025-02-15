@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.ControlAsistenciaPage"
+             Title="Estado de asistencia">
+
+    <ContentPage.Content>
+        <ScrollView Padding="40">
+            <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout Spacing="30" Padding="10" WidthRequest="300">
+                    <StackLayout>
+                        <Label Text="Asistencia"
+                               FontFamily="ManropeSemiBold"
+                               FontSize="Title"
+                               Grid.Row="0" />
+                        <Label FontFamily="Roboto"
+                               FontSize="Subtitle">Formulario para el cambio de estado de la asistencia.</Label>
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <Label Text="Ausente"
+                               FontFamily="ManropeBold"
+                               FontSize="Subtitle"
+                               Grid.Column="0"
+                               x:Name="LabelEstadoAsistencia" />
+                        
+                        <Switch x:Name="AsistenciaSwitch"
+                                ThumbColor="White"
+                                OnColor="Green"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Scale="1"
+                                Toggled="AsistenciaSwitch_Toggled" />
+                    </StackLayout>
+                    
+                    <FlexLayout>
+                        <Button Text="Guardar"
+                                BackgroundColor="#0091EA"
+                                FontFamily="ManropeSemiBold"
+                                FontSize="Small"
+                                CornerRadius="15"
+                                HeightRequest="40"
+                                TextTransform="None"
+                                Clicked="Button_Clicked" />
+                    </FlexLayout>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.MenuAdminPrincipalPage"
+             Title="Funciones avanzadas">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="home"
+         IconImageSource="home.png"
+         Order="Primary"
+         Priority="1"
+         Clicked="OnNavigateButtonClicked"
+         >
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView Padding="40">
+            <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="650">
+                <StackLayout Padding="10" Spacing="30">
+                    <StackLayout>
+                        <Label FontFamily="ManropeBold" FontSize="Title" TextColor="#424242">
+                             Administrador principal
+                        </Label>
+                        <Label FontFamily="Roboto" FontSize="Subtitle">A continuacion temdra a su disposicion las funciones del administrador principal.</Label>
+                    </StackLayout>
+                
+                    <StackLayout Spacing="20" >
+                        <StackLayout Orientation="Horizontal" Spacing="30">
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Nuevo administrador</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion genera un nuevo administrador.</Label>
+                                    </StackLayout>
+
+                                    <FlexLayout>
+                                        <Button Text="Asignar"
+                                                BackgroundColor="#00BFA5"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="Button_AsignarAdmin" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+                            
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Nuevo principal</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion genera un nuevo administrador principal.</Label>
+                                    </StackLayout>
+
+                                    <FlexLayout>
+                                        <Button Text="Ascender"
+                                                BackgroundColor="#AA00FF"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="Button_AsignarAdminOne" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Horizontal" Spacing="30">
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Degradar</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion genera degrada un administrador.</Label>
+                                    </StackLayout>
+
+                                    <FlexLayout>
+                                        <Button Text="Degradar"
+                                                BackgroundColor="#304FFE"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="Button_DownAdminOne" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Horizontal" Spacing="30">
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Empresas</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion permite gestionar las empresas.</Label>
+                                    </StackLayout>
+
+                                    <FlexLayout>
+                                        <Button Text="Gestionar"
+                                                BackgroundColor="#FF6D00"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="Button_GestionEmpresas" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+                            
+                            <Frame CornerRadius="15" WidthRequest="250">
+                                <StackLayout Spacing="25">
+                                    <StackLayout>
+                                        <Label FontFamily="ManropeBold" FontSize="Subtitle">Locaciones</Label>
+                                        <Label FontFamily="Roboto" FontSize="Body">Esta funcion permite gestionar las locaciones.</Label>
+                                    </StackLayout>
+
+                                    <FlexLayout>
+                                        <Button Text="Administrar"
+                                                BackgroundColor="#C51162"
+                                                FontFamily="ManropeSemiBold"
+                                                FontSize="Small"
+                                                CornerRadius="15"
+                                                HeightRequest="40"
+                                                TextTransform="None"
+                                                Clicked="Button_GestiónLocaciones" />
+                                    </FlexLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+            </Frame>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
+
+<!-- Header
+                <Grid Padding="10" BackgroundColor="#004F73" HeightRequest="50">
+                    <Label Text="Panel Opciones Administrador"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontAttributes="Bold"
+                           FontSize="18" />
+                    <Button ImageSource="warehouse.png"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            Clicked="OnNavigateButtonClicked"/>
+                </Grid> -->
+
+<!-- Buttons -->
+
+<!-- <Button Text="Asignar usuario administrador" -->
+<!--         BackgroundColor="White" -->
+<!--         TextColor="#004F73" -->
+<!--         FontAttributes="Bold" -->
+<!--         FontSize="16" -->
+<!--         Clicked="Button_AsignarAdmin" /> -->
+
+<!-- <Button Text="Asignar nuevo administrador principal" -->
+<!--         BackgroundColor="White" -->
+<!--         TextColor="#004F73" -->
+<!--         FontAttributes="Bold" -->
+<!--         FontSize="16" -->
+<!--         Clicked="Button_AsignarAdminOne" /> -->
+
+<!-- <Button Text="Degradar administrador" -->
+<!--         BackgroundColor="White" -->
+<!--         TextColor="#004F73" -->
+<!--         FontAttributes="Bold" -->
+<!--         FontSize="16" -->
+<!--         Clicked="Button_DownAdminOne" /> -->
+
+<!-- <Button Text="Gestion de Empresas" -->
+<!--         BackgroundColor="White" -->
+<!--         TextColor="#004F73" -->
+<!--         FontAttributes="Bold" -->
+<!--         FontSize="16" -->
+<!--         Clicked="Button_GestionEmpresas" /> -->
+<!-- -->
+<!-- <Button Text="Gestión de Locaciones" -->
+<!--         BackgroundColor="White" -->
+<!--         TextColor="#004F73" -->
+<!--         FontAttributes="Bold" -->
+<!--         FontSize="16" -->
+<!--         Clicked="Button_GestiónLocaciones" />                     -->

@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProyectoAsistencia.Data.Converters"
+             x:Class="ProyectoAsistencia.Views.MostrarUsuarioPage"
+             Title="Usuarios">
+    <!-- Registra el convertidor 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:TipoUsuarioToVisibilityConverter x:Key="TipoUsuarioToVisibilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources> -->
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="accuracy"
+                     IconImageSource="accuracy.png"
+                     Order="Primary"
+                     Priority="1"
+                     Clicked="OnDesAdminClicked">
+
+        </ToolbarItem>
+        <ToolbarItem Text="home"
+                     IconImageSource="home.png"
+                     Order="Primary"
+                     Priority="1"
+                     Clicked="OnHomeClicked">
+
+        </ToolbarItem>
+        <ToolbarItem Text="addUser"
+                     IconImageSource="addUser.png"
+                     Order="Primary"
+                     Priority="1"
+                     Clicked="OnAddUserClicked">
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView Padding="40">
+            <StackLayout>
+                <StackLayout Margin="10">
+                    <SearchBar x:Name="EmpleadoSearchBar"
+                               Placeholder="Buscar usuario..."
+                               FontFamily="ManropeSeimBold"
+                               TextChanged="OnSearchBarTextChanged" />
+                </StackLayout>
+
+                <CollectionView
+                    x:Name="Lista_Usuarios"
+                    ItemsSource="{Binding Usuarios}"
+                    Margin="40">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="15"></GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame>
+                                <StackLayout Padding="10" Spacing="15">
+                                    <StackLayout>
+                                        <Label Text="{Binding NombreUsuario}" FontFamily="ManropeBold" FontSize="30"
+                                               TextColor="#424242">
+                                        </Label>
+                                        <Label FontFamily="Roboto" FontSize="Subtitle">Informacion del usuario.</Label>
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="10">
+                                        <Label FontFamily="ManropeBold" FontSize="Body" TextColor="#424242">Personal</Label>
+                                        
+                                        <StackLayout Spacing="10">
+                                            <!-- Documento -->
+                                            <!-- <Label FontSize="Small" TextColor="#666"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Identificacion: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding IdentificacionUsuario}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Documento: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding IdentificacionUsuario}"></Label>
+                                            </StackLayout>
+
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Documento: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding TipoDocumentoUsuario}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Tipo: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding TipoDocumentoUsuario}"></Label>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Genero: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding GeneroUsuario}"></Label>
+                                            </StackLayout>
+                                            
+                                            
+                                        </StackLayout>
+
+                                        <!-- <StackLayout> -->
+                                        <!--     <StackLayout Orientation="Horizontal"> -->
+                                        <!--         <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                        <!--             <Label.FormattedText> -->
+                                        <!--                 <FormattedString> -->
+                                        <!--                     ~1~ Título fijo @1@ -->
+                                        <!--                     <Span Text="Genero: " FontAttributes="Bold" /> -->
+                                        <!-- -->
+                                        <!--                     ~1~ Valor enlazado desde la base de datos @1@ -->
+                                        <!--                     <Span Text="{Binding GeneroUsuario}" /> -->
+                                        <!--                 </FormattedString> -->
+                                        <!--             </Label.FormattedText> -->
+                                        <!--         </Label> -->
+                                        <!--     </StackLayout> -->
+                                        <!-- </StackLayout> -->
+                                    </StackLayout>
+
+                                   <StackLayout Orientation="Horizontal" Spacing="100" >
+                                        <StackLayout Spacing="10">
+                                        <Label FontFamily="ManropeBold" FontSize="Body" TextColor="#424242">Contacto</Label>
+                                        
+                                        <StackLayout Spacing="10">
+                                            <!-- Celular Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Celula: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding CelularUsuario}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Celular: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding CelularUsuario}"></Label>
+                                            </StackLayout>
+
+                                            <!-- Correo Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Correo: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding CorreoUsuario}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Correo: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding CorreoUsuario}"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    
+                                    <StackLayout Spacing="10">
+                                        <Label FontFamily="ManropeBold" FontSize="Body" TextColor="#424242">Laboral</Label>
+                                        <StackLayout Spacing="10">
+                                            <!-- Empresa Asociada -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Empresa asociada: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding Empresa}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Empresa: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding Empresa}"></Label>
+                                            </StackLayout>
+
+                                            <!-- Locacion Asociada -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="LocacionAsociada: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding Locacion}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Locacion: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding Locacion}"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                   </StackLayout>
+                                    
+                                    <StackLayout Orientation="Horizontal" Spacing="100" >
+                                        <StackLayout Spacing="10">
+                                        <Label FontFamily="ManropeBold" FontSize="Body" TextColor="#424242">Empresarial</Label>
+                                        <StackLayout Spacing="10">
+                                            <!-- Tipo Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Tipo Usuario: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding TipoUsuario}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Tipo usuario: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding TipoUsuario}"></Label>
+                                            </StackLayout>
+
+                                            <!-- Código Tarjetero Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Código en tarjetero del usuario: " -->
+                                            <!--                   FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding NumeroTarjetero}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Codigo tarjetero: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding NumeroTarjetero}"></Label>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Cargo: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding CargoUsuario}"></Label>
+                                            </StackLayout>
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Estado: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding EstadoEmpleado}"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Orientation="Horizontal">
+                                            <!-- Cargo Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Cargo Usuario: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding CargoUsuario}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            
+                                            <!-- Estado Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Estado Usuario: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding EstadoEmpleado}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                        </StackLayout>
+                                    </StackLayout>
+                                    
+                                    <StackLayout Spacing="10">
+                                        <Label FontFamily="ManropeBold" FontSize="Body" TextColor="#424242">Salud</Label>
+                                        
+                                        <StackLayout Spacing="10">
+                                            <!-- EPS Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="EPS Usuario: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding EPSEmpleado}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">EPS: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding EPSEmpleado}"></Label>
+                                            </StackLayout>
+
+                                            <!-- ARL Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="ARL Usuario: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding ARLEmpleado}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">ARL: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding ARLEmpleado}"></Label>
+                                            </StackLayout>
+
+                                            <!-- Tipo Sangre Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Tipo Sangre Usuario: " FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding TipoSangreUsuario}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Tipo sanguineo: </Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding TipoSangreUsuario}"></Label>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </StackLayout>
+                                    </StackLayout>
+                                    
+                                    <StackLayout Spacing="10">
+                                        <Label FontFamily="ManropeBold" FontSize="Body" TextColor="#424242">Emergencia</Label>
+                                        <StackLayout>
+                                            <!-- Nombre Contacto Emergencia Usuario -->
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Contacto de emergencia: " -->
+                                            <!--                   FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding NombreContactoEmergencia}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+
+                                           <StackLayout Orientation="Horizontal" Spacing="10">
+                                               <Label FontFamily="ManropeMedium">Numero de emergencia: </Label>
+                                               <Label FontFamily="Roboto"  Text="{Binding NumeroContactoEmergencia}"></Label>
+                                           </StackLayout>
+                                            
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Label FontFamily="ManropeMedium">Contacto de emergencia:</Label>
+                                                <Label FontFamily="Roboto"  Text="{Binding NombreContactoEmergencia}"></Label>
+                                            </StackLayout>
+                                            <!-- <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+                                            <!--     <Label.FormattedText> -->
+                                            <!--         <FormattedString> -->
+                                            <!--             ~1~ Título fijo @1@ -->
+                                            <!--             <Span Text="Numero de emergencia: " -->
+                                            <!--                   FontAttributes="Bold" /> -->
+                                            <!-- -->
+                                            <!--             ~1~ Valor enlazado desde la base de datos @1@ -->
+                                            <!--             <Span Text="{Binding NumeroContactoEmergencia}" /> -->
+                                            <!--         </FormattedString> -->
+                                            <!--     </Label.FormattedText> -->
+                                            <!-- </Label> -->
+                                        </StackLayout>
+                                    </StackLayout>
+                                    
+                                    <StackLayout Orientation="Horizontal" Spacing="15" Margin="0,20,0,0">
+                                        <Button Text="Eliminar" BackgroundColor="#F44336" 
+                                                TextColor="White"
+                                                CommandParameter="{Binding .}" 
+                                                Clicked="BtnDelete_Clicked"
+                                                CornerRadius="15" 
+                                                HeightRequest="45" 
+                                                WidthRequest="100"
+                                                FontFamily="ManropeSemiBold" 
+                                                FontSize="Small" TextTransform="None" />
+                                        <Button Text="Editar" BackgroundColor="#FFFF00" TextColor="#000000"
+                                                CommandParameter="{Binding .}" Clicked="BtnEdit_Clicked"
+                                                CornerRadius="15" HeightRequest="45" WidthRequest="100"
+                                                FontFamily="ManropeSemiBold" FontSize="Small" TextTransform="None" />
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+            <!-- <StackLayout> -->
+            <!--     <StackLayout Margin="10"> -->
+            <!--         <SearchBar x:Name="EmpleadoSearchBar" -->
+            <!--                    Placeholder="Buscar usuario..." -->
+            <!--                    FontFamily="ManropeSeimBold" -->
+            <!--                    TextChanged="OnSearchBarTextChanged" /> -->
+            <!--     </StackLayout> -->
+            <!-- -->
+            <!--     ~1~ ListView con diseño más atractivo @1@ -->
+            <!--     <ListView x:Name="Lista_Usuarios" HasUnevenRows="True" SeparatorVisibility="Default"> -->
+            <!--         <ListView.ItemTemplate> -->
+            <!--             <DataTemplate> -->
+            <!--                 <ViewCell> -->
+            <!--                     <Frame CornerRadius="15"> -->
+            <!--                         <StackLayout Padding="10" Spacing="20"> -->
+            <!--                             <StackLayout> -->
+            <!--                                 <Label FontFamily="ManropeBold" FontSize="Title" TextColor="#424242">Informacion del usuario</Label> -->
+            <!--                                 <Label FontFamily="Roboto" FontSize="Body">A continuacion podra ver los datos del usuario.</Label> -->
+            <!--                             </StackLayout> -->
+            <!-- -->
+            <!--                             ~1~ Documento @1@ -->
+            <!--                             <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                 <Label.FormattedText> -->
+            <!--                                     <FormattedString> -->
+            <!--                                         ~1~ Título fijo @1@ -->
+            <!--                                         <Span Text="Identificacion Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                         ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                         <Span Text="{Binding IdentificacionUsuario}" /> -->
+            <!--                                     </FormattedString> -->
+            <!--                                 </Label.FormattedText> -->
+            <!--                             </Label> -->
+            <!-- -->
+            <!--                             ~1~ Tipo documento @1@ -->
+            <!--                             <StackLayout Orientation="Vertical" Spacing="15"> -->
+            <!-- -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Tipo documento: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding TipoDocumentoUsuario}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Nombre Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding NombreUsuario}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Genero Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Genero Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding GeneroUsuario}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Cargo Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Cargo Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding CargoUsuario}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 <StackLayout> -->
+            <!--                                     <StackLayout Orientation="Horizontal" Spacing="20"> -->
+            <!--                                         ~1~ Celular Usuario @1@ -->
+            <!--                                         <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                             <Label.FormattedText> -->
+            <!--                                                 <FormattedString> -->
+            <!--                                                     ~1~ Título fijo @1@ -->
+            <!--                                                     <Span Text="Celular Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                                     ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                                     <Span Text="{Binding CelularUsuario}" /> -->
+            <!--                                                 </FormattedString> -->
+            <!--                                             </Label.FormattedText> -->
+            <!--                                         </Label> -->
+            <!-- -->
+            <!--                                         ~1~ Correo Usuario @1@ -->
+            <!--                                         <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                             <Label.FormattedText> -->
+            <!--                                                 <FormattedString> -->
+            <!--                                                     ~1~ Título fijo @1@ -->
+            <!--                                                     <Span Text="Correo Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                                     ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                                     <Span Text="{Binding CorreoUsuario}" /> -->
+            <!--                                                 </FormattedString> -->
+            <!--                                             </Label.FormattedText> -->
+            <!--                                         </Label> -->
+            <!--                                     </StackLayout> -->
+            <!--                                 </StackLayout> -->
+            <!-- -->
+            <!--                                 ~1~ Estado Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Estado Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding EstadoEmpleado}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ EPS Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="EPS Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding EPSEmpleado}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ ARL Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="ARL Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding ARLEmpleado}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Tipo Sangre Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Tipo Sangre Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding TipoSangreUsuario}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Nombre Contacto Emergencia Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Nombre de contacto de emergencia Usuario: " -->
+            <!--                                                   FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding NombreContactoEmergencia}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Numero Contacto Emergencia Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Numero de contacto de emergencia Usuario: " -->
+            <!--                                                   FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding NumeroContactoEmergencia}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Tipo Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Tipo Usuario: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding TipoUsuario}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Código Tarjetero Usuario @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Código en tarjetero del usuario: " -->
+            <!--                                                   FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding NumeroTarjetero}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Empresa Asociada @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="Empresa asociada: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding Empresa}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Locacion Asociada @1@ -->
+            <!--                                 <Label FontSize="Small" TextColor="#666" FontAttributes="Bold"> -->
+            <!--                                     <Label.FormattedText> -->
+            <!--                                         <FormattedString> -->
+            <!--                                             ~1~ Título fijo @1@ -->
+            <!--                                             <Span Text="LocacionAsociada: " FontAttributes="Bold" /> -->
+            <!-- -->
+            <!--                                             ~1~ Valor enlazado desde la base de datos @1@ -->
+            <!--                                             <Span Text="{Binding Locacion}" /> -->
+            <!--                                         </FormattedString> -->
+            <!--                                     </Label.FormattedText> -->
+            <!--                                 </Label> -->
+            <!-- -->
+            <!--                                 ~1~ Botones de Eliminar y Editar @1@ -->
+            <!--                                 <StackLayout Orientation="Horizontal" Spacing="10" -->
+            <!--                                              x:Name="mainControlLayout"> -->
+            <!--                                     <Button Text="Editar" -->
+            <!--                                             FontFamily="ManropeSemiBold" -->
+            <!--                                             FontSize="Small" -->
+            <!--                                             CornerRadius="15" -->
+            <!--                                             HeightRequest="40" -->
+            <!--                                             TextTransform="None" -->
+            <!--                                             BackgroundColor="#0091EA" -->
+            <!--                                             CommandParameter="{Binding .}" Clicked="BtnEdit_Clicked" /> -->
+            <!-- -->
+            <!--                                     <Button Text="Eliminar" -->
+            <!--                                             FontFamily="ManropeSemiBold" -->
+            <!--                                             FontSize="Small" -->
+            <!--                                             CornerRadius="15" -->
+            <!--                                             HeightRequest="40" -->
+            <!--                                             TextTransform="None" -->
+            <!--                                             BackgroundColor="#D50000" -->
+            <!--                                             CommandParameter="{Binding .}" Clicked="BtnDelete_Clicked" /> -->
+
+            <!--                                 <Button x:Name="BotonInhabilitarAdmin"  -->
+            <!--                                         Text="Inhabilitar Admin"  -->
+            <!--                                         BackgroundColor="RoyalBlue"  -->
+            <!--                                         TextColor="White"  -->
+            <!--                                         Clicked="BotonInhabilitarAdmin_Clicked_1"  -->
+            <!--                                         CornerRadius="20"  -->
+            <!--                                         HeightRequest="40"  -->
+            <!--                                         HorizontalOptions="FillAndExpand"  -->
+            <!--                                         IsVisible="false"/> -->
+
+            <!--                                 </StackLayout> -->
+            <!-- -->
+            <!--                             </StackLayout> -->
+            <!-- -->
+            <!--                         </StackLayout> -->
+            <!--                     </Frame> -->
+            <!--                 </ViewCell> -->
+            <!--             </DataTemplate> -->
+            <!--         </ListView.ItemTemplate> -->
+            <!--     </ListView> -->
+            <!-- </StackLayout> -->
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+<!-- ~1~ Botón de volver @1@ -->
+<!-- <Button Text="Volver" BackgroundColor="Red" TextColor="White" CornerRadius="20"  -->
+<!--         VerticalOptions="End" Margin="0,20,0,0" HeightRequest="50"  -->
+<!--         Clicked="OnNavigateButtonClicked"/> -->

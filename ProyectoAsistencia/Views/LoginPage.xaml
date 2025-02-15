@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProyectoAsistencia.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             Title="Acceso">
+
+    <ContentPage.Content>
+        <ScrollView Padding="40">
+            <Frame CornerRadius="15" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="400">
+                <StackLayout Padding="10" Spacing="30">
+                    <StackLayout>
+                        <Label FontFamily="ManropeBold" FontSize="Title" TextColor="#424242">
+                            Inicio de sesion
+                        </Label>
+                        <Label FontFamily="Roboto" FontSize="Subtitle">Formulario para acceder a las funciones de administrador.</Label>
+                    </StackLayout>
+
+
+                    <StackLayout>
+                        <Label Text="Identificación"
+                               FontFamily="ManropeSemiBold"
+                               FontSize="Body" />
+                        
+                        <Entry x:Name="identificacionEntry"
+                               Placeholder="Ingresa tu identificación"
+                               FontFamily="Roboto"
+                               FontSize="Body" />
+                    </StackLayout>
+
+
+                    <StackLayout>
+                        <Label Text="Contraseña"
+                               FontFamily="ManropeSemiBold"
+                               FontSize="Body" />
+                        
+                        <Entry x:Name="contrasenaEntry"
+                               Placeholder="Ingresa tu contraseña"
+                               FontFamily="Roboto"
+                               FontSize="Body" />
+
+                    </StackLayout>
+
+                    <FlexLayout Direction="Row" JustifyContent="SpaceBetween" AlignItems="Center">
+                        <!-- Botón de Login -->
+                        <Button Text="Acceder"
+                                BackgroundColor="#0091EA"
+                                FontFamily="ManropeSemiBold"
+                                FontSize="Small"
+                                CornerRadius="15"
+                                HeightRequest="50"
+                                TextTransform="None"
+                                Clicked="Button_Clicked" />
+
+                        <!-- Enlace para recuperar contraseña -->
+                        <Button Text="¿Olvidaste tu contraseña?"
+                                FontSize="Small"
+                                FontFamily="Roboto"
+                                TextColor="#007AFF"
+                                BackgroundColor="Transparent"
+                                BorderWidth="0"
+                                HorizontalOptions="Center"
+                                Margin="0,10"
+                                TextTransform="None"
+                                Clicked="Button_Clicked_1" />
+                    </FlexLayout>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

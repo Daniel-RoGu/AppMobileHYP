@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.RegistrarUsuarioPage"
+             Title="Nuevo usuario">
+    <ContentPage.Content>
+        <ScrollView Padding="40">
+            <StackLayout  Orientation="Horizontal" Spacing="30">
+                <Frame HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       CornerRadius="10"
+                       WidthRequest="700">
+                    
+                    <StackLayout Spacing="30" Padding="10">
+                        <StackLayout Spacing="10">
+                            <Label Text="Registrar usuario" FontFamily="ManropeBold" FontSize="30"
+                                   TextColor="#424242">
+                            </Label>
+                            <Label
+                                Text="Formulario registrar un nuevo usuario en la base de datos."
+                                FontFamily="Roboto"
+                                FontSize="Body">
+                            </Label>
+                        </StackLayout>
+                        
+                        <StackLayout Spacing="30">
+                            <Grid ColumnSpacing="20" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <!-- Columna 1: Ocupa una parte igual del espacio -->
+                                    <ColumnDefinition Width="*" />
+                                    <!-- Columna 2: Ocupa una parte igual del espacio -->
+                                    <ColumnDefinition Width="*" />
+                                    <!-- Columna 3: Ocupa una parte igual del espacio -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Tipo de identificación -->
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Tipo de identificación"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575"
+                                           HorizontalOptions="FillAndExpand" />
+                                    <Picker x:Name="tipoIdentificacionPicker"
+                                            FontFamily="Roboto"
+                                            FontSize="Body"
+                                            Title="Selecciona un tipo de identificación"
+                                            HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+
+                                <!-- Género -->
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="Genero"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Picker x:Name="GeneroPicker"
+                                            Title="Seleccione su genero"
+                                            FontFamily="Roboto"
+                                            FontSize="Body"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="FillAndExpand">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Hombre</x:String>
+                                                <x:String>Mujer</x:String>
+                                                <x:String>Otro</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                </StackLayout>
+
+                                <!-- Tipo de sangre -->
+                                <StackLayout Grid.Column="2">
+                                    <Label Text="Tipo de sangre"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Picker x:Name="bloodTypePicker"
+                                            Title="Tipo de Sangre"
+                                            FontFamily="Roboto"
+                                            FontSize="Body"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="FillAndExpand">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>A+</x:String>
+                                                <x:String>A-</x:String>
+                                                <x:String>B+</x:String>
+                                                <x:String>B-</x:String>
+                                                <x:String>AB+</x:String>
+                                                <x:String>AB-</x:String>
+                                                <x:String>O+</x:String>
+                                                <x:String>O-</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                </StackLayout>
+                            </Grid>
+                            
+                            <Grid ColumnSpacing="20" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" /> <!-- Columna 1: Ocupa una parte igual del espacio -->
+                                    <ColumnDefinition Width="*" /> <!-- Columna 2: Ocupa una parte igual del espacio -->
+                                    <ColumnDefinition Width="*" /> <!-- Columna 3: Ocupa una parte igual del espacio -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Identificación -->
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Identificación"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="IdentificacionEntry"
+                                           Placeholder="Ingresa tu identificación"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333"
+                                           HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+
+                                <!-- Nombre completo -->
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="Nombre completo"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="NombreEntry"
+                                           Placeholder="Ingresa tu nombre completo"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333"
+                                           HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+
+                                <!-- Cargo -->
+                                <StackLayout Grid.Column="2">
+                                    <Label Text="Cargo"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="CargoEntry"
+                                           Placeholder="Ingresa tu cargo"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333"
+                                           HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                            </Grid>
+                            
+                            <Grid ColumnSpacing="20"> <!-- Espacio entre columnas -->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" /> <!-- Columna 1: Ocupa la mitad del espacio -->
+                                    <ColumnDefinition Width="*" /> <!-- Columna 2: Ocupa la otra mitad del espacio -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- EPS -->
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="EPS"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="EPSEntry"
+                                           Placeholder="Ingresa tu EPS"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333" />
+                                </StackLayout>
+
+                                <!-- ARL -->
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="ARL"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="ARLEntry"
+                                           Placeholder="Ingresa tu ARL"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333" />
+                                </StackLayout>
+                            </Grid>
+                            
+                            <Grid ColumnSpacing="20" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" /> <!-- Columna 1: Ocupa una parte igual del espacio -->
+                                    <ColumnDefinition Width="*" /> <!-- Columna 2: Ocupa una parte igual del espacio -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Contacto de emergencia -->
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Contacto de emergencia"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="ContactoEmergenciaEntry"
+                                           Placeholder="Ingresa el nombre del contacto de emergencia"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333"
+                                           HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+
+                                <!-- Teléfono contacto de emergencia -->
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="Teléfono contacto de emergencia"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="NumeroEmergenciaEntry"
+                                           Placeholder="Ingresa el teléfono del contacto de emergencia"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333"
+                                           HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                            </Grid>
+                            
+                            <Grid ColumnSpacing="20" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" /> <!-- Columna 1: Ocupa una parte igual del espacio -->
+                                    <ColumnDefinition Width="*" /> <!-- Columna 2: Ocupa una parte igual del espacio -->
+                                    <ColumnDefinition Width="*" /> <!-- Columna 3: Ocupa una parte igual del espacio -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Empresa asociada -->
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Empresa asociada"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Picker x:Name="tipoEmpresaPicker"
+                                            FontFamily="Roboto"
+                                            FontSize="Body"
+                                            Title="Selecciona una empresa"
+                                            HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+
+                                <!-- Locación asociada -->
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="Locacion asociada"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Picker x:Name="tipoLocacionPicker"
+                                            FontFamily="Roboto"
+                                            FontSize="Body"
+                                            Title="Selecciona una locacion"
+                                            HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+
+                                <!-- Tipo de usuario -->
+                                <StackLayout Grid.Column="2">
+                                    <Label Text="Tipo usuario"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Picker x:Name="tipoUsuarioPicker"
+                                            FontFamily="Roboto"
+                                            FontSize="Body"
+                                            Title="Selecciona el tipo de usuario"
+                                            SelectedIndexChanged="OnTipoUsuarioPickerChanged"
+                                            HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                            </Grid>
+
+                            <Grid ColumnSpacing="20" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" /> <!-- Columna 1: Ocupa una parte igual del espacio -->
+                                    <ColumnDefinition Width="*" /> <!-- Columna 2: Ocupa una parte igual del espacio -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Correo -->
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Correo"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="correoEntry"
+                                           Placeholder="Ingresa tu correo electrónico"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333"
+                                           HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+
+                                <!-- Celular -->
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="Celular"
+                                           FontFamily="ManropeSemibold"
+                                           FontSize="Body"
+                                           TextColor="#757575" />
+                                    <Entry x:Name="CelularEntry"
+                                           Placeholder="Ingresa tu número de celular"
+                                           FontFamily="Roboto"
+                                           FontSize="Body"
+                                           TextColor="#333"
+                                           HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                        
+                        <FlexLayout>
+                            <Button Text="Guardar"
+                                    FontFamily="ManropeSemibold"
+                                    BackgroundColor="#0091EA"
+                                    TextColor="#FFFFFF"
+                                    TextTransform="None"
+                                    FontSize="Small"
+                                    CornerRadius="15"
+                                    HeightRequest="50"
+                                    HorizontalOptions="FillAndExpand"
+                                    Clicked="ButtonGuardar_Clicked" />
+                        </FlexLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Formulario -->
+                <!-- <Frame BackgroundColor="White" CornerRadius="10" Padding="20"> -->
+                <!--     <StackLayout Spacing="15"> -->
+                        <!-- Identificación -->
+                        <!-- <Label Text="Identificación:" FontSize="16" TextColor="#0D47A1" /> -->
+                        <!-- <Entry x:Name="IdentificacionEntry" Placeholder="Ingresa tu identificación" FontSize="16" TextColor="#333" /> -->
+                        <!-- -->
+                        <!-- Tipo de identificación -->
+                        <!-- <Label Text="Tipo de identificación:"  -->
+                        <!--        FontSize="16"  -->
+                        <!--        TextColor="#0D47A1" /> -->
+                        <!-- -->
+                        <!-- <Picker x:Name="tipoIdentificacionPicker"  -->
+                        <!--         Title="Selecciona un tipo de identificación"/> -->
+
+
+                        <!-- Nombre completo -->
+                        <!-- <Label Text="Nombre completo:" FontSize="16" TextColor="#0D47A1" /> -->
+                        <!-- <Entry x:Name="NombreEntry" Placeholder="Ingresa tu nombre completo" FontSize="16" TextColor="#333" /> -->
+
+                        <!-- Genero -->
+                        <!-- <Label Text="Genero:"  -->
+                        <!--        FontSize="16"  -->
+                        <!--        TextColor="#0D47A1" /> -->
+                        <!-- <Picker x:Name="GeneroPicker" -->
+                        <!--         Title="Genero" -->
+                        <!--         VerticalOptions="Center" -->
+                        <!--         HorizontalOptions="FillAndExpand"> -->
+                        <!--     ~1~ Opciones del Picker @1@ -->
+                        <!--     <Picker.ItemsSource> -->
+                        <!--         <x:Array Type="{x:Type x:String}"> -->
+                        <!--             <x:String>Hombre</x:String> -->
+                        <!--             <x:String>Mujer</x:String> -->
+                        <!--             <x:String>Otro</x:String> -->
+                        <!--         </x:Array> -->
+                        <!--     </Picker.ItemsSource> -->
+                        <!-- </Picker> -->
+
+                        <!-- Cargo -->
+                        <!-- <Label Text="Cargo:" FontSize="16" TextColor="#0D47A1" /> -->
+                        <!-- <Entry x:Name="CargoEntry" Placeholder="Ingresa tu cargo" FontSize="16" TextColor="#333" /> -->
+                        <!-- -->
+                        <!-- ~1~ Celular @1@ -->
+                        <!-- <Label Text="Celular:" FontSize="16" TextColor="#0D47A1"/> -->
+                        <!-- <Entry x:Name="CelularEntry" Placeholder="Ingresa tu número de celular" FontSize="16" TextColor="#333" /> -->
+                        <!-- -->
+                        <!-- ~1~ EPS @1@ -->
+                        <!-- <Label Text="EPS:" FontSize="16" TextColor="#0D47A1" /> -->
+                        <!-- <Entry x:Name="EPSEntry" Placeholder="Ingresa tu EPS" FontSize="16" TextColor="#333" /> -->
+                        <!-- -->
+                        <!-- ~1~ ARL @1@ -->
+                        <!-- <Label Text="ARL:" FontSize="16" TextColor="#0D47A1" /> -->
+                        <!-- <Entry x:Name="ARLEntry" Placeholder="Ingresa tu ARL" FontSize="16" TextColor="#333" /> -->
+                        <!-- -->
+                        <!-- ~1~ Tipo de sangre @1@ -->
+                        <!-- <Label Text="Selecciona tu tipo de sangre:"  -->
+                        <!--        FontSize="16" -->
+                        <!--        TextColor="#0D47A1" -->
+                        <!--        /> -->
+
+                        <!-- <Picker x:Name="bloodTypePicker" -->
+                        <!--         Title="Tipo de Sangre" -->
+                        <!--         VerticalOptions="Center" -->
+                        <!--         HorizontalOptions="FillAndExpand"> -->
+                        <!--     ~1~ Opciones del Picker @1@ -->
+                        <!--     <Picker.ItemsSource> -->
+                        <!--         <x:Array Type="{x:Type x:String}"> -->
+                        <!--             <x:String>A+</x:String> -->
+                        <!--             <x:String>A-</x:String> -->
+                        <!--             <x:String>B+</x:String> -->
+                        <!--             <x:String>B-</x:String> -->
+                        <!--             <x:String>AB+</x:String> -->
+                        <!--             <x:String>AB-</x:String> -->
+                        <!--             <x:String>O+</x:String> -->
+                        <!--             <x:String>O-</x:String> -->
+                        <!--         </x:Array> -->
+                        <!--     </Picker.ItemsSource> -->
+                        <!-- </Picker> -->
+
+                        <!-- Contacto de emergencia -->
+                        <!-- <Label Text="Nombre contacto de emergencia:" FontSize="16" TextColor="#0D47A1"/> -->
+                        <!-- <Entry x:Name="ContactoEmergenciaEntry" Placeholder="Ingresa el nombre del contacto de emergencia" FontSize="16" TextColor="#333" /> -->
+                        <!-- -->
+                        <!-- <Label Text="Teléfono contacto de emergencia:" FontSize="16" TextColor="#0D47A1" /> -->
+                        <!-- <Entry x:Name="NumeroEmergenciaEntry" Placeholder="Ingresa el teléfono del contacto de emergencia" FontSize="16" TextColor="#333" /> -->
+                        <!-- -->
+                        <!-- ~1~ Empresa asociada @1@ -->
+                        <!-- <Label Text="Empresa asociada:"  -->
+                        <!--        FontSize="16"  -->
+                        <!--        TextColor="#0D47A1" /> -->
+                        <!-- -->
+                        <!-- <Picker x:Name="tipoEmpresaPicker"  -->
+                        <!--         Title="Selecciona una empresa"/> -->
+                        <!-- -->
+                        <!-- ~1~ Locacion asociada @1@ -->
+                        <!-- <Label Text="Locacion asociada:"  -->
+                        <!--        FontSize="16"  -->
+                        <!--        TextColor="#0D47A1" /> -->
+                        <!-- -->
+                        <!-- <Picker x:Name="tipoLocacionPicker"  -->
+                        <!--         Title="Selecciona una locacion"/> -->
+                        <!-- -->
+                        <!-- ~1~ Tipo de usuario @1@ -->
+                        <!-- <Label Text="Tipo Usuario:" FontSize="16" TextColor="#0D47A1" /> -->
+                        <!-- <Picker x:Name="tipoUsuarioPicker"  -->
+                        <!--         Title="Selecciona el tipo de usuario" -->
+                        <!--         SelectedIndexChanged="OnTipoUsuarioPickerChanged"/> -->
+                        <!-- -->
+                        <!-- ~1~ Correo @1@ -->
+                        <!-- <Label Text="Correo:" FontSize="16" TextColor="#0D47A1" /> -->
+                        <!-- <Entry x:Name="correoEntry" Placeholder="Ingresa tu correo electrónico" FontSize="16" TextColor="#333" /> -->
+
+                <!--     </StackLayout> -->
+                <!-- </Frame> -->
+
+                <!-- Tarjetero -->
+                <Frame CornerRadius="15" HorizontalOptions="FillAndExpand">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <!-- Para el Label -->
+                            <RowDefinition Height="*" />
+                            <!-- Para el ScrollView -->
+                        </Grid.RowDefinitions>
+                        
+                        <StackLayout Grid.Row="0">
+                            <Label Text="Tarjetero"
+                                   FontSize="Title"
+                                   FontFamily="ManropeBold"
+                                   TextColor="#424242"
+                                   VerticalOptions="Start"
+                                   Grid.Row="0" />
+                            
+                            <Label Text="Números del Tarjetero"
+                                   FontSize="Subtitle"
+                                   FontFamily="Roboto"
+                                   VerticalOptions="Start"
+                                   Grid.Row="0" />
+                        </StackLayout>
+                        
+                        <ScrollView Grid.Row="1" Margin="0,15,0,0"
+                                    Orientation="Both"
+                                    HeightRequest="400" 
+                                    WidthRequest="500"
+                                    VerticalOptions="Start">
+                            
+                            <Grid x:Name="gridTarjetero" 
+                                  HorizontalOptions="Start" 
+                                  VerticalOptions="Start" />
+                        </ScrollView>
+                    </Grid>
+                </Frame>
+
+
+                <!-- Botón de Guardar -->
+                <!-- <Button Text="Guardar" -->
+                <!--         BackgroundColor="#0D47A1" -->
+                <!--         TextColor="White" -->
+                <!--         FontSize="18" -->
+                <!--         CornerRadius="25" -->
+                <!--         HeightRequest="50" -->
+                <!--         HorizontalOptions="FillAndExpand"  -->
+                <!--         Clicked="ButtonGuardar_Clicked"/> -->
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

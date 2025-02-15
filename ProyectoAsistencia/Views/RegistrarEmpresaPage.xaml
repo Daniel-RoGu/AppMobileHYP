@@ -1,0 +1,75 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.RegistrarEmpresaPage"
+            Title="Registrar empresa">
+    
+    <ContentPage.Content>
+        <ScrollView Padding="40">
+            <Frame HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   CornerRadius="10"
+                   WidthRequest="350">
+                <StackLayout Spacing="25">
+                    <StackLayout>
+                        <Label FontFamily="ManropeBold" FontSize="Title" TextColor="#424242">Agregar empresa</Label>
+                        <Label FontFamily="Roboto" FontSize="Subtitle">Formulario para agregar una empresa al registro.</Label>
+                    </StackLayout>
+                   
+                    <StackLayout>
+                        <Label Text="Nombre"
+                               FontFamily="ManropeSemiBold"
+                               FontSize="Body"
+                               TextColor="#757575"
+                               WidthRequest="120" />
+                        
+                        <Entry Placeholder="Nombre de la empresa"
+                               FontFamily="Roboto"
+                               FontSize="Body"
+                               BackgroundColor="White"
+                               TextColor="Black"
+                               HorizontalOptions="FillAndExpand"
+                               x:Name="Empresa" />
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <Label Text="NIT"
+                               FontFamily="ManropeSemiBold"
+                               FontSize="Body"
+                               WidthRequest="120" />
+                        
+                        <Entry Placeholder="NIT de la empresa"
+                               FontFamily="Roboto"
+                               FontSize="Body"
+                               BackgroundColor="White"
+                               TextColor="Black"
+                               HorizontalOptions="FillAndExpand"
+                               x:Name="NIT" />
+                    </StackLayout>
+
+
+                    <FlexLayout>
+                        <Button Text="📁  Elegir imagen"
+                                FontSize="Small"
+                                FontFamily="ManropeSemiBold"
+                                BackgroundColor="#FF6D00"
+                                TextColor="#FFFFFF"
+                                WidthRequest="150"
+                                TextTransform="None"
+                                CornerRadius="15"
+                                Clicked="OnSelectImageClicked" />
+                    </FlexLayout>
+                    
+                    <FlexLayout JustifyContent="End">
+                        <Button x:Name="BtnGuardar" 
+                                Text="Agregar" 
+                                CornerRadius="25"
+                                FontFamily="ManropeSemiBold"
+                                FontSize="Small"
+                                TextTransform="None"
+                                Clicked="ButtonGuardar_Clicked"></Button>
+                    </FlexLayout>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

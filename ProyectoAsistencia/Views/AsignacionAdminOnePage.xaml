@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.AsignacionAdminOnePage"
+             Title="Nuevo administrador principal">
+    <ContentPage.Content>
+        <!-- <ScrollView> -->
+        <!--     <StackLayout Padding="20" VerticalOptions="Center"> -->
+        <!--         ~1~ Logo @1@ -->
+        <!--         <Image Source="security.png" HeightRequest="100" Margin="0,0,0,20" HorizontalOptions="Center" /> -->
+        <!-- -->
+        <!--         ~1~ Identificación - Nombre - del usuario @1@ -->
+        <!--         <Label Text="Identificación o nombre completo del nuevo administrador" -->
+        <!--                FontSize="18" -->
+        <!--                TextColor="#333" -->
+        <!--                HorizontalOptions="Start" -->
+        <!--                Margin="0,0,0,5" /> -->
+        <!-- -->
+        <!--         <Frame CornerRadius="8" BackgroundColor="White" Padding="10" HasShadow="True"> -->
+        <!--             <Entry x:Name="identificacionEntry" -->
+        <!--                    Placeholder="Ingresa identificación o nombre del usuario" -->
+        <!--                    PlaceholderColor="#888" -->
+        <!--                    FontSize="16" -->
+        <!--                    TextColor="#333"/> -->
+        <!--         </Frame> -->
+        <!-- -->
+        <!--         ~1~ Botón de Guardar @1@ -->
+        <!--         <Button Text="Guardar" -->
+        <!--                 BackgroundColor="#007AFF" -->
+        <!--                 TextColor="White" -->
+        <!--                 FontSize="18" -->
+        <!--                 CornerRadius="10" -->
+        <!--                 HeightRequest="50" -->
+        <!--                 Margin="0,20,0,0" -->
+        <!--                 Clicked="Button_Clicked" /> -->
+        <!-- -->
+        <!--     </StackLayout> -->
+        <!-- </ScrollView> -->
+        
+         <ScrollView Padding="40">
+            <Frame HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   CornerRadius="10"
+                   WidthRequest="350">
+                <StackLayout Padding="20" VerticalOptions="Center" Spacing="30">
+                    <StackLayout>
+                        <Label Text="{Binding title}" FontFamily="ManropeBold" FontSize="Title" TextColor="#424242"></Label>
+                        <Label Text="{Binding label}" FontFamily="Roboto" FontSize="Subtitle"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Identificación"
+                               FontFamily="ManropeSemibold"
+                               FontSize="Body"
+                               TextColor="#616161"
+                               HorizontalOptions="Start"
+                               Margin="0,0,0,5" />
+                        
+                            <Entry x:Name="identificacionEntry"
+                                   FontFamily="Roboto"
+                                   Placeholder="Identificación/Nonombre del usuario"
+                                   PlaceholderColor="#888"
+                                   FontSize="Body"
+                                   TextColor="#333" />
+                        
+                    </StackLayout>
+
+                    <FlexLayout>
+                        <!-- Botón de Guardar -->
+                        <Button Text="{Binding button_text}"
+                                TextTransform="None"
+                                FontFamily="ManropeSemiBold"
+                                BackgroundColor="#FFFF00"
+                                TextColor="#000000"
+                                FontSize="Small"
+                                CornerRadius="15"
+                                HeightRequest="40"
+                                WidthRequest="115"
+                                Margin="0,20,0,0"
+                                Clicked="Button_Clicked"
+                                />
+                    </FlexLayout>
+
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

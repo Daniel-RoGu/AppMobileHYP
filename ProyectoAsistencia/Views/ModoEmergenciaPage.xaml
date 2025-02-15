@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoAsistencia.Views.ModoEmergenciaPage"
+             Title="Vista Modo Emergencia">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#0082A6" Padding="10">
+            <!-- Header -->
+            <Grid Padding="10" BackgroundColor="#004F73" HeightRequest="50">
+                <Label Text="Vista Modo Emergencia"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="18" />
+                <Button Text="Informe Ausentes"
+                        BackgroundColor="White"
+                        TextColor="#004F73"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center" />
+            </Grid>
+
+            <!-- Main Grid -->
+            <Grid ColumnSpacing="5" RowSpacing="5" Padding="10">
+                <!-- Define Columns and Rows -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Populate Cells -->
+                <!-- Example Row -->
+                <Label Grid.Row="0" Grid.Column="0" Text="No se presentó"
+                       BackgroundColor="Yellow"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Presente"
+                       BackgroundColor="Green"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                <Label Grid.Row="0" Grid.Column="2" Text="Ausente"
+                       BackgroundColor="Red"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                <Label Grid.Row="0" Grid.Column="3" Text="A salvo"
+                       BackgroundColor="Blue"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                <Label Grid.Row="0" Grid.Column="4" Text="A salvo"
+                       BackgroundColor="Blue"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+                <Label Grid.Row="0" Grid.Column="5" Text="A salvo"
+                   BackgroundColor="Blue"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center" />
+
+                <!-- Add more content dynamically -->
+            </Grid>
+
+            <!-- Footer Inputs -->
+            <StackLayout Padding="10">
+                <Entry Placeholder="Empresa"
+                       BackgroundColor="White"
+                       TextColor="Black" />
+                <Entry Placeholder="Empleado"
+                       BackgroundColor="White"
+                       TextColor="Black" />
+                <Entry Placeholder="Digite número de identificación"
+                       BackgroundColor="White"
+                       TextColor="Black" />
+                <Button Text="Buscar"
+                        BackgroundColor="#004F73"
+                        TextColor="White" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
