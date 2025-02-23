@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Vz+BH+vNwh0=",
+  "dgSpecHash": "TAqsWI1odEU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
+  "projectFilePath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daniel\\.nuget\\packages\\acr.userdialogs\\8.0.0\\acr.userdialogs.8.0.0.nupkg.sha512",
     "C:\\Users\\daniel\\.nuget\\packages\\closedxml\\0.104.2\\closedxml.0.104.2.nupkg.sha512",

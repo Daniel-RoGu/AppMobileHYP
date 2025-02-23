@@ -19,8 +19,6 @@ namespace ProyectoAsistencia.Views
         public Usuario usuarios { get; set; }
 
         private string idbusqueda = "";
-        string identificacion = "";
-        string pass = "";
 
         public DesHabilitarAdminPage ()
 		{

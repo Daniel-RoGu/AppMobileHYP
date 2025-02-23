@@ -232,10 +232,13 @@ namespace ProyectoAsistencia.Views
                     var boton = new Button
                     {
                         Text = listaNumeros[i].ToString(),
+                        CornerRadius = 10,
                         WidthRequest = 60,
-                        HeightRequest = 50,
-                        BackgroundColor = Color.White,
-                        TextColor = Color.FromHex("#004F73"),
+                        HeightRequest = 60,
+                        BackgroundColor = Color.FromHex("#0091EA"),
+                        FontFamily = "ManropeBold",
+                        FontSize = 16,
+                        TextColor = Color.FromHex("#000000"),
                     };
 
                     // Asignar el evento Clicked al botón

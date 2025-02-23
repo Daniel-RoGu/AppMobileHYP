@@ -2,80 +2,147 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAsistencia.Views.RegistrarLocacionPage"
-             BackgroundColor="#E6F2F5"
-             Title="Registrar Locación Nueva">
+             Title="Registrar locación ">
 
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" Padding="5" Spacing="10">
-
-            <!-- Encabezado -->
-            <Frame BackgroundColor="#0A4F6E" CornerRadius="5" Padding="10" HorizontalOptions="FillAndExpand">
-                <StackLayout Orientation="Horizontal" Spacing="5">
-                    <Image Source="home_icon.png" HeightRequest="30" WidthRequest="30" />
-                    <Label Text="Registro de Locación"
-                           HorizontalOptions="CenterAndExpand"
-                           VerticalTextAlignment="Center"
-                           FontSize="16"
-                           FontAttributes="Bold"
-                           TextColor="White" />
+        <ScrollView Padding="40">
+            <Frame HorizontalOptions="Center"
+               VerticalOptions="Center"
+               CornerRadius="10"
+               WidthRequest="350">
+            <StackLayout Spacing="25" Padding="10">
+                <StackLayout>
+                    <Label FontFamily="ManropeBold" FontSize="Title" TextColor="#424242">Agregar locación</Label>
+                    <Label FontFamily="Roboto" FontSize="Subtitle">Formulario para agregar una nueva locación al registro.</Label>
                 </StackLayout>
-            </Frame>
 
-            <!-- Contenido Principal -->
-            <StackLayout Spacing="10" Padding="5">
-
-                <!-- Nombre Locación -->
-                <Frame CornerRadius="5" Padding="8" BackgroundColor="White">
+                <StackLayout Spacing="15">
                     <StackLayout Spacing="2">
-                        <Label Text="Nombre Locación" 
-                               FontSize="14" 
-                               TextColor="#0A4F6E" />
-                        <Entry Placeholder="Ingrese el nombre de la locación" 
-                               BackgroundColor="#F5F5F5" 
-                               TextColor="Black" 
-                               FontSize="14"
+                        <Label Text="Nombre del pozo"
+                               FontFamily="ManropeSemibBold"
+                               FontSize="Body"
+                               TextColor="#757575" />
+                        <Entry Placeholder="Ingrese el nombre de la locación"
+                               BackgroundColor="#FFFFFF"
+                               TextColor="Black"
+                               FontFamily="Roboto"
+                               FontSize="Body"
                                x:Name="NombreLocacion" />
                     </StackLayout>
-                </Frame>
-
-                <!-- RIG -->
-                <Frame CornerRadius="5" Padding="8" BackgroundColor="White">
+                    
                     <StackLayout Spacing="2">
-                        <Label Text="RIG" 
-                               FontSize="14" 
-                               TextColor="#0A4F6E" />
-                        <Entry Placeholder="Ingrese el RIG" 
-                               BackgroundColor="#F5F5F5" 
-                               TextColor="Black" 
-                               FontSize="14"
+                        <Label Text="RIG"
+                               FontFamily="ManropeSemibBold"
+                               FontSize="Body"
+                               TextColor="#757575" />
+                        
+                        <Entry Placeholder="Ingrese el RIG"
+                               BackgroundColor="#FFFFFF"
+                               TextColor="Black"
+                               FontFamily="Roboto"
+                               FontSize="Body"
                                x:Name="RIG" />
                     </StackLayout>
-                </Frame>
-
-                <!-- Pozo -->
-                <Frame CornerRadius="5" Padding="8" BackgroundColor="White">
+                    
                     <StackLayout Spacing="2">
-                        <Label Text="Pozo" 
-                               FontSize="14" 
-                               TextColor="#0A4F6E" />
-                        <Entry Placeholder="Ingrese el nombre del pozo" 
-                               BackgroundColor="#F5F5F5" 
-                               TextColor="Black" 
-                               FontSize="14"
+                        <Label Text="Vereda - Municipio"
+                               FontFamily="ManropeSemibBold"
+                               FontSize="Body"
+                               TextColor="#757575" />
+                        <Entry Placeholder="Ingrese el nombre del pozo"
+                               FontFamily="Roboto"
+                               FontSize="Body"
+                               BackgroundColor="#FFFFFF"
+                               TextColor="Black"
                                x:Name="NombrePozo" />
                     </StackLayout>
-                </Frame>
+                </StackLayout>
 
-                <!-- Botón Guardar -->
-                <Button Text="Guardar" 
-                        BackgroundColor="#1E88E5" 
-                        TextColor="White" 
-                        FontSize="14" 
-                        CornerRadius="15" 
-                        HeightRequest="45" 
-                        HorizontalOptions="FillAndExpand"
-                        Clicked="ButtonGuardar_Clicked" />
+                <FlexLayout>
+                    <Button Text="Guardar"
+                            BackgroundColor="#2962FF"
+                            TextColor="White"
+                            FontSize="Small"
+                            CornerRadius="15"
+                            HeightRequest="45"
+                            HorizontalOptions="FillAndExpand"
+                            FontFamily="ManropeSemibBold"
+                            TextTransform="None"
+                            Clicked="ButtonGuardar_Clicked" />
+                </FlexLayout>
             </StackLayout>
-        </StackLayout>
+        </Frame>
+        </ScrollView>
+        <!-- <StackLayout VerticalOptions="FillAndExpand" Padding="5" Spacing="10"> -->
+        <!-- -->
+        <!--     ~1~ Encabezado @1@ -->
+        <!--     <Frame BackgroundColor="#0A4F6E" CornerRadius="5" Padding="10" HorizontalOptions="FillAndExpand"> -->
+        <!--         <StackLayout Orientation="Horizontal" Spacing="5"> -->
+        <!--             <Image Source="home_icon.png" HeightRequest="30" WidthRequest="30" /> -->
+        <!--             <Label Text="Registro de Locación" -->
+        <!--                    HorizontalOptions="CenterAndExpand" -->
+        <!--                    VerticalTextAlignment="Center" -->
+        <!--                    FontSize="16" -->
+        <!--                    FontAttributes="Bold" -->
+        <!--                    TextColor="White" /> -->
+        <!--         </StackLayout> -->
+        <!--     </Frame> -->
+        <!-- -->
+        <!--     ~1~ Contenido Principal @1@ -->
+        <!--     <StackLayout Spacing="10" Padding="5"> -->
+        <!-- -->
+        <!--         ~1~ Nombre Locación @1@ -->
+        <!--         <Frame CornerRadius="5" Padding="8" BackgroundColor="White"> -->
+        <!--             <StackLayout Spacing="2"> -->
+        <!--                 <Label Text="Nombre Locación"  -->
+        <!--                        FontSize="14"  -->
+        <!--                        TextColor="#0A4F6E" /> -->
+        <!--                 <Entry Placeholder="Ingrese el nombre de la locación"  -->
+        <!--                        BackgroundColor="#F5F5F5"  -->
+        <!--                        TextColor="Black"  -->
+        <!--                        FontSize="14" -->
+        <!--                        x:Name="NombreLocacion" /> -->
+        <!--             </StackLayout> -->
+        <!--         </Frame> -->
+        <!-- -->
+        <!--         ~1~ RIG @1@ -->
+        <!--         <Frame CornerRadius="5" Padding="8" BackgroundColor="White"> -->
+        <!--             <StackLayout Spacing="2"> -->
+        <!--                 <Label Text="RIG"  -->
+        <!--                        FontSize="14"  -->
+        <!--                        TextColor="#0A4F6E" /> -->
+        <!--                 <Entry Placeholder="Ingrese el RIG"  -->
+        <!--                        BackgroundColor="#F5F5F5"  -->
+        <!--                        TextColor="Black"  -->
+        <!--                        FontSize="14" -->
+        <!--                        x:Name="RIG" /> -->
+        <!--             </StackLayout> -->
+        <!--         </Frame> -->
+        <!-- -->
+        <!--         ~1~ Pozo @1@ -->
+        <!--         <Frame CornerRadius="5" Padding="8" BackgroundColor="White"> -->
+        <!--             <StackLayout Spacing="2"> -->
+        <!--                 <Label Text="Pozo"  -->
+        <!--                        FontSize="14"  -->
+        <!--                        TextColor="#0A4F6E" /> -->
+        <!--                 <Entry Placeholder="Ingrese el nombre del pozo"  -->
+        <!--                        BackgroundColor="#F5F5F5"  -->
+        <!--                        TextColor="Black"  -->
+        <!--                        FontSize="14" -->
+        <!--                        x:Name="NombrePozo" /> -->
+        <!--             </StackLayout> -->
+        <!--         </Frame> -->
+        <!-- -->
+        <!--         ~1~ Botón Guardar @1@ -->
+        <!--         <Button Text="Guardar"  -->
+        <!--                 BackgroundColor="#1E88E5"  -->
+        <!--                 TextColor="White"  -->
+        <!--                 FontSize="14"  -->
+        <!--                 CornerRadius="15"  -->
+        <!--                 HeightRequest="45"  -->
+        <!--                 HorizontalOptions="FillAndExpand" -->
+        <!--                 Clicked="ButtonGuardar_Clicked" /> -->
+        <!--     </StackLayout> -->
+        <!-- </StackLayout> -->
     </ContentPage.Content>
 </ContentPage>

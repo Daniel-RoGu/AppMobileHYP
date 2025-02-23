@@ -38,7 +38,7 @@ namespace ProyectoAsistencia.Views
             base.OnAppearing();
             //estadoHora = "0";
             CargarEmpresas();
-            CargarLocaciones();
+            //CargarLocaciones();
             CargarNumerosTarjetero();
         }
 
@@ -108,14 +108,23 @@ namespace ProyectoAsistencia.Views
 
         private async void OnAdministracionClicked(object sender, EventArgs e)
         {
-            // Redirige a la página 'SecondPage'
-            if (mdEmergenciaRef.Count < 0)
-            {
-                mdEmergenciaRef = await App.Context.GetHorariosEmergenciaTodos();
-                userRef = await App.Context.GetUsuariosActivos();
-            }
+            bool esDev = await App.Context.ExisteUsuarioDev();
 
-            await Navigation.PushAsync(new LoginPage());
+            if (!esDev)
+            {
+                await Navigation.PushAsync(new ArranqueDevPage());
+            }
+            else
+            {
+                // Redirige a la página 'SecondPage'
+                if (mdEmergenciaRef.Count < 0)
+                {
+                    mdEmergenciaRef = await App.Context.GetHorariosEmergenciaTodos();
+                    userRef = await App.Context.GetUsuariosActivos();
+                }
+
+                await Navigation.PushAsync(new LoginPage());
+            }
         }
 
         private async void OnHomeClicked()
@@ -147,27 +156,27 @@ namespace ProyectoAsistencia.Views
             }
         }
 
-        private async void CargarLocaciones()
-        {
-            try
-            {
-                // Consulta SQL: Obtén los datos con el modelo de la base de datos
-                var datosConsulta = await App.Context.GetLocacionesActivas();
+        //private async void CargarLocaciones()
+        //{
+        //    try
+        //    {
+        //        // Consulta SQL: Obtén los datos con el modelo de la base de datos
+        //        var datosConsulta = await App.Context.GetLocacionesActivas();
 
-                // Usamos LINQ para proyectar solo la propiedad NombreLocacion
-                var listaLocaciones = datosConsulta.Select(d => d.NombreLocacion).ToList();
+        //        // Usamos LINQ para proyectar solo la propiedad NombreLocacion
+        //        var listaLocaciones = datosConsulta.Select(d => d.NombreLocacion).ToList();
 
-                // Ahora, listaTipoDocumento contiene solo los valores de NombreLocacion
+        //        // Ahora, listaTipoDocumento contiene solo los valores de NombreLocacion
 
 
-                // Enlaza los datos al Picker
-                tipoLocacionPicker.ItemsSource = listaLocaciones;
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error en las Locaciones", $"Ocurrió un problema al cargar los datos: {ex.Message}", "OK");
-            }
-        }
+        //        // Enlaza los datos al Picker
+        //        tipoLocacionPicker.ItemsSource = listaLocaciones;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await DisplayAlert("Error en las Locaciones", $"Ocurrió un problema al cargar los datos: {ex.Message}", "OK");
+        //    }
+        //}
 
         private async void CargarNumerosTarjetero()
         {
@@ -175,8 +184,11 @@ namespace ProyectoAsistencia.Views
             {
                 // Se obtienen los datos seleccionados por el usuario en la vista
                 string empresaSelect = tipoEmpresaPicker.SelectedItem?.ToString() ?? string.Empty;
-                string locacionSelect = tipoLocacionPicker.SelectedItem?.ToString() ?? string.Empty;
+                //string locacionSelect = tipoLocacionPicker.SelectedItem?.ToString() ?? string.Empty;
                 string empleadoSearch = EmpleadoEntry.Text;
+
+                bool esEmpresa = !string.IsNullOrEmpty(empresaSelect) && empresaSelect != "-1" && empresaSelect != "";
+                //bool esLocacion = !string.IsNullOrEmpty(locacionSelect) && locacionSelect != "-1" && locacionSelect != "";
 
                 // Se actualiza el titulo del tarjetero con el nombre de la empresa seleccionada
                 if (!string.IsNullOrEmpty(empresaSelect) && empresaSelect != "-1" && empresaSelect != "")
@@ -185,12 +197,17 @@ namespace ProyectoAsistencia.Views
                 }
 
                 // Se Obtienen los datos del tarjetero
-                var datosConsulta = !string.IsNullOrEmpty(empresaSelect) && empresaSelect != "-1" && empresaSelect != ""
-                                    ? await App.Context.GetNumerosTarjeteroNoDisponiblesXEmpresaAsync(empresaSelect)
-                                    : !string.IsNullOrEmpty(locacionSelect) && locacionSelect != "-1" && locacionSelect != ""
-                                    ? await App.Context.GetNumerosTarjeteroNoDisponiblesXEmpresaLocacionAsync(empresaSelect, locacionSelect)
-                                    //: !string.IsNullOrEmpty(empleadoSearch) && empleadoSearch != ""
-                                    //? await App.Context.GetUsuarioBuscadoIndividual(empleadoSearch)
+                //var datosConsulta = esEmpresa == true && esLocacion == false
+                //                    ? await App.Context.GetNumerosTarjeteroNoDisponiblesXEmpresaAsync(empresaSelect)
+                //                    : esEmpresa == true && esLocacion == true
+                //                    ? await App.Context.GetNumerosTarjeteroNoDisponiblesXEmpresaLocacionAsync(empresaSelect, locacionSelect)
+                //                    //: !string.IsNullOrEmpty(empleadoSearch) && empleadoSearch != ""
+                //                    //? await App.Context.GetUsuarioBuscadoIndividual(empleadoSearch)
+                //                    : await App.Context.GetNumerosTarjeteroNoDisponiblesAsync();
+
+                // Se Obtienen los datos del tarjetero
+                var datosConsulta = esEmpresa == true
+                                    ? await App.Context.GetNumerosTarjeteroNoDisponiblesXEmpresaAsync(empresaSelect)                                    
                                     : await App.Context.GetNumerosTarjeteroNoDisponiblesAsync();
 
                 //var datosUsuario = await App.Context.GetUsuariosActivos();
@@ -247,20 +264,23 @@ namespace ProyectoAsistencia.Views
 
                     if (estadoHora == "0" || estadoHora == "Ausente")
                     {
-                        color = Color.Red;
+                        color = Color.FromHex("#FF1744");
                     }
                     else
                     {
-                        color = Color.Green;
+                        color = Color.FromHex("#76FF03");
                     }
 
                     var boton = new Button
                     {
+                        FontFamily = "ManropeBold",
+                        CornerRadius = 10,
+                        FontSize = 20,
                         Text = listaNumeros[i].ToString(),
                         WidthRequest = 60,
-                        HeightRequest = 50,
+                        HeightRequest = 60,
                         BackgroundColor = color,
-                        TextColor = Color.FromHex("#004F73"),
+                        TextColor = Color.FromHex("#212121"),
                     };
 
                     // Asignar el evento Clicked al botón
@@ -326,7 +346,7 @@ namespace ProyectoAsistencia.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var registrosActuales = await App.Context.GetHorariosEmergenciaTodos();
-            await Application.Current.MainPage.DisplayAlert("Registros de emergencia", Convert.ToString(registrosActuales.Count), "OK");
+            //await Application.Current.MainPage.DisplayAlert("Registros de emergencia", Convert.ToString(registrosActuales.Count), "OK");
 
             if (modoEmergencia != true)
             {
@@ -336,7 +356,7 @@ namespace ProyectoAsistencia.Views
 
                     EmpleadoEntry.Text = string.Empty;
                     tipoEmpresaPicker.SelectedIndex = -1;
-                    tipoLocacionPicker.SelectedIndex = -1;
+                    //tipoLocacionPicker.SelectedIndex = -1;
 
                     // Acción cuando el botón es presionado
                     await Navigation.PushAsync(new ControlAsistenciaPage(referencia));
@@ -401,10 +421,10 @@ namespace ProyectoAsistencia.Views
 
 
                                 if (!registrosActuales.Any(u => u.HoraReporte == registro.HoraReporte && u.EstadoHoraReporte == registro.EstadoHoraReporte
-                                                                   && u.AsistenciaRelacionada == registro.AsistenciaRelacionada && u.UsuarioRelacionado == registro.UsuarioRelacionado
-                                                                   && u.NumeroTarjeteroReporte == registro.NumeroTarjeteroReporte
-                                                                   )
-                                            )
+                                                                && u.AsistenciaRelacionada == registro.AsistenciaRelacionada && u.UsuarioRelacionado == registro.UsuarioRelacionado
+                                                                && u.NumeroTarjeteroReporte == registro.NumeroTarjeteroReporte
+                                                          )
+                                   )
                                 {
                                     await App.Context.InsertHoraModoEmergencia(registro);
                                 }
@@ -438,10 +458,10 @@ namespace ProyectoAsistencia.Views
 
 
                                 if (!registrosActuales.Any(u => u.HoraReporte == registro.HoraReporte && u.EstadoHoraReporte == registro.EstadoHoraReporte
-                                                                   && u.AsistenciaRelacionada == registro.AsistenciaRelacionada && u.UsuarioRelacionado == registro.UsuarioRelacionado
-                                                                   && u.NumeroTarjeteroReporte == registro.NumeroTarjeteroReporte
-                                                                   )
-                                            )
+                                                                && u.AsistenciaRelacionada == registro.AsistenciaRelacionada && u.UsuarioRelacionado == registro.UsuarioRelacionado
+                                                                && u.NumeroTarjeteroReporte == registro.NumeroTarjeteroReporte
+                                                          )
+                                   )
                                 {
                                     await App.Context.InsertHoraModoEmergencia(registro);
                                 }
@@ -469,7 +489,7 @@ namespace ProyectoAsistencia.Views
 
                 //Console.WriteLine(registrosActuales);
                 //mdEmergenciaRef = registrosActuales; // Lista para guardar los elementos del modo emergencia que se van a usar en el informe
-                await Application.Current.MainPage.DisplayAlert("Registros de emergencia", Convert.ToString(registrosActuales.Count), "OK");
+                //await Application.Current.MainPage.DisplayAlert("Registros de emergencia", Convert.ToString(registrosActuales.Count), "OK");
                 await Navigation.PushAsync(new PrincipalEmpleadoPage());
             }
 
@@ -616,7 +636,8 @@ namespace ProyectoAsistencia.Views
                                     usuariosEmergencia.Add(new usuarioEmergencia
                                     {
                                         nombre = userRef[i].NombreUsuario,
-                                        numero = userRef[i].NumeroTarjetero
+                                        numero = userRef[i].NumeroTarjetero,
+                                        empresa = userRef[i].Empresa    
                                     });
                                 }
                             }
@@ -625,7 +646,8 @@ namespace ProyectoAsistencia.Views
                                 usuariosEmergencia.Add(new usuarioEmergencia
                                 {
                                     nombre = userRef[i].NombreUsuario,
-                                    numero = userRef[i].NumeroTarjetero
+                                    numero = userRef[i].NumeroTarjetero,
+                                    empresa = userRef[i].Empresa
                                 });
                             }
                         }
@@ -640,7 +662,8 @@ namespace ProyectoAsistencia.Views
                                 usuariosEmergencia.Add(new usuarioEmergencia
                                 {
                                     nombre = userRef[i].NombreUsuario,
-                                    numero = userRef[i].NumeroTarjetero
+                                    numero = userRef[i].NumeroTarjetero,
+                                    empresa = userRef[i].Empresa
                                 });
                             }
                         }
@@ -649,7 +672,8 @@ namespace ProyectoAsistencia.Views
                             usuariosEmergencia.Add(new usuarioEmergencia
                             {
                                 nombre = userRef[i].NombreUsuario,
-                                numero = userRef[i].NumeroTarjetero
+                                numero = userRef[i].NumeroTarjetero,
+                                empresa = userRef[i].Empresa
                             });
                         }
                     }
@@ -662,7 +686,7 @@ namespace ProyectoAsistencia.Views
                 {
                     foreach (var usuario in usuariosEmergencia)
                     {
-                        noReportados.Add($"🔹 Usuario: {usuario.nombre} con numero de tarjetero: {usuario.numero}");
+                        noReportados.Add($"🔹 Empleado {usuario.nombre} con numero de tarjetero {usuario.numero} de la empresa {usuario.empresa}");
                     }
                 }
 
@@ -685,7 +709,7 @@ namespace ProyectoAsistencia.Views
         private void Button_Clicked_1(object sender, EventArgs e)
         {
             tipoEmpresaPicker.SelectedIndex = -1;
-            tipoLocacionPicker.SelectedIndex = -1;
+            //tipoLocacionPicker.SelectedIndex = -1;
 
             CargarNumerosTarjetero();
         }
@@ -695,6 +719,7 @@ namespace ProyectoAsistencia.Views
     {
         public string nombre {  get; set; }
         public string numero { get; set; }
+        public string empresa { get; set; }
     }
 
 }

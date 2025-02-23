@@ -974,6 +974,23 @@ namespace ProyectoAsistencia.Data
             }
         }
 
+        public async Task<bool> ExisteUsuarioDev()
+        {
+            try
+            {
+                // Consulta en la base de datos para verificar si existe un registro con el tipo de usuario
+                var resultado = await Connection.Table<Usuario>().FirstOrDefaultAsync(r => r.TipoUsuario == "Desarrollador");
+
+                // Si el resultado no es null, significa que existe al menos un registro
+                return resultado != null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al consultar la base de datos: {ex.Message}");
+                return false; // Devuelve false en caso de error
+            }
+        }
+
         public async Task<bool> ExisteUsuarioAdminAsync(string identificacion, string pass)
         {
             try

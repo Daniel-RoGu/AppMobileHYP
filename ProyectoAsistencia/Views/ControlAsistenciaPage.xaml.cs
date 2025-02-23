@@ -37,8 +37,7 @@ namespace ProyectoAsistencia.Views
             userRef = user != null
                       ? user.IdentificacionUsuario
                       : null;
-
-            Console.WriteLine(userRef);
+                        
             ControlLabelEstadoAsistencia();
         }
         
@@ -53,8 +52,6 @@ namespace ProyectoAsistencia.Views
                 interruptorAsistencia = asistencia != null && asistencia.LastOrDefault()?.EstadoHora == "Ausente"
                                         ? false
                                         : true;
-
-                Console.WriteLine(asistencia);
             }           
                         
         }
@@ -128,13 +125,13 @@ namespace ProyectoAsistencia.Views
 
             if (interruptorAsistencia)
             {
-                LabelEstadoAsistencia.Text = "Presente";
+                LabelEstadoAsistencia.Text = "En locacion";
                 // Actualiza el Switch en función del Label
-                AsistenciaSwitch.IsToggled = LabelEstadoAsistencia.Text == "Presente";
+                AsistenciaSwitch.IsToggled = LabelEstadoAsistencia.Text == "En locacion";
             }
             else
             {
-                LabelEstadoAsistencia.Text = "Ausente";
+                LabelEstadoAsistencia.Text = "Fuera de locacion";
             }
 
         }

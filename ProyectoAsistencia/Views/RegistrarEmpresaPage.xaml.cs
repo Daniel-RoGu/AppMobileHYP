@@ -16,7 +16,7 @@ namespace ProyectoAsistencia.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarEmpresaPage : ContentPage
     {
-        public string rutaImg { get; set; }
+        private string rutaImg;
 
         public RegistrarEmpresaPage()
         {
@@ -26,7 +26,7 @@ namespace ProyectoAsistencia.Views
 
         private async void ButtonGuardar_Clicked(object sender, EventArgs e)
         {
-            if (rutaImg == "" || rutaImg == null)
+            if (!string.IsNullOrEmpty(rutaImg))
             {
                 rutaImg = "Sin logo";
             }
@@ -65,51 +65,149 @@ namespace ProyectoAsistencia.Views
             await Navigation.PushAsync(new PrincipalEmpleadoPage());
         }
 
+        //private async void OnSelectImageClicked(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        var status = await Permissions.CheckStatusAsync<Permissions.StorageRead>();
+
+        //        Console.WriteLine(status);
+
+        //        if (status != PermissionStatus.Granted)
+        //        {
+        //            // Si no se muestra la explicación, es posible que el usuario haya denegado permanentemente el permiso
+        //            if (!Permissions.ShouldShowRationale<Permissions.StorageRead>())
+        //            {
+        //                var abrirConfiguracion = await DisplayAlert(
+        //                    "Permiso denegado",
+        //                    "Para continuar, debes habilitar el permiso de lectura de almacenamiento en la configuración de la app.",
+        //                    "Abrir configuración",
+        //                    "Cancelar");
+
+        //                if (abrirConfiguracion)
+        //                {
+        //                    AppInfo.ShowSettingsUI();
+        //                }
+        //            }
+        //            else
+        //            {
+        //                // Solicitar permiso normalmente
+        //                status = await Permissions.RequestAsync<Permissions.StorageRead>();
+        //            }
+        //        }
+
+        //        if (status == PermissionStatus.Granted)
+        //        {
+        //            var fileResult = await FilePicker.PickAsync(new PickOptions
+        //            {
+        //                PickerTitle = "Selecciona una imagen",
+        //                FileTypes = FilePickerFileType.Images
+        //            });
+
+        //            if (fileResult != null)
+        //            {
+        //                var stream = await fileResult.OpenReadAsync();
+        //                var fileName = fileResult.FileName;
+
+        //                var rootPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        //                var imgFolderPath = Path.Combine(rootPath, "img");
+
+        //                if (!Directory.Exists(imgFolderPath))
+        //                    Directory.CreateDirectory(imgFolderPath);
+
+        //                var filePath = Path.Combine(imgFolderPath, fileName);
+
+        //                using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+        //                {
+        //                    await stream.CopyToAsync(fileStream);
+        //                }
+
+        //                rutaImg = filePath;
+        //                await DisplayAlert("Éxito", "El logo se ha cargado correctamente.", "OK");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            await DisplayAlert("Aviso", "El permiso sigue denegado.", "OK");
+        //        }
+
+        //        Console.WriteLine(status);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await DisplayAlert("Error", $"No se pudo cargar la imagen: {ex.Message}", "OK");
+        //    }
+        //}
+
         private async void OnSelectImageClicked(object sender, EventArgs e)
         {
             try
             {
-                // Permitir al usuario seleccionar un archivo
-                var fileResult = await FilePicker.PickAsync(new PickOptions
+                // Verificar el permiso de lectura del almacenamiento
+                var status = await Permissions.CheckStatusAsync<Permissions.StorageRead>();
+                if (status != PermissionStatus.Granted)
                 {
-                    PickerTitle = "Selecciona una imagen",
-                    FileTypes = FilePickerFileType.Images // Solo permitir imágenes
+                    status = await Permissions.RequestAsync<Permissions.StorageRead>();
+                }
+                if (status != PermissionStatus.Granted)
+                {
+                    await DisplayAlert("Error", "Permiso denegado para leer el almacenamiento.", "OK");
+                    return;
+                }
+
+                // Usamos MediaPicker para seleccionar una imagen.
+                var photo = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+                {
+                    Title = "Selecciona una imagen"
                 });
 
-                if (fileResult != null)
-                {
-                    // Obtener el contenido del archivo seleccionado
-                    var stream = await fileResult.OpenReadAsync();
-                    var fileName = fileResult.FileName;
+                if (photo == null)
+                    return; // El usuario canceló la operación
 
-                    // Definir la carpeta 'img' en el directorio raíz del proyecto
+                // Abrir el stream de la imagen seleccionada
+                using (var stream = await photo.OpenReadAsync())
+                {
+                    // Si el FileName está vacío (lo que puede suceder en Android 14), se genera uno
+                    var fileName = string.IsNullOrWhiteSpace(photo.FileName)
+                        ? $"{Guid.NewGuid()}.jpg"
+                        : photo.FileName;
+
+                    // Definir la carpeta 'img' en el directorio local de la app
                     var rootPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                     var imgFolderPath = Path.Combine(rootPath, "img");
 
-                    // Crear la carpeta 'img' si no existe
                     if (!Directory.Exists(imgFolderPath))
                         Directory.CreateDirectory(imgFolderPath);
 
-                    // Definir la ruta completa del archivo
+                    // Definir la ruta completa donde se guardará la imagen
                     var filePath = Path.Combine(imgFolderPath, fileName);
 
-                    // Guardar el archivo en la carpeta 'img'
+                    // Copiar el contenido del stream a un archivo local
                     using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
                     {
                         await stream.CopyToAsync(fileStream);
                     }
 
-                    // Actualizar el campo de texto con la ruta del archivo
+                    // Actualizar la variable (o UI) con la ruta del archivo local
                     rutaImg = filePath;
-
-                    // Mostrar un mensaje al usuario
-                    await DisplayAlert("Éxito", "El logo se ha cargado correctamente.", "OK");
+                    await DisplayAlert("Éxito", "La imagen se ha cargado correctamente.", "OK");
                 }
+            }
+            catch (FeatureNotSupportedException)
+            {
+                await DisplayAlert("Error", "Esta función no es soportada en este dispositivo.", "OK");
+            }
+            catch (PermissionException)
+            {
+                await DisplayAlert("Error", "Permiso denegado.", "OK");
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"No se pudo cargar la imagen: {ex.Message}", "OK");
             }
         }
+
+
     }
 }
+

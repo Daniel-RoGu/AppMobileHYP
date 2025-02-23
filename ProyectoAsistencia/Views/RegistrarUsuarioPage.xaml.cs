@@ -204,10 +204,13 @@ namespace ProyectoAsistencia.Views
                     var boton = new Button
                     {
                         Text = listaNumeros[i].ToString(),
+                        CornerRadius = 10,
                         WidthRequest = 60,
-                        HeightRequest = 50,
-                        BackgroundColor = Color.White,
-                        TextColor = Color.FromHex("#004F73"),
+                        HeightRequest = 60,
+                        BackgroundColor = Color.FromHex("#0091EA"),
+                        FontFamily = "ManropeBold",
+                        FontSize = 16,
+                        TextColor = Color.FromHex("#000000"),
                     };
 
                     // Asignar el evento Clicked al botón
@@ -336,13 +339,13 @@ namespace ProyectoAsistencia.Views
                 await DisplayAlert("Exito", $"Usuario cargado correctamente", "OK");
 
                 // Volver a cargar los numeros de tarjetero despues de guardar el nuevo usuario
-                if (tipoUsuarioPicker.SelectedIndex != -1)
-                {
-                    // Obtiene el elemento seleccionado
-                    string selectedOption = tipoUsuarioPicker.SelectedItem.ToString();
+                //if (tipoUsuarioPicker.SelectedIndex != -1)
+                //{
+                //    // Obtiene el elemento seleccionado
+                //    string selectedOption = tipoUsuarioPicker.SelectedItem.ToString();
 
-                    CargarNumerosTarjetero(selectedOption);
-                }
+                //    CargarNumerosTarjetero(selectedOption);
+                //}
 
                 // Limpia los campos después de guardar
                 LimpiarCampos();
@@ -374,6 +377,9 @@ namespace ProyectoAsistencia.Views
             tipoEmpresaPicker.SelectedIndex = -1;
             tipoLocacionPicker.SelectedIndex = -1;
             tipoUsuarioPicker.SelectedIndex = -1;
+
+            gridTarjetero.Children.Clear();
+
         }
 
 

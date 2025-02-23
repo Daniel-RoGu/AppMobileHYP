@@ -23,7 +23,7 @@ namespace ProyectoAsistencia.Views
         string identificacion = "";
         string pass = "";
         bool interruptorAdminPrincipal = false; //habilita la vista de todos los tipos de empleados cuando el usuario logeado es in administrador principal
-        bool interruptorBlockAdmin = false;
+        
         public ObservableCollection<Usuario> UsuariosRef { get; set; }
 
         public MostrarUsuarioPage()

@@ -3337,11 +3337,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia.iOS\\ProyectoAsistencia.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.iOS\\ProyectoAsistencia.iOS.csproj",
       "projectName": "ProyectoAsistencia.iOS",
-      "projectPath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia.iOS\\ProyectoAsistencia.iOS.csproj",
+      "projectPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.iOS\\ProyectoAsistencia.iOS.csproj",
       "packagesPath": "C:\\Users\\daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia.iOS\\obj\\",
+      "outputPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "UsingMicrosoftNETSdk": false,
@@ -3363,8 +3363,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia\\ProyectoAsistencia.csproj": {
-              "projectPath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia\\ProyectoAsistencia.csproj"
+            "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\ProyectoAsistencia.csproj": {
+              "projectPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\ProyectoAsistencia.csproj"
             }
           }
         }

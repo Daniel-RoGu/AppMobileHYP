@@ -1460,11 +1460,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia\\ProyectoAsistencia.csproj",
+      "projectUniqueName": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\ProyectoAsistencia.csproj",
       "projectName": "ProyectoAsistencia",
-      "projectPath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia\\ProyectoAsistencia.csproj",
+      "projectPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\ProyectoAsistencia.csproj",
       "packagesPath": "C:\\Users\\daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia\\obj\\",
+      "outputPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

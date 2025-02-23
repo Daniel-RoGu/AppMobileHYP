@@ -4189,11 +4189,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
+      "projectUniqueName": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
       "projectName": "ProyectoAsistencia.Android",
-      "projectPath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
+      "projectPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
       "packagesPath": "C:\\Users\\daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia.Android\\obj\\",
+      "outputPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "UsingMicrosoftNETSdk": false,
@@ -4215,8 +4215,8 @@
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia\\ProyectoAsistencia.csproj": {
-              "projectPath": "C:\\Users\\daniel\\Desktop\\PRUEBAS XAMARIN\\ProyectoAsistencia\\ProyectoAsistencia\\ProyectoAsistencia.csproj"
+            "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\ProyectoAsistencia.csproj": {
+              "projectPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\ProyectoAsistencia.csproj"
             }
           }
         }

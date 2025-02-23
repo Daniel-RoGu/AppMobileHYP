@@ -20,18 +20,17 @@ namespace ProyectoAsistencia.Views
         ExportarExcel exportarExcel = new ExportarExcel();
 
         public PrincipalAdminPage (string identificacion, string pass)
-		{
-			InitializeComponent ();
+		{			
             this.identificacion = identificacion;
             this.pass = pass;
             EsAdminPrincipal();
-
-        }
-
-        public PrincipalAdminPage()
-        {
             InitializeComponent();
         }
+
+        //public PrincipalAdminPage()
+        //{
+        //    InitializeComponent();
+        //}
 
         private async void OnNavigateButtonClicked(object sender, EventArgs e)
         {
@@ -44,7 +43,7 @@ namespace ProyectoAsistencia.Views
             try
             {
                 var confirm = await Application.Current.MainPage.DisplayAlert(
-                    "Eliminar",
+                    "Aviso",
                     "Desea enviar por correo el informe regular de asistencia",
                     "Sí", "No");
 
@@ -53,10 +52,10 @@ namespace ProyectoAsistencia.Views
                     exportarExcel.GenerateAndSendExcel("ReporteNormal");
                 }
 
-                await Task.Delay(3000); // Espera 5 segundos
+                await Task.Delay(2000); // Espera 5 segundos
 
                 confirm = await Application.Current.MainPage.DisplayAlert(
-                    "Eliminar",
+                    "Aviso",
                     "Desea enviar por correo el informe de la asistencia del modo emergencia",
                     "Sí", "No");
 
@@ -105,35 +104,11 @@ namespace ProyectoAsistencia.Views
 
             if (respuesta == true && esAdminPrincipal == true)
             {
-                var adminButton = new Button
-                {
-                    Text = "Panel Administrador Principal",
-                    BackgroundColor = Color.White,
-                    TextColor = Color.FromHex("#004F73"),
-                    FontAttributes = FontAttributes.Bold,
-                    FontSize = 16
-                };
-
-                adminButton.Clicked += OnPanelAdministradorClicked;
-
-                // Agregar el botón a un contenedor de la interfaz, como un StackLayout
-                mainStackLayout.Children.Add(adminButton);
+                SlAdminFirst.IsVisible = true;                
 
                 if (esDev == true)
                 {
-                    var devButton = new Button
-                    {
-                        Text = "Opciones de desarrollador",
-                        BackgroundColor = Color.White,
-                        TextColor = Color.FromHex("#004F73"),
-                        FontAttributes = FontAttributes.Bold,
-                        FontSize = 16
-                    };
-
-                    devButton.Clicked += OnPanelDevClicked;
-
-                    // Agregar el botón a un contenedor de la interfaz, como un StackLayout
-                    mainStackLayout.Children.Add(devButton);
+                    SlDev.IsVisible = true;
                 }
 
             }

@@ -1,0 +1,445 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|ProyectoAsistencia.Android||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{403BCF99-28AA-4EEC-8BCA-AFE1E31C4D5F}|ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj|C:\\Users\\daniel\\Desktop\\AppMobileHYP\\proyectoasistencia.android\\properties\\androidmanifest.xml||{4E01A4BC-CFCF-452C-8C08-51352512D197}",
+      "RelativeMoniker": "D:0:0:{403BCF99-28AA-4EEC-8BCA-AFE1E31C4D5F}|ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj|solutionrelative:proyectoasistencia.android\\properties\\androidmanifest.xml||{4E01A4BC-CFCF-452C-8C08-51352512D197}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\principaladminpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\principaladminpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\principaladminpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\principaladminpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\data\\exportarexcel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\data\\exportarexcel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\principalempleadopage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\principalempleadopage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\editarempresapage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\editarempresapage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\editarempresapage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\editarempresapage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\registrarempresapage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\registrarempresapage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\controlasistenciapage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\controlasistenciapage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\controlasistenciapage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\controlasistenciapage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\principalempleadopage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\principalempleadopage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\mostrarusuariopage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\mostrarusuariopage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\mostrarusuariopage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\mostrarusuariopage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\asignacionadminonepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\asignacionadminonepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\menuadminprincipalpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\menuadminprincipalpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\registrarempresapage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\registrarempresapage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\editarlocacionpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\editarlocacionpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\mostrarlocacionpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\mostrarlocacionpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\mostrarlocacionpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\mostrarlocacionpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\registrarlocacionpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\registrarlocacionpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\registrarlocacionpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\registrarlocacionpage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\registrarusuariopage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\registrarusuariopage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\registrarusuariopage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\registrarusuariopage.xaml||{2974C621-7033-421A-B08A-11D27B021D1B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia\\views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6398D06D-CC53-4DF7-9644-23003C976363}|ProyectoAsistencia\\ProyectoAsistencia.csproj|solutionrelative:proyectoasistencia\\views\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{403BCF99-28AA-4EEC-8BCA-AFE1E31C4D5F}|ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj|c:\\users\\daniel\\desktop\\appmobilehyp\\proyectoasistencia.android\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|1d0ccc80-25f4-4ae8-a45f-933163a51fb6"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{936b24b7-e640-3186-98a7-24307bb298e0}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProyectoAsistencia.Android",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
+              "RelativeDocumentMoniker": "ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
+              "RelativeToolTip": "ProyectoAsistencia.Android\\ProyectoAsistencia.Android.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-20T20:07:55.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AndroidManifest.xml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.Android\\Properties\\AndroidManifest.xml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia.Android\\Properties\\AndroidManifest.xml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia.Android\\Properties\\AndroidManifest.xml",
+              "RelativeToolTip": "ProyectoAsistencia.Android\\Properties\\AndroidManifest.xml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-02-20T20:02:24.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EditarEmpresaPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\EditarEmpresaPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\EditarEmpresaPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\EditarEmpresaPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\EditarEmpresaPage.xaml.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAADwvzkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T19:20:40.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ControlAsistenciaPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\ControlAsistenciaPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\ControlAsistenciaPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\ControlAsistenciaPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\ControlAsistenciaPage.xaml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-19T19:35:40.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ControlAsistenciaPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\ControlAsistenciaPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\ControlAsistenciaPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\ControlAsistenciaPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\ControlAsistenciaPage.xaml.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAcwIUAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T16:33:00.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MostrarUsuarioPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MostrarUsuarioPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\MostrarUsuarioPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MostrarUsuarioPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\MostrarUsuarioPage.xaml.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAA8wJsAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T16:15:37.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MostrarUsuarioPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MostrarUsuarioPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\MostrarUsuarioPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MostrarUsuarioPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\MostrarUsuarioPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-19T16:15:31.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MenuAdminPrincipalPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MenuAdminPrincipalPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\MenuAdminPrincipalPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MenuAdminPrincipalPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\MenuAdminPrincipalPage.xaml.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAcwEEAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T16:07:51.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AsignacionAdminOnePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\AsignacionAdminOnePage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\AsignacionAdminOnePage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\AsignacionAdminOnePage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\AsignacionAdminOnePage.xaml.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAEwIEAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T16:06:20.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EditarEmpresaPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\EditarEmpresaPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\EditarEmpresaPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\EditarEmpresaPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\EditarEmpresaPage.xaml",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAgwFMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-18T20:06:00.027Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EditarLocacionPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\EditarLocacionPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\EditarLocacionPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\EditarLocacionPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\EditarLocacionPage.xaml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAACsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-18T19:38:28.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MostrarLocacionPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MostrarLocacionPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\MostrarLocacionPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MostrarLocacionPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\MostrarLocacionPage.xaml.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:37:50.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MostrarLocacionPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MostrarLocacionPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\MostrarLocacionPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\MostrarLocacionPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\MostrarLocacionPage.xaml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEgAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-18T19:36:08.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RegistrarLocacionPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarLocacionPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\RegistrarLocacionPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarLocacionPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\RegistrarLocacionPage.xaml.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T19:33:38.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "RegistrarLocacionPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarLocacionPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\RegistrarLocacionPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarLocacionPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\RegistrarLocacionPage.xaml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-18T19:32:13.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExportarExcel.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Data\\ExportarExcel.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Data\\ExportarExcel.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Data\\ExportarExcel.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Data\\ExportarExcel.cs",
+              "ViewState": "AgIAAHwBAAAAAAAAAAAmwIkBAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-16T17:16:06.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\LoginPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\LoginPage.xaml.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAIAwwCIAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T22:27:43.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PrincipalAdminPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\PrincipalAdminPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\PrincipalAdminPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\PrincipalAdminPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\PrincipalAdminPage.xaml",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAewCwAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-15T22:20:16.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrincipalAdminPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\PrincipalAdminPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\PrincipalAdminPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\PrincipalAdminPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\PrincipalAdminPage.xaml.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAUwDYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T22:20:13.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RegistrarEmpresaPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarEmpresaPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\RegistrarEmpresaPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarEmpresaPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\RegistrarEmpresaPage.xaml.cs",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAIwNAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T16:21:45.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RegistrarEmpresaPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarEmpresaPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\RegistrarEmpresaPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarEmpresaPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\RegistrarEmpresaPage.xaml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-15T16:21:41.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "RegistrarUsuarioPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarUsuarioPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\RegistrarUsuarioPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarUsuarioPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\RegistrarUsuarioPage.xaml",
+              "ViewState": "AgIAAMUBAAAAAAAAAAAAAM8BAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-15T16:09:28.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "RegistrarUsuarioPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarUsuarioPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\RegistrarUsuarioPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\RegistrarUsuarioPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\RegistrarUsuarioPage.xaml.cs",
+              "ViewState": "AgIAAEEBAAAAAAAAAAAAAFYBAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T16:09:24.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PrincipalEmpleadoPage.xaml",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\PrincipalEmpleadoPage.xaml",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\PrincipalEmpleadoPage.xaml",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\PrincipalEmpleadoPage.xaml",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\PrincipalEmpleadoPage.xaml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-15T15:56:42.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PrincipalEmpleadoPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\PrincipalEmpleadoPage.xaml.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Views\\PrincipalEmpleadoPage.xaml.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Views\\PrincipalEmpleadoPage.xaml.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Views\\PrincipalEmpleadoPage.xaml.cs",
+              "ViewState": "AgIAAIEBAAAAAAAAAAAswIsBAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T15:40:40.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DataBaseContext.cs",
+              "DocumentMoniker": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Data\\DataBaseContext.cs",
+              "RelativeDocumentMoniker": "ProyectoAsistencia\\Data\\DataBaseContext.cs",
+              "ToolTip": "C:\\Users\\daniel\\Desktop\\AppMobileHYP\\ProyectoAsistencia\\Data\\DataBaseContext.cs",
+              "RelativeToolTip": "ProyectoAsistencia\\Data\\DataBaseContext.cs",
+              "ViewState": "AgIAAN4CAAAAAAAAAAAIwOkCAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T15:39:36.741Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

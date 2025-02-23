@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.apk filter=lfs diff=lfs merge=lfs -text
+ProyectoAsistencia.Android/bin/Debug/com.companyname.proyectoasistencia-Signed.apk filter=lfs diff=lfs merge=lfs -text
+ProyectoAsistencia.Android/obj/Debug/130/android/bin/com.companyname.proyectoasistencia.apk filter=lfs diff=lfs merge=lfs -text

@@ -63,7 +63,7 @@ namespace ProyectoAsistencia.Views
                 //    await Application.Current.MainPage.DisplayAlert("Éxito", $"Usuario {this.identificador}, actualizado como administrador principal", "OK");
                 //}
 
-                await Navigation.PushAsync(new AsignacionAdminOnePage());
+                await Navigation.PushAsync(new AsignacionAdminOnePage(1));
             }
             catch (Exception ex)
             {

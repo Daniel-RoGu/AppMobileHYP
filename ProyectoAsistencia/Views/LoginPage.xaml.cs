@@ -21,16 +21,7 @@ namespace ProyectoAsistencia.Views
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
-        {
-            //var admin = new Usuario
-            //{
-            //    IdentificacionUsuario = "0000",
-            //    TipoUsuario = "Desarrollador",
-            //    Pass = "0000"
-            //};
-
-            //await App.Context.InsertUsuarioAsyn(admin);
-
+        {           
             var identificacion = identificacionEntry.Text;
             var pass = contrasenaEntry.Text;
 

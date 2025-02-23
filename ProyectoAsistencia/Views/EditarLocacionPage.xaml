@@ -1,81 +1,159 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoAsistencia.Views.EditarLocacionPage"
-             BackgroundColor="#0D658A"
-             Title="Vista Modificar Locación">
-    
+             Title="Modificar locación">
+
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" Padding="10">
-            
-            <!-- Título -->
-            <Label Text="Editar Información de la Locacion" 
-                   FontSize="24" 
-                   TextColor="#1E88E5" 
-                   HorizontalOptions="Center" 
-            />
+        <ScrollView Padding="40">
+            <Frame HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   CornerRadius="10"
+                   WidthRequest="400">
 
-            <!-- Campo para editar el nombre de la locacion -->
-            <StackLayout Spacing="5">
-                <Label Text="Nombre de la locacion:" FontSize="16" TextColor="#424242" />
-                <Entry x:Name="EntryNombre" Placeholder="Ingrese el nombre" 
-                       Text="{Binding NombreLocacion}" 
-                       FontSize="Medium" 
-                       BackgroundColor="White" 
-                       TextColor="Black" 
-                />
-            </StackLayout>
+                <StackLayout VerticalOptions="FillAndExpand" Padding="10" Spacing="20">
+                    <StackLayout Spacing="10">
+                        <Label Text="Editar locacion" FontFamily="ManropeBold" FontSize="Title" TextColor="#424242"></Label>
+                        <Label
+                            Text="Formulario para modificar los datos de una locacion."
+                            FontFamily="Roboto"
+                            FontSize="Subtitle">
+                        </Label>
+                    </StackLayout>
 
-            <!-- Campo para editar el RIG -->
-            <StackLayout Spacing="5">
-                <Label Text="RIG de la empresa:" FontSize="16" TextColor="#424242" />
-                <Entry x:Name="EntryRIG" Placeholder="Ingrese el RIG" 
-                       Text="{Binding RIGLocacion}" 
-                       FontSize="Medium" 
-                       BackgroundColor="White" 
-                       TextColor="Black" 
-                />
-            </StackLayout>
+                    <StackLayout Spacing="5">
+                        <Label Text="Nombre locacion" FontFamily="ManropeSemibold" FontSize="Body" TextColor="#757575" />
+                        <Entry x:Name="EntryNombre" Placeholder="Ingrese el nombre"
+                               Text="{Binding NombreLocacion}"
+                               FontFamily="Roboto"
+                               FontSize="Body" />
+                    </StackLayout>
 
-            <!-- Campo para editar el Pozo -->
-            <StackLayout Spacing="5">
-                <Label Text="Nombre del Pozo:" FontSize="16" TextColor="#424242" />
-                <Entry x:Name="EntryPozo" Placeholder="Ingrese el Nombre del Pozo" 
-                       Text="{Binding PozoLocacion}" 
-                       FontSize="Medium" 
-                       BackgroundColor="White" 
-                       TextColor="Black" 
-                />
-            </StackLayout>
+                    <!-- Campo para editar el RIG -->
+                    <StackLayout Spacing="5">
+                        <Label Text="RIG" FontFamily="ManropeSemibold" FontSize="Body" TextColor="#757575" />
+                        <Entry x:Name="EntryRIG" Placeholder="Ingrese el RIG"
+                               Text="{Binding RIGLocacion}"
+                               FontFamily="Roboto"
+                               FontSize="Body" />
+                    </StackLayout>
 
-            <!-- Campo para editar el estado -->
-            <StackLayout Spacing="5">
-                <Picker x:Name="PickerEstado" Title="Estado" SelectedItem="{Binding EstadoPozo}">
-                    <Picker.Items>
-                        <x:String>Activo</x:String>
-                        <x:String>Inactivo</x:String>
-                    </Picker.Items>
-                </Picker>
-            </StackLayout>            
+                    <!-- Campo para editar el Pozo -->
+                    <StackLayout Spacing="5">
+                        <Label Text="Ubicación" FontFamily="ManropeSemibold" FontSize="Body" TextColor="#757575" />
+                        <Entry x:Name="EntryPozo" Placeholder="Ingrese el nombre del pozo"
+                               Text="{Binding PozoLocacion}"
+                               FontFamily="Roboto"
+                               FontSize="Body" />
+                    </StackLayout>
 
-            <!-- Botones -->
-            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand">
-                <Button Text="Guardar" 
-                        BackgroundColor="#4CAF50" 
-                        TextColor="White" 
-                        WidthRequest="120" 
-                        CornerRadius="20" 
-                        Clicked="OnSaveClicked" 
-                />
+                    <!-- Campo para editar el estado -->
+                    <StackLayout>
+                        <Label Text="Estado" FontFamily="ManropeSemibold" FontSize="Body" TextColor="#757575" />
+                        <Picker x:Name="PickerEstado" Title="Seleccione el estado" SelectedItem="{Binding EstadoPozo}">
+                            <Picker.Items>
+                                <x:String>Activo</x:String>
+                                <x:String>Inactivo</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
 
-                <Button Text="Cancelar" 
-                        BackgroundColor="#F44336" 
-                        TextColor="White" 
-                        WidthRequest="120" 
-                        CornerRadius="20" 
-                        Clicked="OnCancelClicked" 
-                />
-            </StackLayout>
-        </StackLayout>
+                    <!-- Botones -->
+                    <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Start" Margin="0,15,0,0">
+                        <Button Text="Actualizar"
+                                BackgroundColor="#76FF03"
+                                TextColor="#000000"
+                                HeightRequest="40"
+                                WidthRequest="100"
+                                CornerRadius="15"
+
+                                TextTransform="None"
+                                FontFamily="ManropeSemibold"
+                                Clicked="OnSaveClicked" />
+
+                        <Button Text="Cancelar"
+                                BackgroundColor="#FF1744"
+                                TextColor="White"
+                                WidthRequest="100"
+                                CornerRadius="15"
+                                TextTransform="None"
+                                FontFamily="ManropeSemibold"
+                                Clicked="OnCancelClicked" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+        <!-- <StackLayout VerticalOptions="FillAndExpand" Padding="10"> -->
+        <!--      -->
+        <!--     ~1~ Título @1@ -->
+        <!--     <Label Text="Editar Información de la Locacion"  -->
+        <!--            FontSize="24"  -->
+        <!--            TextColor="#1E88E5"  -->
+        <!--            HorizontalOptions="Center"  -->
+        <!--     /> -->
+        <!-- -->
+        <!--     ~1~ Campo para editar el nombre de la locacion @1@ -->
+        <!--     <StackLayout Spacing="5"> -->
+        <!--         <Label Text="Nombre de la locacion:" FontSize="16" TextColor="#424242" /> -->
+        <!--         <Entry x:Name="EntryNombre" Placeholder="Ingrese el nombre"  -->
+        <!--                Text="{Binding NombreLocacion}"  -->
+        <!--                FontSize="Medium"  -->
+        <!--                BackgroundColor="White"  -->
+        <!--                TextColor="Black"  -->
+        <!--         /> -->
+        <!--     </StackLayout> -->
+        <!-- -->
+        <!--     ~1~ Campo para editar el RIG @1@ -->
+        <!--     <StackLayout Spacing="5"> -->
+        <!--         <Label Text="RIG de la empresa:" FontSize="16" TextColor="#424242" /> -->
+        <!--         <Entry x:Name="EntryRIG" Placeholder="Ingrese el RIG"  -->
+        <!--                Text="{Binding RIGLocacion}"  -->
+        <!--                FontSize="Medium"  -->
+        <!--                BackgroundColor="White"  -->
+        <!--                TextColor="Black"  -->
+        <!--         /> -->
+        <!--     </StackLayout> -->
+        <!-- -->
+        <!--     ~1~ Campo para editar el Pozo @1@ -->
+        <!--     <StackLayout Spacing="5"> -->
+        <!--         <Label Text="Nombre del Pozo:" FontSize="16" TextColor="#424242" /> -->
+        <!--         <Entry x:Name="EntryPozo" Placeholder="Ingrese el Nombre del Pozo"  -->
+        <!--                Text="{Binding PozoLocacion}"  -->
+        <!--                FontSize="Medium"  -->
+        <!--                BackgroundColor="White"  -->
+        <!--                TextColor="Black"  -->
+        <!--         /> -->
+        <!--     </StackLayout> -->
+        <!-- -->
+        <!--     ~1~ Campo para editar el estado @1@ -->
+        <!--     <StackLayout Spacing="5"> -->
+        <!--         <Picker x:Name="PickerEstado" Title="Estado" SelectedItem="{Binding EstadoPozo}"> -->
+        <!--             <Picker.Items> -->
+        <!--                 <x:String>Activo</x:String> -->
+        <!--                 <x:String>Inactivo</x:String> -->
+        <!--             </Picker.Items> -->
+        <!--         </Picker> -->
+        <!--     </StackLayout>             -->
+        <!-- -->
+        <!--     ~1~ Botones @1@ -->
+        <!--     <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand"> -->
+        <!--         <Button Text="Guardar"  -->
+        <!--                 BackgroundColor="#4CAF50"  -->
+        <!--                 TextColor="White"  -->
+        <!--                 WidthRequest="120"  -->
+        <!--                 CornerRadius="20"  -->
+        <!--                 Clicked="OnSaveClicked"  -->
+        <!--         /> -->
+        <!-- -->
+        <!--         <Button Text="Cancelar"  -->
+        <!--                 BackgroundColor="#F44336"  -->
+        <!--                 TextColor="White"  -->
+        <!--                 WidthRequest="120"  -->
+        <!--                 CornerRadius="20"  -->
+        <!--                 Clicked="OnCancelClicked"  -->
+        <!--         /> -->
+        <!--     </StackLayout> -->
+        <!-- </StackLayout> -->
     </ContentPage.Content>
 </ContentPage>

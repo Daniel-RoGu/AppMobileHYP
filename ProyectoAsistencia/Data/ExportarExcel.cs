@@ -9,7 +9,9 @@ using ProyectoAsistencia.Models;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Essentials;
 using System.ComponentModel;
-using Xamarin.Forms; 
+using Xamarin.Forms;
+using System.Linq;
+
 //using OfficeOpenXml;
 
 namespace ProyectoAsistencia.Data
@@ -110,8 +112,8 @@ namespace ProyectoAsistencia.Data
                         }
                     }
                 }                
-                await Application.Current.MainPage.DisplayAlert("Observacion", $"Numero de registros del modo emergencia: {Convert.ToString(infoUsuariosEmergencia.Count)}", "Aceptar");
-                await Application.Current.MainPage.DisplayAlert("Observacion", $"Numero de registros del modo reporte: {Convert.ToString(infoUsuariosRutinario.Count)}", "Aceptar");
+                //await Application.Current.MainPage.DisplayAlert("Observacion", $"Numero de registros del modo emergencia: {Convert.ToString(infoUsuariosEmergencia.Count)}", "Aceptar");
+                //await Application.Current.MainPage.DisplayAlert("Observacion", $"Numero de registros del modo reporte: {Convert.ToString(infoUsuariosRutinario.Count)}", "Aceptar");
                 
                 refUsuarioReporte = tipoObjetoRetorno == "ModoEmergencia"
                                    ? infoUsuariosEmergencia
@@ -233,36 +235,6 @@ namespace ProyectoAsistencia.Data
             }
         }
 
-        public Stream CreateExcelStream()
-        {
-            //Application.Current.MainPage.DisplayAlert("Exito", "Ingresa al generador del excel", "Aceptar");
-            var stream = new MemoryStream();
-
-            try
-            {
-                var workbook = new XLWorkbook();
-                var worksheet = workbook.Worksheets.Add("Hoja1");
-
-                // Agregar datos a la hoja
-                worksheet.Cell(1, 1).Value = "Nombre";
-                worksheet.Cell(1, 2).Value = "Edad";
-                worksheet.Cell(2, 1).Value = "Juan";
-                worksheet.Cell(2, 2).Value = 30;
-
-                // Guardar en un Stream en memoria                
-                workbook.SaveAs(stream);
-
-                stream.Position = 0; // Reinicia la posición del Stream                
-                //Application.Current.MainPage.DisplayAlert("Exito", "Se creo el objeto del excel", "Aceptar");
-            }
-            catch (Exception ex)
-            {
-                Application.Current.MainPage.DisplayAlert("Error", $"No se pudo generar el objeto para el excel: {ex.Message}", "Aceptar");
-            }
-
-            return stream;
-        }
-
         public async void SendEmailWithAttachmentStream(string subject, string body, Stream fileStream, string fileName)
         {
             try
@@ -318,6 +290,64 @@ namespace ProyectoAsistencia.Data
             }
         }
 
+        //public async Task SendEmailWithAttachmentStream(string subject, string body, Stream fileStream, string fileName)
+        //{
+        //    try
+        //    {
+        //        // Obtener los correos de los administradores activos
+        //        List<Usuario> usuariosAdmin = await App.Context.GetUsuariosAdminPrincipalActivos();
+        //        List<string> correos = usuariosAdmin?.Select(u => u.CorreoUsuario).ToList() ?? new List<string>();
+
+        //        if (correos.Count == 0)
+        //        {
+        //            await Application.Current.MainPage.DisplayAlert("Error", "No hay destinatarios disponibles.", "Aceptar");
+        //            return;
+        //        }
+
+        //        // Guardar el Stream como un archivo temporal
+        //        string filePath = SaveStreamToFile(fileStream, fileName);
+
+        //        if (!File.Exists(filePath))
+        //        {
+        //            await Application.Current.MainPage.DisplayAlert("Error", $"El archivo {filePath} no existe.", "Aceptar");
+        //            return;
+        //        }
+
+        //        // Crear el mensaje de correo
+        //        var message = new EmailMessage
+        //        {
+        //            Subject = subject,
+        //            Body = body,
+        //            To = correos
+        //        };
+
+        //        // Adjuntar archivo
+        //        var attachment = new EmailAttachment(filePath);
+        //        message.Attachments.Add(attachment);
+
+        //        // Verificar si el dispositivo soporta envío de correos
+        //        if (Email.ComposeAsync(message) != null)
+        //        {
+        //            await Email.ComposeAsync(message);
+        //        }
+        //        else
+        //        {
+        //            await Application.Current.MainPage.DisplayAlert("Error", "El envío de correos no está soportado en este dispositivo.", "Aceptar");
+        //        }
+
+        //        // Eliminar archivo temporal después del envío (opcional)
+        //        File.Delete(filePath);
+        //    }
+        //    catch (FeatureNotSupportedException)
+        //    {
+        //        await Application.Current.MainPage.DisplayAlert("Error", "El envío de correos no está soportado en este dispositivo.", "Aceptar");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        await Application.Current.MainPage.DisplayAlert("Error", $"No se pudo enviar el correo: {ex.Message}", "Aceptar");
+        //    }
+        //}
+
         public async void GenerateAndSendExcel(string tipoObjetoRetorno)
         {
             List<InformeUsuario> infoUsuariosEmergencia = new List<InformeUsuario>();
@@ -360,11 +390,19 @@ namespace ProyectoAsistencia.Data
                                     Empresa = userRef[j].Empresa,
                                     Locacion = userRef[j].Locacion,
                                     HoraReporte = mdEmergenciaRef[i].HoraReporte,
-                                    EstadoHoraReporte = mdEmergenciaRef[i].EstadoHoraReporte,
+                                    EstadoHoraReporte = mdEmergenciaRef[i].EstadoHoraReporte == "No se presento" ? "Ausente" : mdEmergenciaRef[i].EstadoHoraReporte == "Ausente" ? "Fuera de locacion" : "En locacion",
                                     AsistenciaRelacionada = mdEmergenciaRef[i].AsistenciaRelacionada,
                                 };
+                                                                
+                                if (!infoUsuariosEmergencia.Any(u => u.IdentificacionUsuario == infoUsuarioModoEmegencia.IdentificacionUsuario && u.NombreUsuario == infoUsuarioModoEmegencia.NombreUsuario
+                                                                   && u.NumeroTarjetero == infoUsuarioModoEmegencia.NumeroTarjetero && u.HoraReporte == infoUsuarioModoEmegencia.HoraReporte
+                                                                   && u.EstadoHoraReporte == infoUsuarioModoEmegencia.EstadoHoraReporte && u.AsistenciaRelacionada == infoUsuarioModoEmegencia.AsistenciaRelacionada
+                                                                   )
+                                            )
+                                {
 
-                                infoUsuariosEmergencia.Add(infoUsuarioModoEmegencia);
+                                    infoUsuariosEmergencia.Add(infoUsuarioModoEmegencia);
+                                }
                             }
                         }
                     }
@@ -399,11 +437,20 @@ namespace ProyectoAsistencia.Data
                                     Locacion = userRef[j].Locacion,
                                     HoraIngresa = horaRef[i].HoraLlegada,
                                     HoraSalida = horaRef[i].HoraSalida,
-                                    EstadoInformeNormal = horaRef[i].EstadoHora,
+                                    EstadoInformeNormal = horaRef[i].EstadoHora == "Ausente" ? "Fuera de locacion": "En locación",
                                     AsistenciaRelacionada = horaRef[i].AsistenciaRelacionada,
                                 };
+                                                                
+                                if (!infoUsuariosEmergencia.Any(u => u.IdentificacionUsuario == infoUsuarioModoEmegencia.IdentificacionUsuario && u.NombreUsuario == infoUsuarioModoEmegencia.NombreUsuario
+                                                                   && u.NumeroTarjetero == infoUsuarioModoEmegencia.NumeroTarjetero && u.HoraReporte == infoUsuarioModoEmegencia.HoraReporte
+                                                                   && u.EstadoHoraReporte == infoUsuarioModoEmegencia.EstadoHoraReporte && u.AsistenciaRelacionada == infoUsuarioModoEmegencia.AsistenciaRelacionada
+                                                                   )
+                                            )
+                                {
 
-                                infoUsuariosRutinario.Add(infoUsuarioModoEmegencia);
+                                    infoUsuariosRutinario.Add(infoUsuarioModoEmegencia);
+                                }
+
                             }
                         }
                     }
@@ -424,7 +471,7 @@ namespace ProyectoAsistencia.Data
             //Enviar el correo con el adjunto
             if (excelStream2 != null)
             {
-                await Application.Current.MainPage.DisplayAlert("Exito", "Se genero excelStream2", "Aceptar");
+                //await Application.Current.MainPage.DisplayAlert("Exito", "Se genero excelStream2", "Aceptar");
                 SendEmailWithAttachmentStream("Reporte Excel", "Por favor, revisa el archivo adjunto.", excelStream2, $"Reporte{tipoObjetoRetorno}.xlsx");
             }
             else
